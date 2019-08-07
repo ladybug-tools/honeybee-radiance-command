@@ -18,7 +18,7 @@ import honeybee_radiance_command
 
 ```
 
-## [API Documentation](http://ladybug-tools.github.io/apidoc/honeybee-radiance-command)
+## [API Documentation](http://ladybug-tools.github.io/honeybee-radiance-command/docs)
 
 ## Local Development
 1. Clone this repo locally
