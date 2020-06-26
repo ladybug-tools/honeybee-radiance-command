@@ -14,7 +14,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ladybug-tools/honeybee-radiance-command",
-    packages=setuptools.find_packages(exclude=["tests"]),
+    packages=setuptools.find_packages(exclude=["tests*"]),
     install_requires=[],
     classifiers=[
         "Programming Language :: Python :: 2.7",
