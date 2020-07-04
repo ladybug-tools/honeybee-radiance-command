@@ -54,17 +54,19 @@ rtrace.pipe_to(rcalc)
 # here is how the command looks like
 print(rtrace.to_radiance())
 
-# 
+#
 
 # run the command. You can pass environment variables to command here
-rtrace.run(env) 
+rtrace.run(env)
 ```
 
 """
-import subprocess
+
 import warnings
-from .options import OptionCollection
 import os
+
+from .options import OptionCollection
+from ._command_util import run_command
 
 
 class Command(object):
@@ -112,7 +114,7 @@ class Command(object):
     def pipe_to(self):
         """Second command to pipe the outputs from this command."""
         return self._pipe_to_command
- 
+
     @pipe_to.setter
     def pipe_to(self, command):
         if command is not None and not isinstance(command, Command):
@@ -126,7 +128,7 @@ class Command(object):
 
     def to_radiance(self, stdin_input=False):
         """Radiance command.
-        
+
         Args:
             stdin_input: A boolean that indicates if the input for this command
                 comes from stdin. This is for instance the case when you pipe the input
@@ -135,19 +137,21 @@ class Command(object):
         command_parts = [self.command]
         if self.options:
             command_parts.append(self.options.to_radiance())
-        command = ' '.join(command_parts)
+        command = ' '.join(command_parts).replace('\\', '/')
         if self.pipe_to:
-            return ' | '.join((command, self.pipe_to.to_radiance(stdin_input=True)))
+            return ' | '.join(
+                (command, self.pipe_to.to_radiance(stdin_input=True))
+            ).replace('\\', '/')
         elif self.output:
-            return ' > '.join((command, self.output))
+            return ' > '.join((command, self.output)).replace('\\', '/')
         else:
-            return command
+            return command.replace('\\', '/')
 
     def validate(self):
         """Overwrite this method to add extra specific checks for the command.
         For instance for rcontrib you want to make sure there is at least one
         modifier set in the command.
-        
+
         This method will be executed right before running the command.
         """
         if self.output and self.pipe_to:
@@ -157,9 +161,20 @@ class Command(object):
                 % self.__class__.__name__.lower()
             )
 
-    def run(self, env=None, cwd=None, wait=True):
-        """Run command as a subprocess."""
-        NotImplementedError()
+    def run(self, env=None, cwd=None):
+        """Run command as a subprocess.
+
+        Args:
+            env: Environmental variables (default: None).
+            cwd: Working directory (Default: '.').
+
+        Returns:
+            - int: Command return code.
+        """
+        cmd = self.to_radiance()
+        rc = run_command(cmd, env, cwd)
+        self.after_run()
+        return rc
 
     def after_run(self):
         """After run script.
