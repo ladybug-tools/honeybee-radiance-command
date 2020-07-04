@@ -19,12 +19,13 @@ def test_assigning_inputs():
     oconv = Oconv()
     with pytest.raises(ValueError):
         oconv.inputs = 'input.rad'
-    
+
     oconv.inputs = ['input.rad']
     assert oconv.to_radiance() == 'oconv input.rad'
 
     oconv.inputs = ['sky.rad', 'input.rad']
     assert oconv.to_radiance() == 'oconv sky.rad input.rad'
+
 
 def test_assigning_output():
     oconv = Oconv()

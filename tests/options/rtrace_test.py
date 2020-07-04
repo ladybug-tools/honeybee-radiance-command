@@ -50,7 +50,7 @@ def test_invalid_assignment():
     opts = RtraceOptions()
     with pytest.raises(AttributeError):
         opts.mm = 20
-    
+
     with pytest.raises(TypeError):
         opts.ab = 'ambient bounces'  # must be a numeric value
 
@@ -76,6 +76,7 @@ def test_from_string_non_standard():
     opt_str = '-g 200'
     opt.update_from_string(opt_str)
     assert '-g 200' in opt.to_radiance()
+
 
 def test_from_string():
     opt = RtraceOptions()

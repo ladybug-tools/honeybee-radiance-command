@@ -11,7 +11,7 @@ except NameError:
 
 class Rcalc(Command):
     """rcalc command.
-    
+
     Rcalc transforms "records" from each file according to the given set of literal and
     relational information. By default, records are separated by newlines, and contain
     numeric fields separated by tabs. The -tS option is used to specify an alternate tab

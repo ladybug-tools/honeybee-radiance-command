@@ -25,7 +25,7 @@ class RfluxmtxOptions(RcontribOptions):
         """
         RcontribOptions._on_setattr(self)
         for opt in self._protected:
-             if getattr(self, opt).is_set:
+            if getattr(self, opt).is_set:
                 raise exceptions.ProtectedOptionError('rfluxmtx', opt)
 
     @property

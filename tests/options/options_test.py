@@ -23,7 +23,7 @@ def test_string_option():
 def test_numeric_option():
     aa = NumericOption('aa', 'ambient accuracy', min_value=0)
     assert aa.to_radiance() == ''
-    
+
     aa.value = 0
     assert aa.to_radiance() == '-aa 0.0'
 
@@ -76,7 +76,7 @@ class OptionsTestClass(OptionCollection):
     @property
     def ab(self):
         return self._ab.value
-    
+
     @ab.setter
     def ab(self, value):
         self._ab.value = value
@@ -84,7 +84,7 @@ class OptionsTestClass(OptionCollection):
     @property
     def aa(self):
         return self._aa.value
-    
+
     @aa.setter
     def aa(self, value):
         self._aa.value = value
@@ -92,7 +92,7 @@ class OptionsTestClass(OptionCollection):
     @property
     def fa(self):
         return self._fa.value
-    
+
     @fa.setter
     def fa(self, value):
         self._fa.value = value
@@ -100,10 +100,11 @@ class OptionsTestClass(OptionCollection):
     @property
     def ld(self):
         return self._ld.value
-    
+
     @ld.setter
     def ld(self, value):
         self._ld.value = value
+
 
 def test_collection():
     options_test = OptionsTestClass()

@@ -4,8 +4,8 @@ from honeybee_radiance_command._command import Command
 def test_defaults():
     cmd = Command()
     assert cmd.command == 'command'
-    assert cmd.output is None
-    assert cmd.pipe_to is None
+    assert cmd.output == None
+    assert cmd.pipe_to == None
     assert cmd.to_radiance() == 'command'
 
 

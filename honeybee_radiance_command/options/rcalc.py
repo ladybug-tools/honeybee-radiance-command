@@ -1,6 +1,5 @@
 """Rcalc parameters."""
-from .optionbase import OptionCollection, FileOption, TupleOption, IntegerOption, \
-    BoolOption, StringOption, StringOptionJoined
+from .optionbase import OptionCollection, BoolOption, StringOption, StringOptionJoined
 import warnings
 
 
@@ -18,10 +17,12 @@ class RcalcOptions(OptionCollection):
         """rcalc command options."""
         OptionCollection.__init__(self)
         self._tS = StringOption('ts', 'alternative tab character')
-        self._i = StringOptionJoined('i', 'alternative input format',
-            valid_values=['d', 'f', 'D', 'F'])
-        self._o = StringOptionJoined('o', 'alternative output format',
-            valid_values=['d', 'f', 'D', 'F'])
+        self._i = StringOptionJoined(
+            'i', 'alternative input format', valid_values=['d', 'f', 'D', 'F']
+        )
+        self._o = StringOptionJoined(
+            'o', 'alternative output format', valid_values=['d', 'f', 'D', 'F']
+        )
         self._p = BoolOption('p', 'alternative / passive mode for input format')
         self._b = BoolOption('b', 'accept exact matches')
         self._l = BoolOption('l', 'ignore newlines in the input')
@@ -39,7 +40,7 @@ class RcalcOptions(OptionCollection):
         Use this method to add checks that are necessary for OptionCollection. For
         instance in rtrace option collection -ti and -te are exclusive. You can include a
         check to ensure this is always correct.
-        """        
+        """
         if self.p.is_set and not self.i.is_set:
             warnings.warn('rcalc: -p has no effect unless -i is also specified.')
 
@@ -55,7 +56,7 @@ class RcalcOptions(OptionCollection):
     @property
     def i(self):
         """Alternative input format.
-        
+
         A -i format option specifies a template for an alternate input record format.
         Format is interpreted as a specification string if it contains a dollar sign `$`.
         Otherwise, it is interpreted as the name of the file containing the format
@@ -64,7 +65,7 @@ class RcalcOptions(OptionCollection):
         immediately by a `d` or an `f` and an optional count, which defaults to 1,
         indicating the number of double or float binary values to read per record on the
         input file. If the input is byte-swapped, the -iD or -iF options may be
-        substituted. If binary input is specified, no format string or file is needed. 
+        substituted. If binary input is specified, no format string or file is needed.
         """
         return self._i
 
@@ -75,12 +76,12 @@ class RcalcOptions(OptionCollection):
     @property
     def o(self):
         """Alternative output format.
-        
+
         A -o format option specifies an alternate output record format. It is interpreted
         the same as an input specification, except that the special -od or -of options do
         not require a count, as this will be determined by the number of output channels
         in the given expressions. If byte-swapped output is desired, the -oD or -oF
-        options may be substituted. 
+        options may be substituted.
         """
         return self._o
 
@@ -91,7 +92,7 @@ class RcalcOptions(OptionCollection):
     @property
     def p(self):
         """Alternative / passive mode for input format.
-        
+
         The -p option specifies "passive mode," where characters that do not match the
         input format are passed unaltered to the output. This option has no effect unless
         -i is also specified, and does not make much sense unless -o is also given. With
@@ -108,9 +109,9 @@ class RcalcOptions(OptionCollection):
     @property
     def b(self):
         """Accept exact matches.
-        
+
         The -b option instructs the program to accept only exact matches. By default,
-        tabs and spaces are ignored except as field separators. 
+        tabs and spaces are ignored except as field separators.
         """
         return self._b
 
@@ -121,11 +122,11 @@ class RcalcOptions(OptionCollection):
     @property
     def l(self):
         """Ignore newlines in the input.
-        
+
         The -l option instructs the program to ignore newlines in the input, basically
         treating them the same as tabs and spaces. Normally, the beginning of the input
         format matches the beginning of a line, and the end of the format matches the end
-        of a line. With the -l option, the input format can match anywhere on a line. 
+        of a line. With the -l option, the input format can match anywhere on a line.
         """
         return self._l
 
@@ -154,7 +155,7 @@ class RcalcOptions(OptionCollection):
     @property
     def n(self):
         """Produce single output record.
-        
+
         The -n option tells the program not to get any input, but to produce a single
         output record. Otherwise, if no files are given, the standard input is read.
         """
@@ -167,7 +168,7 @@ class RcalcOptions(OptionCollection):
     @property
     def f(self):
         """Source file.
-        
+
         The variable and function definitions in each -f source file are read and
         compiled.
         """
@@ -180,10 +181,10 @@ class RcalcOptions(OptionCollection):
     @property
     def s(self):
         """Assign a string variable a string value.
-        
+
         The -s svar=sval option can be used to assign a string variable a string value.
         If this string variable appears in an input format, only records with the
-        specified value will be processed. 
+        specified value will be processed.
         """
         return self._s
 
@@ -194,10 +195,10 @@ class RcalcOptions(OptionCollection):
     @property
     def e(self):
         """Expression.
-        
+
         The -e expr option can be used to define variables on the command line. Since
         many of the characters in an expression have special meaning to the shell, it
-        should usually be enclosed in single quotes. 
+        should usually be enclosed in single quotes.
         """
         return self._e
 

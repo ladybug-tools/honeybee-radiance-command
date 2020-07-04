@@ -51,11 +51,11 @@ class OconvOptions(OptionCollection):
     @property
     def b(self):
         """Scene bounding cube.
-        
+
         The -b option allows the user to give a bounding cube for the scene, starting at
         xmin ymin zmin and having a side length size. If the cube does not contain all of
         the surfaces, an error results.
-        
+
         The -b and -i options are mutually exclusive.
         """
         return self._b
@@ -82,7 +82,7 @@ class OconvOptions(OptionCollection):
     @property
     def r(self):
         """Maximum octree resolution - default: 16384.
-        
+
         The -r option specifies the maximum octree resolution. This should be greater
         than or equal to the ratio of the largest and smallest dimensions in the scene
         (ie. surface size or distance between surfaces). The default is 16384.

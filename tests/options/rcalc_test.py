@@ -1,6 +1,5 @@
 """Test rcalc options."""
 from honeybee_radiance_command.options.rcalc import RcalcOptions
-import pytest
 import warnings
 
 
@@ -37,7 +36,7 @@ def test_warning():
     options = RcalcOptions()
     with warnings.catch_warnings(record=True) as catcher:
         warnings.simplefilter('always')
-        options.p =True
+        options.p = True
         # verify a warning has been raised for empty scene.
         assert len(catcher) == 1
         message = str(catcher[0].message)

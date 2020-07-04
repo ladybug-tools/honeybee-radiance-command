@@ -41,8 +41,10 @@ class RtraceOptions(OptionCollection):
         )
         self._o = StringOptionJoined(
             'o', 'output value - default: ov',
-            valid_values=['o', 'd', 'v', 'V', 'w', 'W', 'l', 'L', 'c', 'p', 'n', 'N',
-            's', 'm', 'M', '~'], whole=False
+            valid_values=[
+                'o', 'd', 'v', 'V', 'w', 'W', 'l', 'L', 'c', 'p', 'n', 'N',
+                's', 'm', 'M', '~'
+            ], whole=False
         )
         self._w = BoolOption('w', 'warning messages - default: on')
         self._i = BoolOption('i', 'irradiance calculation - default: off')
@@ -115,11 +117,11 @@ class RtraceOptions(OptionCollection):
         assert not (self.aI.is_set and self.aE.is_set), \
             'Both aI and aE are set. The program can use either an include list or ' \
             'an exclude list, but not both.'
-        
+
         if self.n.is_set and self.n > 1:
-            assert not 't' in self.o.to_radiance().lower(), \
-            'Multiple processes also do not work properly with ray tree output using' \
-            ' any of the `-o*t*` options.'
+            assert 't' not in self.o.to_radiance().lower(), \
+                'Multiple processes also do not work properly with ray tree output' \
+                ' using any of the `-o*t*` options.'
 
         if self.n.is_set and self.x.is_set:
             assert self.n <= self.x, \
@@ -179,11 +181,11 @@ class RtraceOptions(OptionCollection):
     @property
     def n(self):
         """Number of rendering processes - default: 1
-        
+
         Execute in parallel on nproc local processes.
-        
+
         Note:
-        
+
         This option is incompatible with the -P and -PP, options. Multiple processes also
         do not work properly with ray tree output using any of the `-o*t*` options. There
         is no benefit from specifying more processes than there are cores available on
@@ -213,16 +215,16 @@ class RtraceOptions(OptionCollection):
     @property
     def y(self):
         """Y resolution - default: 0
-        
+
         Set the y resolution to res. The program will exit after res scanlines have been
         processed, where a scanline is the number of rays given by the -x option, or 1 if
         -x is zero. A value of zero means the program will not halt until the end of file
-        is reached. 
-        
+        is reached.
+
         If both -x and -y options are given, a resolution string is printed at the
         beginning of the output. This is mostly useful for recovering image dimensions
         with pvalue, and for creating valid Radiance picture files using the color output
-        format. (See the -f option, above.) 
+        format. (See the -f option, above.)
         """
         return self._y
 
@@ -242,7 +244,7 @@ class RtraceOptions(OptionCollection):
     @property
     def h(self):
         """Output header - default: on
-        
+
         Boolean switch for information header on output
         """
         return self._h
@@ -275,7 +277,7 @@ class RtraceOptions(OptionCollection):
     def o(self):
         """Output value - default: ov
         -o[spec]
-        
+
         Produce output fields according to spec. Characters are interpreted as follows:
         o - origin (input)
         d - direction (normalized)
@@ -311,7 +313,7 @@ class RtraceOptions(OptionCollection):
     @property
     def te(self):
         """Append modifier to the trace exclude list.
-        
+
         The excluded modifier will not be reported by the trace option `-o*t*`. Any ray
         striking an object having mod as its modifier will not be reported to the
         standard output with the rest of the rays being traced. This option has no
@@ -328,10 +330,10 @@ class RtraceOptions(OptionCollection):
     @property
     def ti(self):
         """Add modifier to the trace include list.
-        
+
         Add modifier to the trace include list, so that it will be reported by the trace
         option. The program can use either an include list or an exclude list, but not
-        both. 
+        both.
         """
         return self._ti
 
@@ -342,7 +344,7 @@ class RtraceOptions(OptionCollection):
     @property
     def tE(self):
         """Append modifier to the trace exclude list from file.
-        
+
         Same as -te, except read modifiers to be excluded from file. The RAYPATH
         environment variable determines which directories are searched for this file. The
         modifier names are separated by white space in the file.
@@ -377,7 +379,7 @@ class RtraceOptions(OptionCollection):
     @property
     def e(self):
         """Send error messages and progress reports to efile.
-        
+
         By default the error messages are directed to standard error."""
         return self._e
 
@@ -388,7 +390,7 @@ class RtraceOptions(OptionCollection):
     @property
     def i(self):
         """Irradiance calculation - default: off
-        
+
         Boolean switch to compute irradiance rather than radiance values. This
         only affects the final result, substituting a Lambertian surface and
         multiplying the radiance by pi. Glass and other transparent surfaces are
@@ -413,7 +415,7 @@ class RtraceOptions(OptionCollection):
     @property
     def I(self):
         """Irradiance calculation switch - default: off
-        
+
         Boolean switch to compute irradiance rather than radiance, with the input origin
         and direction interpreted instead as measurement point and orientation.
 
@@ -429,7 +431,7 @@ class RtraceOptions(OptionCollection):
     @property
     def u(self):
         """Uncorrelated Monte Carlo sampling - default: on
-        
+
         Boolean switch to control uncorrelated random sampling. When "off", a
         low-discrepancy sequence is used, which reduces variance but can result
         in a brushed appearance in specular highlights. When "on", pure Monte
@@ -444,14 +446,14 @@ class RtraceOptions(OptionCollection):
     @property
     def bv(self):
         """Back face visibility - default: on
-        
+
         Boolean switch for back face visibility. With this switch off, back faces of
         opaque objects will be invisible to all rays. This is dangerous unless the model
         was constructed such that all surface normals on opaque objects face outward.
         Although turning off back face visibility does not save much computation time
         under most circumstances, it may be useful as a tool for scene debugging, or for
         seeing through one-sided walls from the outside. This option has no effect on
-        transparent or translucent materials. 
+        transparent or translucent materials.
         """
         return self._bv
 
@@ -565,7 +567,7 @@ class RtraceOptions(OptionCollection):
     @property
     def dv(self):
         """Direct visibility - default: on
-        
+
         Boolean switch for light source visibility. With this switch off, sources will be
         black when viewed directly although they will still participate in the direct
         calculation. This option is mostly for the program `mkillum` to avoid
@@ -618,7 +620,7 @@ class RtraceOptions(OptionCollection):
     @property
     def av(self):
         """Ambient value - default: 0.000000 0.000000 0.000000
-        
+
         Set the ambient value to a radiance of red grn blu . This is the final value used
         in place of an indirect light calculation. If the number of ambient bounces is
         one or greater and the ambient value weight is non-zero (see -aw and -ab below),
@@ -634,7 +636,7 @@ class RtraceOptions(OptionCollection):
     @property
     def aw(self):
         """Ambient value weight - default: 0
-        
+
         Set the relative weight of the ambient value given with the -av option. As
         new indirect irradiances are computed, they will modify the default ambient
         value in a moving average, with the specified weight assigned to the initial
@@ -720,7 +722,7 @@ class RtraceOptions(OptionCollection):
     @property
     def ae(self):
         """Append modifier to the ambient exclude list.
-        
+
         So that it will not be considered during the indirect calculation. This is a hack
         for speeding the indirect computation by ignoring certain objects. Any object
         having mod as its modifier will get the default ambient level rather than a
@@ -752,7 +754,7 @@ class RtraceOptions(OptionCollection):
 
         Same as -ae, except read modifiers to be excluded from file. The RAYPATH
         environment variable determines which directories are searched for this file. The
-        modifier names are separated by white space in the file. 
+        modifier names are separated by white space in the file.
         """
         return self._aE
 
@@ -772,23 +774,22 @@ class RtraceOptions(OptionCollection):
     def aI(self, value):
         self._aI.value = value
 
-
     @property
     def af(self):
         """Set the ambient file to filename.
-        
+
         This is where indirect illuminance will be stored and retrieved. Normally,
         indirect illuminance values are kept in memory and lost when the program
         finishes or dies. By using a file, different invocations can share illuminance
         values, saving time in the computation. The ambient file is in a
         machine-independent binary format which can be examined with lookamb.
-        
+
         The ambient file may also be used as a means of communication and data sharing
         between simultaneously executing processes. The same file may be used by multiple
         processes, possibly running on different machines and accessing the file via the
         network (ie. nfs(4)). The network lock manager lockd(8) is used to insure that
-        this information is used consistently. 
-        
+        this information is used consistently.
+
         If any calculation parameters are changed or the scene is modified, the old
         ambient file should be removed so that the calculation can start over from
         scratch. For convenience, the original ambient parameters are listed in the
@@ -803,11 +804,11 @@ class RtraceOptions(OptionCollection):
     @property
     def me(self):
         """Mist extinction coefficient - default: 0.00e+000 0.00e+000 0.00e+000
-        
+
         Set the global medium extinction coefficient to the indicated color, in units of
         1/distance (distance in world coordinates). Light will be scattered or absorbed
         over distance according to this value. The ratio of scattering to total
-        scattering plus absorption is set by the albedo parameter, described below. 
+        scattering plus absorption is set by the albedo parameter, described below.
         """
         return self._me
 
@@ -823,7 +824,7 @@ class RtraceOptions(OptionCollection):
         value means that all light not transmitted by the medium is absorbed. A unitary
         value means that all light not transmitted by the medium is scattered in some new
         direction. The isotropy of scattering is determined by the Heyney-Greenstein
-        parameter, described below. 
+        parameter, described below.
         """
         return self._ma
 
@@ -834,7 +835,7 @@ class RtraceOptions(OptionCollection):
     @property
     def mg(self):
         """Mist scattering eccentricity - default: 0.000000
-        
+
         Set the medium Heyney-Greenstein eccentricity parameter. This parameter
         determines how strongly scattering favors the forward direction. A value of 0
         indicates perfectly isotropic scattering. As this parameter approaches 1,
@@ -853,7 +854,7 @@ class RtraceOptions(OptionCollection):
         Set the medium sampling distance, in world coordinate units. During source
         scattering, this will be the average distance between adjacent samples. A
         value of 0 means that only one sample will be taken per light source within a
-        given scattering volume. 
+        given scattering volume.
         """
         return self._ms
 
@@ -881,7 +882,7 @@ class RtraceOptions(OptionCollection):
     @property
     def lw(self):
         """Limit weight - default: 2.00e-003
-        
+
         Limit the weight of each ray to a minimum of frac. During ray-tracing,
         a record is kept of the estimated contribution (weight) a ray would have
         in the image. If this weight is less than the specified minimum and the

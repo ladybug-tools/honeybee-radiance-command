@@ -44,7 +44,7 @@ def parse_radiance_options(string):
         elif count == 1:
             values = values[0]
         options[k[1:]] = values
-    
+
     return options
 
 

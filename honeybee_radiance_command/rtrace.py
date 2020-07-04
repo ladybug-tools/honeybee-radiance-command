@@ -9,6 +9,7 @@ class Rtrace(Command):
     """rtrace command."""
 
     __slots__ = ('_octree', '_sensors')
+
     def __init__(self, options=None, output=None, octree=None, sensors=None):
         """Command.
 
@@ -65,7 +66,7 @@ class Rtrace(Command):
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
-        
+
         Args:
             stdin_input: A boolean that indicates if the input for this command
                 comes from stdin. This is for instance the case when you pipe the input

@@ -23,7 +23,7 @@ def _gen_opt_file(command, folder='.'):
     imports = \
         'from .optionbase import OptionCollection, BoolOption, NumericOption,' \
         ' StringOption,\\\n    StringOptionJoined, IntegerOption, TupleOption'
-    
+
 
     HEADER = '{0}\n\nclass {1}Options(OptionCollection):\n' \
     '    """{2} command options."""\n\n' \
@@ -32,12 +32,11 @@ def _gen_opt_file(command, folder='.'):
     '        """{2} command options."""\n'
     '        OptionCollection.__init__(self)\n' \
 
-    # run the command a parse the output
+    # run the command and parse the output
     def get_defaults(command):
         data = subprocess.check_output([command, '-defaults'])
         # only works in python 3
         return "".join(chr(x) for x in data).split('\r\n')
-
 
     def get_set_property(parameter: str, comment: str) -> str:
         """Create @property setter and getter string."""
@@ -68,19 +67,17 @@ def _gen_opt_file(command, folder='.'):
             slot.replace("'", ''), parameter, comment)
 
         init_line = init_line.replace('\t', '    ')
-        return slot, init_line, get_set_property(parameter, comment) 
-
+        return slot, init_line, get_set_property(parameter, comment)
 
     def string_option(parameter: str, value: str, raw_comment: str) -> Tuple[str]:
-        """Parse a Radiance string option documentation."""        
+        """Parse a Radiance string option documentation."""
         slot = "'_%s'" % parameter
         comment = raw_comment + ' - default: %s%s' % (parameter, value)
         init_line = "\t\tself.%s = StringOptionJoined('%s', '%s')" % (
             slot.replace("'", ''), parameter, comment)
 
         init_line = init_line.replace('\t', '    ')
-        return slot, init_line, get_set_property(parameter, comment) 
-
+        return slot, init_line, get_set_property(parameter, comment)
 
     def numeric_option(parameter: str, value: str, raw_comment: str) -> Tuple[str]:
         """Parse a Radiance numeric option documentation."""
@@ -98,7 +95,7 @@ def _gen_opt_file(command, folder='.'):
                 slot.replace("'", ''), parameter, comment)
 
         init_line = init_line.replace('\t', '    ')
-        return slot, init_line, get_set_property(parameter, comment) 
+        return slot, init_line, get_set_property(parameter, comment)
 
     def tuple_option(parameter: str, values: List[str], raw_comment: str) -> Tuple[str]:
         """Parse a Radiance tuple option documentation."""
@@ -116,7 +113,7 @@ def _gen_opt_file(command, folder='.'):
         )
 
         init_line = init_line.replace('\t', '    ')
-        return slot, init_line, get_set_property(parameter, comment) 
+        return slot, init_line, get_set_property(parameter, comment)
 
     def parse_line(line: str):
         """Parse input line."""
@@ -161,7 +158,7 @@ def _gen_opt_file(command, folder='.'):
     fdir = os.path.dirname(__file__)
     os.chdir(fdir)
     file_path = os.path.join(folder, '%s.py' % command)
-    
+
     with open(file_path, 'w') as output:
         output.write(header)
         output.write('\n'.join(inits))

@@ -3,9 +3,7 @@ import honeybee_radiance_command._typing as typing
 import honeybee_radiance_command.cutil as cutil
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command.cutil as futil
-import os
 import warnings
-from itertools import chain
 import re
 
 
@@ -125,11 +123,12 @@ class FileOption(Option):
         else:
             return 0
 
+
 class StringOption(FileOption):
     __slots__ = ('valid_values', 'whole', 'pattern_in', 'pattern_out')
 
     def __init__(self, name, description, value=None, valid_values=None, whole=True,
-            pattern_in=None, pattern_out=None):
+                 pattern_in=None, pattern_out=None):
         """A string Radiance option.
 
         Args:
@@ -173,12 +172,12 @@ class StringOption(FileOption):
                 if self.whole:
                     if value not in self.valid_values:
                         raise exceptions.InvalidValueError(self.name, value,
-                                                          self.valid_values)
+                                                           self.valid_values)
                 else:
                     for v in value:
                         if v not in self.valid_values:
                             raise exceptions.InvalidValueError(self.name, v,
-                                                              self.valid_values)
+                                                               self.valid_values)
 
             self._value = value if not self.pattern_out else self.pattern_out % value
 
@@ -321,7 +320,7 @@ class BoolOption(Option):
         if value is not None:
             # this is a special case to handle read from string when + is not used
             # in Radiance -I means -I+ and -h means -h+ and so on.
-            value = True if value == '' else value 
+            value = True if value == '' else value
             self._value = False if value == '-' else bool(value)
         else:
             self._value = None
@@ -391,7 +390,7 @@ class OptionCollection(object):
     def __init__(self):
         # run on_setattr method on every attribute assignment
         # set to False if you are assigning several attributes all together when
-        # initiating a new instance. 
+        # initiating a new instance.
         object.__setattr__(self, '_on_setattr_check', False)
         self.additional_options = {}
         # collection of protected options that cannot be set by user. This is necessary
@@ -452,7 +451,7 @@ class OptionCollection(object):
                         else:
                             setattr(self, p[1], p[1:])
                     except AttributeError:
-                        # fall back to unknown item 
+                        # fall back to unknown item
                         pass
                     else:
                         # it is assigned - go for the next one

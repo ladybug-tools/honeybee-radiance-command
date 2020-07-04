@@ -44,7 +44,7 @@ def test_invalid_assignment():
     opts = OconvOptions()
     with pytest.raises(AttributeError):
         opts.ab = 20
-    
+
     with pytest.raises(TypeError):
         opts.r = 'max resolution'  # must be a numeric value
 
@@ -56,11 +56,13 @@ def test_exclusives_i():
         # b and i cannot be used together
         opt.b = (0, 0, 0, 10)
 
+
 def test_from_string_non_standard():
     opt = OconvOptions()
     opt_str = '-g 200'
     opt.update_from_string(opt_str)
     assert '-g 200' in opt.to_radiance()
+
 
 def test_from_string():
     opt = OconvOptions()

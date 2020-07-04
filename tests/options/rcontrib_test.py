@@ -77,7 +77,7 @@ def test_from_string():
     opt = RcontribOptions()
     opt_str = '-x 600 -y 392 -ld- -ffc -fo -o vmx/window_%03d.hdr -f klems_ang.cal' \
         ' -b kbinS -bn Nkbins -m windowglow -ab 2 -ad 50000 -lw 2e-5'
-    
+
     opt.update_from_string(opt_str)
     assert opt.x == 600
     assert opt.y == 392
