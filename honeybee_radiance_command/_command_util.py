@@ -4,6 +4,7 @@ import re
 import shlex
 import platform
 import os
+import traceback
 
 
 def run_command(input_command, env=None, cwd=None):
@@ -44,12 +45,18 @@ def run_command(input_command, env=None, cwd=None):
             fp, mode = cmd['stdout']
             open_files.append(open(fp, mode))
             stdout = open_files[-1]
-
-        p = subprocess.Popen(
-            command, stdin=stdin, stdout=stdout, stderr=subprocess.PIPE,
-            env=env, shell=shell
-        )
-        processes.append(p)
+        try:
+            p = subprocess.Popen(
+                command, stdin=stdin, stdout=stdout, stderr=subprocess.PIPE,
+                env=env, shell=shell
+            )
+        except Exception:
+            # change the path back to cur_dir
+            if cwd:
+                os.chdir(cur_dir)
+            raise Exception(traceback.format_exc())
+        else:
+            processes.append(p)
     # Allow processes to receive a SIGPIPE if process after that exits.
     # based on https://security.openstack.org/guidelines/dg_avoid-shell-true.html
     for process in processes[:-1]:
