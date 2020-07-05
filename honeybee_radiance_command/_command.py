@@ -171,7 +171,7 @@ class Command(object):
         Returns:
             - int: Command return code.
         """
-        cmd = self.to_radiance()
+        cmd = self.to_radiance().replace('\\', '/')
         rc = run_command(cmd, env, cwd)
         self.after_run()
         return rc
