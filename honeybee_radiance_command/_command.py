@@ -41,7 +41,7 @@ rtrace.options.I = True
 rtrace.octree = 'scene.oct'
 
 # add sensor grid
-rtace.input = 'sensors.pts'
+rtrace.input = 'sensors.pts'
 
 # add rcalc command to post process the results
 rcalc = Rcalc()

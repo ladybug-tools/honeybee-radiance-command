@@ -30,7 +30,7 @@ class RfluxmtxOptions(RcontribOptions):
 
     @property
     def v(self):
-        """Output coefficients - default: off"""
+        """Verbose report - default: off"""
         return self._v
 
     @v.setter
