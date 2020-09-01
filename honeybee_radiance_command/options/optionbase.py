@@ -486,7 +486,7 @@ class OptionCollection(object):
             object.__setattr__(self, name, value)
         except AttributeError:
             try:
-                object.__setattr__(self, '_' + name, value)
+                object.__setattr__(self, name + '_', value)
             except AttributeError:
                 raise AttributeError(
                     '"{1}" object has no attribute "{0}".'

@@ -64,7 +64,7 @@ def test_bool_option():
 
 class OptionsTestClass(OptionCollection):
 
-    __slots__ = ('_ab', '_aa', '_ld', '_fa')
+    __slots__ = ('_ab', '_aa', '_ld', '_fa', '_as')
 
     def __init__(self):
         OptionCollection.__init__(self)
@@ -72,6 +72,7 @@ class OptionsTestClass(OptionCollection):
         self._aa = NumericOption('aa', 'ambient accuracy', min_value=0)
         self._ld = BoolOption('ld', 'limit distance')
         self._fa = StringOptionJoined('fa', 'output format', valid_values=['a', 'd'])
+        self._as = IntegerOption('as', 'ambient somthing!', min_value=0)
 
     @property
     def ab(self):
@@ -105,18 +106,26 @@ class OptionsTestClass(OptionCollection):
     def ld(self, value):
         self._ld.value = value
 
+    @property
+    def as_(self):
+        return self._as.value
+
+    @as_.setter
+    def as_(self, value):
+        self._as.value = value
+
 
 def test_collection():
     options_test = OptionsTestClass()
     options_test.ab = 2
-    options_test.update_from_string('-ab 5 -ld- -ad 2500')
+    options_test.update_from_string('-ab 5 -ld- -ad 2500 -as 128')
     assert options_test.ab == 5
     assert options_test.ld == False
-    assert options_test.to_radiance() == '-ab 5 -ld- -ad 2500'
+    assert options_test.to_radiance() == '-ab 5 -as 128 -ld- -ad 2500'
 
     options_test.ab = None
     options_test.ld = True
-    assert options_test.to_radiance() == '-ld -ad 2500'
+    assert options_test.to_radiance() == '-as 128 -ld -ad 2500'
 
     with pytest.raises(AttributeError):
         options_test.ad = 2400
