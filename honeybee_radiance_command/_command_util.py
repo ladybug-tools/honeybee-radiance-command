@@ -4,65 +4,41 @@ import re
 import shlex
 import platform
 import os
-import traceback
 
 
 def run_command(input_command, env=None, cwd=None):
     """Run a shell command.
 
     Args:
-        input_command:
-
+        input_command: Input command.
+        env: Additional environmental variable that will be added to global environment.
+        cwd: Current working directory. If provided command will be executed from this
+            folder.
     """
-    open_files = []
-    processes = []
     if platform.system() == 'Windows':
-        shell = True if env else False
+        command = input_command.replace('\'', '"')
     else:
-        shell = False
+        command = command.replace('"', '\'')
 
     # change cwd - Popen cwd input simply doesn't work.
+    cur_dir = os.getcwd()
     if cwd:
-        cur_dir = os.getcwd()
         os.chdir(cwd)
 
-    cmds = _process_command(input_command)
-    for cmd in cmds:
-        command = shlex.split(cmd['cmd'])
-        # stdin
-        if not cmd['stdin']:
-            stdin = None
-        elif cmd['stdin'] == -1:
-            stdin = processes[-1].stdout
-        else:
-            # std information is streamed from a file
-            open_files.append(open(cmd['stdin'], 'r'))
-            stdin = open_files[-1]
-        # stdout
-        if cmd['stdout'][0] == -1:
-            stdout = subprocess.PIPE
-        else:
-            fp, mode = cmd['stdout']
-            open_files.append(open(fp, mode))
-            stdout = open_files[-1]
-        try:
-            p = subprocess.Popen(
-                command, stdin=stdin, stdout=stdout, stderr=subprocess.PIPE,
-                env=env, shell=shell
-            )
-        except Exception:
-            # change the path back to cur_dir
-            if cwd:
-                os.chdir(cur_dir)
-            raise Exception(traceback.format_exc())
-        else:
-            processes.append(p)
-    # Allow processes to receive a SIGPIPE if process after that exits.
-    # based on https://security.openstack.org/guidelines/dg_avoid-shell-true.html
-    for process in processes[:-1]:
-        process.stdout.close()
+    # update environmental variable
+    g_env = os.environ.copy()
+    if env:
+        for k, v in env.items():
+            if k.strip().upper() == 'PATH':
+                g_env['PATH'] = os.pathsep.join((v, g_env['PATH']))
+            else:
+                g_env[k] = v
 
-    process = processes[-1]
+    process = subprocess.Popen(
+        command.replace('\\', '/'), stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE, shell=True, env=g_env
+    )
+
     if process.stdout:
         while True:
             output = process.stdout.readline()
@@ -76,10 +52,6 @@ def run_command(input_command, env=None, cwd=None):
         # stdout is redirected to a file
         _, stderr = process.communicate()
         rc = process.returncode
-
-    # close all the open files
-    for f in open_files:
-        f.close()
 
     if cwd:
         os.chdir(cur_dir)
@@ -126,7 +98,7 @@ def _process_command(input_command):
 
     for count, command in enumerate(commands[:-1]):
 
-        assert '>' not in command, \
+        assert '>' not in command.split('&')[-1], \
             'You cannot redirect stdout with > and pipe the' \
             ' outputs at the same time:\n\t%s' % command
 
