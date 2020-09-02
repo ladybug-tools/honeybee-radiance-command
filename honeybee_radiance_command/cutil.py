@@ -27,6 +27,8 @@ def parse_radiance_options(string):
     try:
         index = string.index('-')
     except ValueError:
+        if not ' '.join(string.split()).replace('"', '').replace("'", '').strip():
+            return {}
         raise ValueError(
             'Invalid Radiance options string input. Failed to find - in input string.'
         )
