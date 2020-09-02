@@ -18,7 +18,7 @@ def run_command(input_command, env=None, cwd=None):
     if platform.system() == 'Windows':
         command = input_command.replace('\'', '"')
     else:
-        command = command.replace('"', '\'')
+        command = input_command.replace('"', '\'')
 
     # change cwd - Popen cwd input simply doesn't work.
     cur_dir = os.getcwd()
