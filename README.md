@@ -5,14 +5,16 @@
 
 # honeybee-radiance-command
 
-Honeybee wrapper around Radiance commands which is used by honeybee-radiance
+Python wrapper around Radiance commands, used by [honeybee-radiance](https://www.ladybug.tools/honeybee-radiance/docs/).
 
 ## Installation
+
 ```console
-pip install honeybee-radiance-command
+pip install -U honeybee-radiance-command
 ```
 
 ## QuickStart
+
 ```python
 import honeybee_radiance_command
 
@@ -21,6 +23,7 @@ import honeybee_radiance_command
 ## [API Documentation](http://ladybug-tools.github.io/honeybee-radiance-command/docs)
 
 ## Local Development
+
 1. Clone this repo locally
 ```console
 git clone git@github.com:ladybug-tools/honeybee-radiance-command
