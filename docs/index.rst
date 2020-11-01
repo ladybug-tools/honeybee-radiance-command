@@ -8,10 +8,8 @@ Python wrapper around Radiance commands, used by `honeybee-radiance <https://www
 Installation
 ============
 
-`pip install -U honeybee-radiance-command`
+``pip install -U honeybee-radiance-command``
 
-Documentation
-=============
 
 .. toctree::
    :maxdepth: 2
