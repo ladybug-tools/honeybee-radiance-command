@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.options.rcontrib module &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="honeybee_radiance_command.options.rfluxmtx module" href="honeybee_radiance_command.options.rfluxmtx.html" />
+    <link rel="prev" title="honeybee_radiance_command.options.rcalc module" href="honeybee_radiance_command.options.rcalc.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="honeybee_radiance_command.options.rcalc.html" title="Previous Chapter: honeybee_radiance_command.options.rcalc module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; honeybee_radi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="honeybee_radiance_command.options.rfluxmtx.html" title="Next Chapter: honeybee_radiance_command.options.rfluxmtx module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">honeybee_radi... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/honeybee_radiance_command.options.rcontrib.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="module-honeybee_radiance_command.options.rcontrib">
+<span id="honeybee-radiance-command-options-rcontrib-module"></span><h1>honeybee_radiance_command.options.rcontrib module<a class="headerlink" href="#module-honeybee_radiance_command.options.rcontrib" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.rcontrib.</code><code class="sig-name descname">RcontribOptions</code><a class="reference internal" href="_modules/honeybee_radiance_command/options/rcontrib.html#RcontribOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="honeybee_radiance_command.options.rtrace.html#honeybee_radiance_command.options.rtrace.RtraceOptions" title="honeybee_radiance_command.options.rtrace.RtraceOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.rtrace.RtraceOptions</span></code></a></p>
+<p>rcontrib command options.</p>
+<p>[ -n nprocs ][ -V ][ -c count ][ -fo | -r ][ -e expr ][ -f source ][ -o ospec ]
+[ -p p1=V1,p2=V2][ -b binv ][ -bn nbins ] { -m mod | -M file } [ $EVAR ] [ &#64;file ]
+[ rtrace options ]</p>
+<p>Note:
+<a class="reference external" href="https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rcontrib.pdf">https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rcontrib.pdf</a></p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.M">
+<em class="property">property </em><code class="sig-name descname">M</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.M" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifiers file.</p>
+<p>A modifier list may be read from a file using the -M option. The RAYPATH
+environment variable determines directories to search for this file. (No search
+takes place if a file name begins with a <cite>.</cite>, <cite>/</cite> or <cite>~</cite> character.)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.V">
+<em class="property">property </em><code class="sig-name descname">V</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.V" title="Permalink to this definition">¶</a></dt>
+<dd><p>off = coefficients</p>
+<p>By setting the boolean -V option, you may instruct rcontrib to report the
+contribution from each material rather than the ray coefficient. This is
+particularly useful for light sources with directional output distributions,
+whose value would otherwise be lost in the shuffle.</p>
+<p>With the default -V- setting, the output of rcontrib is a coefficient that must
+be multiplied by the radiance of each material to arrive at a final contribution.</p>
+<p>This is more convenient for computing daylight coefficients, or cases where the
+actual radiance is not desired. Use the -V+ setting when you wish to simply sum
+together contributions (with possible adjustment factors) to obtain a final
+radiance value. Combined with the -i or -I option, irradiance contributions are
+reported by -V+ rather than radiance, and -V- coefficients contain an additional
+factor of PI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Output contribution versus coefficients - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.ap">
+<em class="property">property </em><code class="sig-name descname">ap</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.ap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Photon map generated file.</p>
+<p>Rcontrib supports light source contributions from photon maps generated by mkpmap
+with its -apC option. Enabling photon mapping is described in the rtrace man page
+along with its relevant settings. In photon mapping mode, rcontrib only supports
+contributions from light sources, not arbitrary modifiers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.b">
+<em class="property">property </em><code class="sig-name descname">b</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bin numbers.</p>
+<p>The -b option may be used to further define a “bin number” within each object if
+finer resolution is needed, and this will be applied to a “%d” format in the
+output file specification if present. (The final integer will be offset
+incrementally if the output is a RADIANCE picture and more than one modifier has
+the same format specification.) The actual bin number is computed at run time
+based on ray direction and surface intersection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.bn">
+<em class="property">property </em><code class="sig-name descname">bn</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.bn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of bins.</p>
+<p>The number of bins must be specified in advance with the -bn option, and this is
+critical for output files containing multiple values per record. A variable or
+constant name may be given for this parameter if it has been defined via a
+previous -f or -e option. Since bin numbers start from zero, the bin count is
+always equal to the last bin plus one. The most recent -p, -b, -bn and -o options
+to the left of each -m setting are the ones used for that modifier.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.c">
+<em class="property">property </em><code class="sig-name descname">c</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.c" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+<p>The -c option tells rcontrib how many rays to accumulate for each record. The
+default value is one, meaning a full record will be produced for each input ray.
+For values greater than one, contributions will be averaged together over the
+given number of input rays.</p>
+<p>If set to zero, only a single record will be produced at the very end,
+corresponding to the sum of all rays given on the input (rather than the
+average). This is equivalent to passing all the output records through a program
+like total to sum RGB values together, but is much more efficient. Using this
+option, it is possible to reverse sampling, sending rays from a parallel source
+such as the sun to a diffuse surface, for example. Note that output flushing via
+zero-direction rays is disabled with -c set to zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Accumulated rays per record - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.e">
+<em class="property">property </em><code class="sig-name descname">e</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expression.</p>
+<p>The -e expr option can be used to define variables on the command line. Since
+many of the characters in an expression have special meaning to the shell, it
+should usually be enclosed in single quotes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.f">
+<em class="property">property </em><code class="sig-name descname">f</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Source file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.fo">
+<em class="property">property </em><code class="sig-name descname">fo</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.fo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.m">
+<em class="property">property </em><code class="sig-name descname">m</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifier name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.p">
+<em class="property">property </em><code class="sig-name descname">p</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional parameters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rcontrib.RcontribOptions.r">
+<em class="property">property </em><code class="sig-name descname">r</code><a class="headerlink" href="#honeybee_radiance_command.options.rcontrib.RcontribOptions.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data recovery.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2021, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

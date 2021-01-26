@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.options.rcontrib &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <h1>Source code for honeybee_radiance_command.options.rcontrib</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.optionbase</span> <span class="kn">import</span> <span class="n">BoolOption</span><span class="p">,</span> <span class="n">StringOption</span><span class="p">,</span> <span class="n">IntegerOption</span><span class="p">,</span> <span class="n">FileOption</span>
+<span class="kn">from</span> <span class="nn">.rtrace</span> <span class="kn">import</span> <span class="n">RtraceOptions</span>
+<span class="kn">import</span> <span class="nn">honeybee_radiance_command._exception</span> <span class="k">as</span> <span class="nn">exceptions</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<span class="c1"># TODO: Add input pattern check for -p</span>
+<div class="viewcode-block" id="RcontribOptions"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.rcontrib.html#honeybee_radiance_command.options.rcontrib.RcontribOptions">[docs]</a><span class="k">class</span> <span class="nc">RcontribOptions</span><span class="p">(</span><span class="n">RtraceOptions</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;rcontrib command options.</span>
+
+<span class="sd">    [ -n nprocs ][ -V ][ -c count ][ -fo | -r ][ -e expr ][ -f source ][ -o ospec ]</span>
+<span class="sd">    [ -p p1=V1,p2=V2][ -b binv ][ -bn nbins ] { -m mod | -M file } [ $EVAR ] [ @file ]</span>
+<span class="sd">    [ rtrace options ]</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">    https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rcontrib.pdf</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;_c&#39;</span><span class="p">,</span> <span class="s1">&#39;_V&#39;</span><span class="p">,</span> <span class="s1">&#39;_fo&#39;</span><span class="p">,</span> <span class="s1">&#39;_f&#39;</span><span class="p">,</span> <span class="s1">&#39;_e&#39;</span><span class="p">,</span> <span class="s1">&#39;_r&#39;</span><span class="p">,</span> <span class="s1">&#39;_p&#39;</span><span class="p">,</span> <span class="s1">&#39;_b&#39;</span><span class="p">,</span> <span class="s1">&#39;_bn&#39;</span><span class="p">,</span> <span class="s1">&#39;_m&#39;</span><span class="p">,</span> <span class="s1">&#39;_M&#39;</span><span class="p">,</span> <span class="s1">&#39;_o&#39;</span><span class="p">,</span> <span class="s1">&#39;_ap&#39;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;rcontrib command options.&quot;&quot;&quot;</span>
+        <span class="n">RtraceOptions</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_setattr_check</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;accumulated rays per record - default: 1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_V</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;output coefficients - default: off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fo</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;fo&#39;</span><span class="p">,</span> <span class="s1">&#39;format output - default: off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_o</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;output file. it can include &#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_r</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;data recovery on existing files&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;source file - e.g. klems_ang.cal&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;expression&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_p</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;additional parameters&#39;</span><span class="p">)</span>
+        <span class="c1"># b and bn are tricky as they can be string values like tbin or Ntbins and they</span>
+        <span class="c1"># can be integer values like 0, 1, etc or as mix like</span>
+        <span class="c1"># kbin(0.525,0.0136,-0.851,0,0,1)! I leave them to be string for now.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;bin numbers&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bn</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;bn&#39;</span><span class="p">,</span> <span class="s1">&#39;number of bins&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;modifier name&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_M</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;modifiers file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ap</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;ap&#39;</span><span class="p">,</span> <span class="s1">&#39;photon map contribution support&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_setattr_check</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_on_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method executes after setting each new attribute.</span>
+
+<span class="sd">        Use this method to add checks that are necessary for OptionCollection. For</span>
+<span class="sd">        instance in rtrace option collection -ti and -te are exclusive. You can include a</span>
+<span class="sd">        check to ensure this is always correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">RtraceOptions</span><span class="o">.</span><span class="n">_on_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="c1"># -r and -fo cannot both be True.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">):</span>
+            <span class="k">return</span>  <span class="c1"># this happens on init</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fo</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ExclusiveOptionsError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;fo&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">ExclusiveOptionsError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ar</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aa</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">aa</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="c1"># warning about aa being set to 0 in rcontrib</span>
+            <span class="n">warn</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: aa will be set to 0 in rcontrib.&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">command</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ar</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+                <span class="n">warn</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+                    <span class="n">warn</span><span class="p">,</span>
+                    <span class="s1">&#39;there will be no ambient caching &#39;</span>
+                    <span class="s1">&#39;and the value for ar will be ignored.&#39;</span>
+                <span class="p">))</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">warn</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Accumulated rays per record - default: 1</span>
+
+<span class="sd">        The -c option tells rcontrib how many rays to accumulate for each record. The</span>
+<span class="sd">        default value is one, meaning a full record will be produced for each input ray.</span>
+<span class="sd">        For values greater than one, contributions will be averaged together over the</span>
+<span class="sd">        given number of input rays.</span>
+
+<span class="sd">        If set to zero, only a single record will be produced at the very end,</span>
+<span class="sd">        corresponding to the sum of all rays given on the input (rather than the</span>
+<span class="sd">        average). This is equivalent to passing all the output records through a program</span>
+<span class="sd">        like total to sum RGB values together, but is much more efficient. Using this</span>
+<span class="sd">        option, it is possible to reverse sampling, sending rays from a parallel source</span>
+<span class="sd">        such as the sun to a diffuse surface, for example. Note that output flushing via</span>
+<span class="sd">        zero-direction rays is disabled with -c set to zero.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span>
+
+    <span class="nd">@c</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">V</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Output contribution versus coefficients - default: off = coefficients</span>
+
+<span class="sd">        By setting the boolean -V option, you may instruct rcontrib to report the</span>
+<span class="sd">        contribution from each material rather than the ray coefficient. This is</span>
+<span class="sd">        particularly useful for light sources with directional output distributions,</span>
+<span class="sd">        whose value would otherwise be lost in the shuffle.</span>
+
+<span class="sd">        With the default -V- setting, the output of rcontrib is a coefficient that must</span>
+<span class="sd">        be multiplied by the radiance of each material to arrive at a final contribution.</span>
+
+<span class="sd">        This is more convenient for computing daylight coefficients, or cases where the</span>
+<span class="sd">        actual radiance is not desired. Use the -V+ setting when you wish to simply sum</span>
+<span class="sd">        together contributions (with possible adjustment factors) to obtain a final</span>
+<span class="sd">        radiance value. Combined with the -i or -I option, irradiance contributions are</span>
+<span class="sd">        reported by -V+ rather than radiance, and -V- coefficients contain an additional</span>
+<span class="sd">        factor of PI.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_V</span>
+
+    <span class="nd">@V</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">V</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_V</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Format output.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fo</span>
+
+    <span class="nd">@fo</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">fo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fo</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Source file.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span>
+
+    <span class="nd">@f</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">r</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Data recovery.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r</span>
+
+    <span class="nd">@r</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">r</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_r</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Expression.</span>
+
+<span class="sd">        The -e expr option can be used to define variables on the command line. Since</span>
+<span class="sd">        many of the characters in an expression have special meaning to the shell, it</span>
+<span class="sd">        should usually be enclosed in single quotes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e</span>
+
+    <span class="nd">@e</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Additional parameters.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_p</span>
+
+    <span class="nd">@p</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_p</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Bin numbers.</span>
+
+<span class="sd">        The -b option may be used to further define a &quot;bin number&quot; within each object if</span>
+<span class="sd">        finer resolution is needed, and this will be applied to a &quot;%d&quot; format in the</span>
+<span class="sd">        output file specification if present. (The final integer will be offset</span>
+<span class="sd">        incrementally if the output is a RADIANCE picture and more than one modifier has</span>
+<span class="sd">        the same format specification.) The actual bin number is computed at run time</span>
+<span class="sd">        based on ray direction and surface intersection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span>
+
+    <span class="nd">@b</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_b</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of bins.</span>
+
+<span class="sd">        The number of bins must be specified in advance with the -bn option, and this is</span>
+<span class="sd">        critical for output files containing multiple values per record. A variable or</span>
+<span class="sd">        constant name may be given for this parameter if it has been defined via a</span>
+<span class="sd">        previous -f or -e option. Since bin numbers start from zero, the bin count is</span>
+<span class="sd">        always equal to the last bin plus one. The most recent -p, -b, -bn and -o options</span>
+<span class="sd">        to the left of each -m setting are the ones used for that modifier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bn</span>
+
+    <span class="nd">@bn</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">bn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bn</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">m</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Modifier name.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_m</span>
+
+    <span class="nd">@m</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">m</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_m</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">M</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Modifiers file.</span>
+
+<span class="sd">        A modifier list may be read from a file using the -M option. The RAYPATH</span>
+<span class="sd">        environment variable determines directories to search for this file. (No search</span>
+<span class="sd">        takes place if a file name begins with a `.`, `/` or `~` character.)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_M</span>
+
+    <span class="nd">@M</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">M</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_M</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Photon map generated file.</span>
+
+<span class="sd">        Rcontrib supports light source contributions from photon maps generated by mkpmap</span>
+<span class="sd">        with its -apC option. Enabling photon mapping is described in the rtrace man page</span>
+<span class="sd">        along with its relevant settings. In photon mapping mode, rcontrib only supports</span>
+<span class="sd">        contributions from light sources, not arbitrary modifiers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ap</span>
+
+    <span class="nd">@ap</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ap</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2021, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

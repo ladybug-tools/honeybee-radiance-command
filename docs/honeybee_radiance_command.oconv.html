@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.oconv module &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="honeybee_radiance_command.rcalc module" href="honeybee_radiance_command.rcalc.html" />
+    <link rel="prev" title="honeybee_radiance_command.cutil module" href="honeybee_radiance_command.cutil.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="honeybee_radiance_command.cutil.html" title="Previous Chapter: honeybee_radiance_command.cutil module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; honeybee_radi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="honeybee_radiance_command.rcalc.html" title="Next Chapter: honeybee_radiance_command.rcalc module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">honeybee_radi... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/honeybee_radiance_command.oconv.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <div class="section" id="module-honeybee_radiance_command.oconv">
+<span id="honeybee-radiance-command-oconv-module"></span><h1>honeybee_radiance_command.oconv module<a class="headerlink" href="#module-honeybee_radiance_command.oconv" title="Permalink to this headline">¶</a></h1>
+<p>oconv command.</p>
+<dl class="py class">
+<dt id="honeybee_radiance_command.oconv.Oconv">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.oconv.</code><code class="sig-name descname">Oconv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">options</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">output</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">inputs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/oconv.html#Oconv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.oconv.Oconv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command._command.Command</span></code></p>
+<p>oconv command.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.oconv.Oconv.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stdin_input</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/oconv.html#Oconv.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.oconv.Oconv.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Oconv in Radiance format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stdin_input</strong> – A boolean that indicates if the input for this command
+comes from stdin. This is for instance the case when you pipe the input
+from another command (default: False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.oconv.Oconv.validate">
+<code class="sig-name descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/oconv.html#Oconv.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.oconv.Oconv.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite this method to add extra specific checks for the command.
+For instance for rcontrib you want to make sure there is at least one
+modifier set in the command.</p>
+<p>This method will be executed right before running the command.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.oconv.Oconv.inputs">
+<em class="property">property </em><code class="sig-name descname">inputs</code><a class="headerlink" href="#honeybee_radiance_command.oconv.Oconv.inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input files.</p>
+<p>Get and set inputs files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.oconv.Oconv.options">
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#honeybee_radiance_command.oconv.Oconv.options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Oconv options.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2021, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.options.rtrace &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-9 content" role="main">
+      
+  <h1>Source code for honeybee_radiance_command.options.rtrace</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.optionbase</span> <span class="kn">import</span> <span class="n">OptionCollection</span><span class="p">,</span> <span class="n">BoolOption</span><span class="p">,</span> <span class="n">NumericOption</span><span class="p">,</span> <span class="n">StringOption</span><span class="p">,</span>\
+    <span class="n">StringOptionJoined</span><span class="p">,</span> <span class="n">IntegerOption</span><span class="p">,</span> <span class="n">TupleOption</span><span class="p">,</span> <span class="n">FileOption</span>
+
+
+<div class="viewcode-block" id="RtraceOptions"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.rtrace.html#honeybee_radiance_command.options.rtrace.RtraceOptions">[docs]</a><span class="k">class</span> <span class="nc">RtraceOptions</span><span class="p">(</span><span class="n">OptionCollection</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;rtrace command options.</span>
+
+<span class="sd">    Also see: https://floyd.lbl.gov/radiance/man_html/rtrace.1.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">&#39;_n&#39;</span><span class="p">,</span> <span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="s1">&#39;_y&#39;</span><span class="p">,</span> <span class="s1">&#39;_ld&#39;</span><span class="p">,</span> <span class="s1">&#39;_h&#39;</span><span class="p">,</span> <span class="s1">&#39;_fio&#39;</span><span class="p">,</span> <span class="s1">&#39;_o&#39;</span><span class="p">,</span> <span class="s1">&#39;_w&#39;</span><span class="p">,</span> <span class="s1">&#39;_i&#39;</span><span class="p">,</span> <span class="s1">&#39;_u&#39;</span><span class="p">,</span> <span class="s1">&#39;_bv&#39;</span><span class="p">,</span> <span class="s1">&#39;_dt&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_dc&#39;</span><span class="p">,</span> <span class="s1">&#39;_dj&#39;</span><span class="p">,</span> <span class="s1">&#39;_ds&#39;</span><span class="p">,</span> <span class="s1">&#39;_dr&#39;</span><span class="p">,</span> <span class="s1">&#39;_dp&#39;</span><span class="p">,</span> <span class="s1">&#39;_dv&#39;</span><span class="p">,</span> <span class="s1">&#39;_ss&#39;</span><span class="p">,</span> <span class="s1">&#39;_st&#39;</span><span class="p">,</span> <span class="s1">&#39;_av&#39;</span><span class="p">,</span> <span class="s1">&#39;_aw&#39;</span><span class="p">,</span> <span class="s1">&#39;_ab&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_aa&#39;</span><span class="p">,</span> <span class="s1">&#39;_ar&#39;</span><span class="p">,</span> <span class="s1">&#39;_ad&#39;</span><span class="p">,</span> <span class="s1">&#39;_as&#39;</span><span class="p">,</span> <span class="s1">&#39;_me&#39;</span><span class="p">,</span> <span class="s1">&#39;_ma&#39;</span><span class="p">,</span> <span class="s1">&#39;_mg&#39;</span><span class="p">,</span> <span class="s1">&#39;_ms&#39;</span><span class="p">,</span> <span class="s1">&#39;_lr&#39;</span><span class="p">,</span> <span class="s1">&#39;_lw&#39;</span><span class="p">,</span> <span class="s1">&#39;_I&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;_e&#39;</span><span class="p">,</span> <span class="s1">&#39;_te&#39;</span><span class="p">,</span> <span class="s1">&#39;_tE&#39;</span><span class="p">,</span> <span class="s1">&#39;_ti&#39;</span><span class="p">,</span> <span class="s1">&#39;_tI&#39;</span><span class="p">,</span> <span class="s1">&#39;_af&#39;</span><span class="p">,</span> <span class="s1">&#39;_ae&#39;</span><span class="p">,</span> <span class="s1">&#39;_ai&#39;</span><span class="p">,</span> <span class="s1">&#39;_aE&#39;</span><span class="p">,</span> <span class="s1">&#39;_aI&#39;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;rtrace command options.</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            options = RtraceOptions()</span>
+<span class="sd">            options.ab = 5</span>
+<span class="sd">            print(options.to_radiance())</span>
+<span class="sd">            -ab 5</span>
+
+<span class="sd">            options.u = False</span>
+<span class="sd">            print(options.to_radiance())</span>
+<span class="sd">            -ab 5 -u-</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">OptionCollection</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;number of rendering processes - default: 1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;flush interval - default: 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;y resolution - default: 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ld</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;ld&#39;</span><span class="p">,</span> <span class="s1">&#39;limit distance - default: off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;output header - default: on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fio</span> <span class="o">=</span> <span class="n">StringOptionJoined</span><span class="p">(</span>
+            <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;format input/output = ascii/ascii - default: faa&#39;</span><span class="p">,</span>
+            <span class="n">valid_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="n">whole</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_o</span> <span class="o">=</span> <span class="n">StringOptionJoined</span><span class="p">(</span>
+            <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;output value - default: ov&#39;</span><span class="p">,</span>
+            <span class="n">valid_values</span><span class="o">=</span><span class="p">[</span>
+                <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span>
+            <span class="p">],</span> <span class="n">whole</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;warning messages - default: on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;irradiance calculation - default: off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;irradiance calculation switch - default: off&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_u</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;uncorrelated Monte Carlo sampling - default: on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bv</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;bv&#39;</span><span class="p">,</span> <span class="s1">&#39;back face visibility - default: on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;dt&#39;</span><span class="p">,</span> <span class="s1">&#39;direct threshold - default: 0.030000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dc</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;dc&#39;</span><span class="p">,</span> <span class="s1">&#39;direct certainty - default: 0.750000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dj</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;dj&#39;</span><span class="p">,</span> <span class="s1">&#39;direct jitter - default: 0.000000&#39;</span><span class="p">,</span>
+                                 <span class="n">max_value</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="s1">&#39;direct sampling - default: 0.200000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;dr&#39;</span><span class="p">,</span> <span class="s1">&#39;direct relays - default: 2&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dp</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;dp&#39;</span><span class="p">,</span> <span class="s1">&#39;direct pretest density - default: 512&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dv</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s1">&#39;dv&#39;</span><span class="p">,</span> <span class="s1">&#39;direct visibility - default: on&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ss</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;ss&#39;</span><span class="p">,</span> <span class="s1">&#39;specular sampling - default: 1.000000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_st</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;st&#39;</span><span class="p">,</span> <span class="s1">&#39;specular threshold - default: 0.150000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_av</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span>
+            <span class="s1">&#39;av&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient value - default: 0.000000 0.000000 0.000000&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">float</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aw</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;aw&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient value weight - default: 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ab</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient bounces - default: 0&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aa</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient accuracy - default: 0.100000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ar</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;ar&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient resolution - default: 256&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ad</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;ad&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient divisions - default: 1024&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_as</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient super-samples - default: 512&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_me</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span>
+            <span class="s1">&#39;me&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;mist extinction coefficient - default: 0.00e+000 0.00e+000 0.00e+000&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="mi">3</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ma</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span>
+            <span class="s1">&#39;ma&#39;</span><span class="p">,</span> <span class="s1">&#39;mist scattering albedo - default: 0.000000 0.000000 0.000000&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="mi">3</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mg</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span>
+            <span class="s1">&#39;mg&#39;</span><span class="p">,</span> <span class="s1">&#39;mist scattering eccentricity - default: 0.000000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ms</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;ms&#39;</span><span class="p">,</span> <span class="s1">&#39;mist sampling distance - default: 0.000000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lr</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span>
+            <span class="s1">&#39;lr&#39;</span><span class="p">,</span> <span class="s1">&#39;limit reflection (Russian roulette) - default: -10&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lw</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s1">&#39;lw&#39;</span><span class="p">,</span> <span class="s1">&#39;limit weight - default: 2.00e-003&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_te</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;te&#39;</span><span class="p">,</span> <span class="s1">&#39;trace excluded modifier&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tE</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;tE&#39;</span><span class="p">,</span> <span class="s1">&#39;trace excluded modifiers file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ti</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;ti&#39;</span><span class="p">,</span> <span class="s1">&#39;trace included modifier&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tI</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;tI&#39;</span><span class="p">,</span> <span class="s1">&#39;trace included modifiers file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_af</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;af&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ae</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;ae&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient excluded modifier&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aE</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;aE&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient excluded modifiers file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ai</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s1">&#39;ai&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient included modifier&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aI</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;aI&#39;</span><span class="p">,</span> <span class="s1">&#39;ambient included modifiers file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;error file&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_setattr_check</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_on_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;This method executes after setting each new attribute.</span>
+
+<span class="sd">        Use this method to add checks that are necessary for OptionCollection. For</span>
+<span class="sd">        instance in rtrace option collection -ti and -te are exclusive. You can include a</span>
+<span class="sd">        check to ensure this is always correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># -i and -I cannot both be True.</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">I</span> <span class="o">==</span> <span class="kc">True</span><span class="p">),</span> \
+            <span class="s1">&#39;You can either set -i or -I to True not both.&#39;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ti</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">te</span><span class="o">.</span><span class="n">is_set</span><span class="p">),</span> \
+            <span class="s1">&#39;Both ti and te are set. The program can use either an include list or &#39;</span> \
+            <span class="s1">&#39;an exclude list, but not both.&#39;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tI</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">tE</span><span class="o">.</span><span class="n">is_set</span><span class="p">),</span> \
+            <span class="s1">&#39;Both tI and tE are set. The program can use either an include list or &#39;</span> \
+            <span class="s1">&#39;an exclude list, but not both.&#39;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ai</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">ae</span><span class="o">.</span><span class="n">is_set</span><span class="p">),</span> \
+            <span class="s1">&#39;Both ai and ae are set. The program can use either an include list or &#39;</span> \
+            <span class="s1">&#39;an exclude list, but not both.&#39;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aI</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">aE</span><span class="o">.</span><span class="n">is_set</span><span class="p">),</span> \
+            <span class="s1">&#39;Both aI and aE are set. The program can use either an include list or &#39;</span> \
+            <span class="s1">&#39;an exclude list, but not both.&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="s1">&#39;t&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">o</span><span class="o">.</span><span class="n">to_radiance</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> \
+                <span class="s1">&#39;Multiple processes also do not work properly with ray tree output&#39;</span> \
+                <span class="s1">&#39; using any of the `-o*t*` options.&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> \
+                <span class="s1">&#39;There is no benefit from specifying more processes than the -x &#39;</span> \
+                <span class="s1">&#39;setting, which forces a wait at each flush.&#39;</span>
+
+        <span class="c1"># if aa == 0 and ar is set warn user that ar value doesn&#39;t matter</span>
+
+<div class="viewcode-block" id="RtraceOptions.direct_studies"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.rtrace.html#honeybee_radiance_command.options.rtrace.RtraceOptions.direct_studies">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">direct_studies</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Options for direct studies.</span>
+
+<span class="sd">        In particular this classmethod will set options below:</span>
+<span class="sd">        irradiance_calc (-I) = True</span>
+<span class="sd">        ambient_bounces (-ab) = 0</span>
+<span class="sd">        direct_certainty (-dc) = 1</span>
+<span class="sd">        direct_threshold (-dt) = 0</span>
+<span class="sd">        direct_jitter (-dj) = 0</span>
+<span class="sd">        direct_sec_relays (-dr) = 0</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cls_</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">I</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">ab</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">dc</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">dj</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cls_</span><span class="o">.</span><span class="n">dr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">cls_</span></div>
+
+<div class="viewcode-block" id="RtraceOptions.adjust_limit_weight"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.rtrace.html#honeybee_radiance_command.options.rtrace.RtraceOptions.adjust_limit_weight">[docs]</a>    <span class="k">def</span> <span class="nf">adjust_limit_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adjust lw to be 1 / ad if the value is larger than 1 / ad.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ad</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-ad is not set.&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">suggested_lw</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">ad</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="c1"># ambient_divisions is not set</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="c1"># ambient_divisions is set to 0!</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">lw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lw</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="c1"># lw is not set so let&#39;s set the value</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-lw is set to </span><span class="si">%f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">suggested_lw</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lw</span> <span class="o">=</span> <span class="n">suggested_lw</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">lw</span> <span class="o">&gt;</span> <span class="n">suggested_lw</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-lw is set to </span><span class="si">%f</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">suggested_lw</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">lw</span> <span class="o">=</span> <span class="n">suggested_lw</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-lw (</span><span class="si">{}</span><span class="s1">) is already &lt;= </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lw</span><span class="p">,</span> <span class="n">suggested_lw</span><span class="p">))</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Number of rendering processes - default: 1</span>
+
+<span class="sd">        Execute in parallel on nproc local processes.</span>
+
+<span class="sd">        Note:</span>
+
+<span class="sd">        This option is incompatible with the -P and -PP, options. Multiple processes also</span>
+<span class="sd">        do not work properly with ray tree output using any of the `-o*t*` options. There</span>
+<span class="sd">        is no benefit from specifying more processes than there are cores available on</span>
+<span class="sd">        the system or the -x setting, which forces a wait at each flush.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span>
+
+    <span class="nd">@n</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Flush interval - default: 0</span>
+
+<span class="sd">        Set the x resolution to res. The output will be flushed after every res input</span>
+<span class="sd">        rays if -y is set to zero. A value of one means that every ray will be flushed,</span>
+<span class="sd">        whatever the setting of -y. A value of zero means that no output flushing will</span>
+<span class="sd">        take place.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Y resolution - default: 0</span>
+
+<span class="sd">        Set the y resolution to res. The program will exit after res scanlines have been</span>
+<span class="sd">        processed, where a scanline is the number of rays given by the -x option, or 1 if</span>
+<span class="sd">        -x is zero. A value of zero means the program will not halt until the end of file</span>
+<span class="sd">        is reached.</span>
+
+<span class="sd">        If both -x and -y options are given, a resolution string is printed at the</span>
+<span class="sd">        beginning of the output. This is mostly useful for recovering image dimensions</span>
+<span class="sd">        with pvalue, and for creating valid Radiance picture files using the color output</span>
+<span class="sd">        format. (See the -f option, above.)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+
+    <span class="nd">@y</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ld</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Limit distance - default: off&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ld</span>
+
+    <span class="nd">@ld</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ld</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ld</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Output header - default: on</span>
+
+<span class="sd">        Boolean switch for information header on output</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h</span>
+
+    <span class="nd">@h</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Format input/output = ascii/ascii - default: faa</span>
+
+<span class="sd">        Format input according to the character `i` and output according to the character</span>
+<span class="sd">        `o`. Rtrace understands the following input and output formats</span>
+<span class="sd">        - `a` for ascii</span>
+<span class="sd">        - `f` for single-precision floating point</span>
+<span class="sd">        - `d` for double-precision floating point</span>
+
+<span class="sd">        In addition to these three choices, the character `c` may be used to denote</span>
+<span class="sd">        4-byte floating point (Radiance) color format for the output of values only (-ov</span>
+<span class="sd">        option, below). If the output character is missing, the input format is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fio</span>
+
+    <span class="nd">@fio</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">fio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fio</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">o</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Output value - default: ov</span>
+<span class="sd">        -o[spec]</span>
+
+<span class="sd">        Produce output fields according to spec. Characters are interpreted as follows:</span>
+<span class="sd">        o - origin (input)</span>
+<span class="sd">        d - direction (normalized)</span>
+<span class="sd">        v - value (radiance)</span>
+<span class="sd">        V - contribution (radiance)</span>
+<span class="sd">        w - weight</span>
+<span class="sd">        W - color coefficient</span>
+<span class="sd">        l - effective length of ray</span>
+<span class="sd">        L - first intersection distance</span>
+<span class="sd">        c - local (u,v) coordinates</span>
+<span class="sd">        p - point of intersection</span>
+<span class="sd">        n - normal at intersection (perturbed)</span>
+<span class="sd">        N - normal at intersection (unperturbed)</span>
+<span class="sd">        s - surface name</span>
+<span class="sd">        m - modifier name</span>
+<span class="sd">        M - material name</span>
+<span class="sd">        ~ tilde (end of trace marker)</span>
+<span class="sd">        If the letter `t` appears in spec, then the fields following will be printed for</span>
+<span class="sd">        every ray traced, not just the final result. If the capital letter `T` is given</span>
+<span class="sd">        instead of `t`, then all rays will be reported, including shadow testing rays to</span>
+<span class="sd">        light sources. Spawned rays are indented one tab for each level. The tilde</span>
+<span class="sd">        marker (`~`) is a handy way of differentiating the final ray value from daughter</span>
+<span class="sd">        values in a traced ray tree, and usually appears right before the `t` or `T`</span>
+<span class="sd">        output flags. E.g., -ov~TmW will emit a tilde followed by a tab at the end of</span>
+<span class="sd">        each trace, which can be easily distinguished even in binary output.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_o</span>
+
+    <span class="nd">@o</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">o</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_o</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">te</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append modifier to the trace exclude list.</span>
+
+<span class="sd">        The excluded modifier will not be reported by the trace option `-o*t*`. Any ray</span>
+<span class="sd">        striking an object having mod as its modifier will not be reported to the</span>
+<span class="sd">        standard output with the rest of the rays being traced. This option has no</span>
+<span class="sd">        effect unless either the `t` or `T` option has been given as part of the output</span>
+<span class="sd">        specifier. Any number of excluded modifiers may be given, but each must appear in</span>
+<span class="sd">        a separate option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_te</span>
+
+    <span class="nd">@te</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">te</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_te</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ti</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add modifier to the trace include list.</span>
+
+<span class="sd">        Add modifier to the trace include list, so that it will be reported by the trace</span>
+<span class="sd">        option. The program can use either an include list or an exclude list, but not</span>
+<span class="sd">        both.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ti</span>
+
+    <span class="nd">@ti</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ti</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ti</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append modifier to the trace exclude list from file.</span>
+
+<span class="sd">        Same as -te, except read modifiers to be excluded from file. The RAYPATH</span>
+<span class="sd">        environment variable determines which directories are searched for this file. The</span>
+<span class="sd">        modifier names are separated by white space in the file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tE</span>
+
+    <span class="nd">@tE</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tE</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add modifier to the trace include list from file.</span>
+
+<span class="sd">        Same as -ti, except read modifiers to be included from file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tI</span>
+
+    <span class="nd">@tI</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tI</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tI</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Warning messages - default: on&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span>
+
+    <span class="nd">@w</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send error messages and progress reports to efile.</span>
+
+<span class="sd">        By default the error messages are directed to standard error.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e</span>
+
+    <span class="nd">@e</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Irradiance calculation - default: off</span>
+
+<span class="sd">        Boolean switch to compute irradiance rather than radiance values. This</span>
+<span class="sd">        only affects the final result, substituting a Lambertian surface and</span>
+<span class="sd">        multiplying the radiance by pi. Glass and other transparent surfaces are</span>
+<span class="sd">        ignored during this stage. Light sources still appear with their original</span>
+<span class="sd">        radiance values, though the -dv option (below) may be used to override</span>
+<span class="sd">        this. This option is especially useful in conjunction with ximage for computing</span>
+<span class="sd">        illuminance at scene points.</span>
+
+<span class="sd">        Keep in mind that -i sends a ray into the scene and calculates the incident</span>
+<span class="sd">        irradiance at that surface point. For calculating irradiance at the sensor point</span>
+<span class="sd">        see -I.</span>
+
+<span class="sd">        For understanding the difference between -i and -I see here:</span>
+<span class="sd">        https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span>
+
+    <span class="nd">@i</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Irradiance calculation switch - default: off</span>
+
+<span class="sd">        Boolean switch to compute irradiance rather than radiance, with the input origin</span>
+<span class="sd">        and direction interpreted instead as measurement point and orientation.</span>
+
+<span class="sd">        For understanding the difference between -i and -I see here:</span>
+<span class="sd">        https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_I</span>
+
+    <span class="nd">@I</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">u</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Uncorrelated Monte Carlo sampling - default: on</span>
+
+<span class="sd">        Boolean switch to control uncorrelated random sampling. When &quot;off&quot;, a</span>
+<span class="sd">        low-discrepancy sequence is used, which reduces variance but can result</span>
+<span class="sd">        in a brushed appearance in specular highlights. When &quot;on&quot;, pure Monte</span>
+<span class="sd">        Carlo sampling is used in all calculations.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span>
+
+    <span class="nd">@u</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">u</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_u</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Back face visibility - default: on</span>
+
+<span class="sd">        Boolean switch for back face visibility. With this switch off, back faces of</span>
+<span class="sd">        opaque objects will be invisible to all rays. This is dangerous unless the model</span>
+<span class="sd">        was constructed such that all surface normals on opaque objects face outward.</span>
+<span class="sd">        Although turning off back face visibility does not save much computation time</span>
+<span class="sd">        under most circumstances, it may be useful as a tool for scene debugging, or for</span>
+<span class="sd">        seeing through one-sided walls from the outside. This option has no effect on</span>
+<span class="sd">        transparent or translucent materials.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bv</span>
+
+    <span class="nd">@bv</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">bv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_bv</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct threshold - default: 0.030000</span>
+
+<span class="sd">        Set the direct threshold to frac. Shadow testing will stop when the</span>
+<span class="sd">        potential contribution of at least the next and at most all remaining</span>
+<span class="sd">        light source samples is less than this fraction of the accumulated value.</span>
+<span class="sd">        The remaining light source contributions are approximated statistically.</span>
+<span class="sd">        A value of zero means that all light source samples will be tested for</span>
+<span class="sd">        shadow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+
+    <span class="nd">@dt</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct certainty - default: 0.750000</span>
+
+<span class="sd">        Set the direct certainty to frac. A value of one guarantees that the</span>
+<span class="sd">        absolute accuracy of the direct calculation will be equal to or better</span>
+<span class="sd">        than that given in the -dt specification. A value of zero only insures</span>
+<span class="sd">        that all shadow lines resulting in a contrast change greater than the</span>
+<span class="sd">        -dt specification will be calculated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dc</span>
+
+    <span class="nd">@dc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dc</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dj</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct jitter - default: 0.000000</span>
+
+<span class="sd">        Set the direct jittering to frac. A value of zero samples each source</span>
+<span class="sd">        at specific sample points (see the -ds option below), giving a smoother</span>
+<span class="sd">        but somewhat less accurate rendering. A positive value causes rays to</span>
+<span class="sd">        be distributed over each source sample according to its size,</span>
+<span class="sd">        resulting in more accurate penumbras. This option should never be</span>
+<span class="sd">        greater than 1, and may even cause problems (such as speckle) when the</span>
+<span class="sd">        value is smaller. A warning about aiming failure will issued if frac is</span>
+<span class="sd">        too large. It is usually wise to turn off image sampling when using</span>
+<span class="sd">        direct jitter by setting -ps to 1.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dj</span>
+
+    <span class="nd">@dj</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dj</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct sampling - default: 0.200000</span>
+
+<span class="sd">        Set the direct sampling ratio to frac. A light source will be subdivided</span>
+<span class="sd">        until the width of each sample area divided by the distance to the</span>
+<span class="sd">        illuminated point is below this ratio. This assures accuracy in regions</span>
+<span class="sd">        close to large area sources at a slight computational expense. A value</span>
+<span class="sd">        of zero turns source subdivision off, sending at most one shadow ray to</span>
+<span class="sd">        each light source.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span>
+
+    <span class="nd">@ds</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ds</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct relays - default: 2</span>
+
+<span class="sd">        Set the number of relays for secondary sources to N. A value of 0 means</span>
+<span class="sd">        that secondary sources will be ignored. A value of 1 means that sources</span>
+<span class="sd">        will be made into first generation secondary sources; a value of 2 means</span>
+<span class="sd">        that first generation secondary sources will also be made into second</span>
+<span class="sd">        generation secondary sources, and so on.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span>
+
+    <span class="nd">@dr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct pretest density - default: 512</span>
+
+<span class="sd">        Set the secondary source presampling density to D. This is the number of</span>
+<span class="sd">        samples per steradian that will be used to determine ahead of time</span>
+<span class="sd">        whether or not it is worth following shadow rays through all the</span>
+<span class="sd">        reflections and/or transmissions associated with a secondary source path.</span>
+<span class="sd">        A value of 0 means that the full secondary source path will always be</span>
+<span class="sd">        tested for shadows if it is tested at all.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dp</span>
+
+    <span class="nd">@dp</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dp</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Direct visibility - default: on</span>
+
+<span class="sd">        Boolean switch for light source visibility. With this switch off, sources will be</span>
+<span class="sd">        black when viewed directly although they will still participate in the direct</span>
+<span class="sd">        calculation. This option is mostly for the program `mkillum` to avoid</span>
+<span class="sd">        inappropriate counting of light sources, but it may also be desirable in</span>
+<span class="sd">        conjunction with the -i option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dv</span>
+
+    <span class="nd">@dv</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dv</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ss</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specular sampling - default: 1.000000</span>
+
+<span class="sd">        Set the specular sampling to samp. For values less than 1, this is the</span>
+<span class="sd">        degree to which the highlights are sampled for rough specular materials.</span>
+<span class="sd">        A value greater than one causes multiple ray samples to be sent to reduce</span>
+<span class="sd">        noise at a commmesurate cost. A value of zero means that no jittering</span>
+<span class="sd">        will take place, and all reflections will appear sharp even when they</span>
+<span class="sd">        should be diffuse. This may be desirable when used in combination with</span>
+<span class="sd">        image sampling to obtain faster renderings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ss</span>
+
+    <span class="nd">@ss</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ss</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">st</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specular threshold - default: 0.150000</span>
+
+<span class="sd">        Set the specular sampling threshold to frac. This is the minimum</span>
+<span class="sd">        fraction of reflection or transmission, under which no specular sampling</span>
+<span class="sd">        is performed. A value of zero means that highlights will always be</span>
+<span class="sd">        sampled by tracing reflected or transmitted rays. A value of one means</span>
+<span class="sd">        that specular sampling is never used. Highlights from light sources</span>
+<span class="sd">        will always be correct, but reflections from other surfaces will be</span>
+<span class="sd">        approximated using an ambient value. A sampling threshold between zero</span>
+<span class="sd">        and one offers a compromise between image accuracy and rendering time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_st</span>
+
+    <span class="nd">@st</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">st</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_st</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">av</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient value - default: 0.000000 0.000000 0.000000</span>
+
+<span class="sd">        Set the ambient value to a radiance of red grn blu . This is the final value used</span>
+<span class="sd">        in place of an indirect light calculation. If the number of ambient bounces is</span>
+<span class="sd">        one or greater and the ambient value weight is non-zero (see -aw and -ab below),</span>
+<span class="sd">        this value may be modified by the computed indirect values to improve overall</span>
+<span class="sd">        accuracy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_av</span>
+
+    <span class="nd">@av</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">av</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_av</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient value weight - default: 0</span>
+
+<span class="sd">        Set the relative weight of the ambient value given with the -av option. As</span>
+<span class="sd">        new indirect irradiances are computed, they will modify the default ambient</span>
+<span class="sd">        value in a moving average, with the specified weight assigned to the initial</span>
+<span class="sd">        value given on the command and all other weights set to 1. If a value of 0 is</span>
+<span class="sd">        given with this option, then the initial ambient value is never modified. This is</span>
+<span class="sd">        the safest value for scenes with large differences in indirect contributions,</span>
+<span class="sd">        such as when both indoor and outdoor (daylight) areas are visible.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aw</span>
+
+    <span class="nd">@aw</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">aw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ab</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient bounces - default: 0</span>
+
+<span class="sd">        Number of ambient bounces. This is the maximum number of diffuse bounces computed</span>
+<span class="sd">        by the indirect calculation. A value of zero implies no indirect calculation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ab</span>
+
+    <span class="nd">@ab</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ab</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient accuracy - default: 0.100000</span>
+
+<span class="sd">        Number of ambient accuracy. This value will approximately equal the error from</span>
+<span class="sd">        indirect illuminance interpolation. A value of zero implies no interpolation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aa</span>
+
+    <span class="nd">@aa</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">aa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aa</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient resolution - default: 256</span>
+
+<span class="sd">        This number will determine the maximum density of ambient values used in</span>
+<span class="sd">        interpolation. Error will start to increase on surfaces spaced closer than the</span>
+<span class="sd">        scene size divided by the ambient resolution. The maximum ambient value density</span>
+<span class="sd">        is the scene size times the ambient accuracy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ar</span>
+
+    <span class="nd">@ar</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ar</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient divisions - default: 1024</span>
+
+<span class="sd">        Number of ambient divisions. The error in the Monte Carlo calculation of indirect</span>
+<span class="sd">        illuminance will be inversely proportional to the square root of this number. A</span>
+<span class="sd">        value of zero implies no indirect calculation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ad</span>
+
+    <span class="nd">@ad</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ad</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">as_</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Ambient super-samples - default: 512</span>
+
+<span class="sd">        Number of ambient super-samples. Super-samples are applied only to the ambient</span>
+<span class="sd">        divisions which show a significant change.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_as</span>
+
+    <span class="nd">@as_</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">as_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_as</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ae</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append modifier to the ambient exclude list.</span>
+
+<span class="sd">        So that it will not be considered during the indirect calculation. This is a hack</span>
+<span class="sd">        for speeding the indirect computation by ignoring certain objects. Any object</span>
+<span class="sd">        having mod as its modifier will get the default ambient level rather than a</span>
+<span class="sd">        calculated value. Any number of excluded modifiers may be given, but each must</span>
+<span class="sd">        appear in a separate option.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ae</span>
+
+    <span class="nd">@ae</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ae</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ae</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ai</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add modifier to the ambient include list.</span>
+
+<span class="sd">        So that it will be considered during the indirect calculation. The program can</span>
+<span class="sd">        use either an include list or an exclude list, but not both.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ai</span>
+
+    <span class="nd">@ai</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ai</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ai</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aE</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Append modifier to the ambient exclude list from file.</span>
+
+<span class="sd">        Same as -ae, except read modifiers to be excluded from file. The RAYPATH</span>
+<span class="sd">        environment variable determines which directories are searched for this file. The</span>
+<span class="sd">        modifier names are separated by white space in the file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aE</span>
+
+    <span class="nd">@aE</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">aE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aE</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">aI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add modifier to the ambient include list from file.</span>
+
+<span class="sd">        Same as -ai, except read modifiers to be included from file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aI</span>
+
+    <span class="nd">@aI</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">aI</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_aI</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">af</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the ambient file to filename.</span>
+
+<span class="sd">        This is where indirect illuminance will be stored and retrieved. Normally,</span>
+<span class="sd">        indirect illuminance values are kept in memory and lost when the program</span>
+<span class="sd">        finishes or dies. By using a file, different invocations can share illuminance</span>
+<span class="sd">        values, saving time in the computation. The ambient file is in a</span>
+<span class="sd">        machine-independent binary format which can be examined with lookamb.</span>
+
+<span class="sd">        The ambient file may also be used as a means of communication and data sharing</span>
+<span class="sd">        between simultaneously executing processes. The same file may be used by multiple</span>
+<span class="sd">        processes, possibly running on different machines and accessing the file via the</span>
+<span class="sd">        network (ie. nfs(4)). The network lock manager lockd(8) is used to insure that</span>
+<span class="sd">        this information is used consistently.</span>
+
+<span class="sd">        If any calculation parameters are changed or the scene is modified, the old</span>
+<span class="sd">        ambient file should be removed so that the calculation can start over from</span>
+<span class="sd">        scratch. For convenience, the original ambient parameters are listed in the</span>
+<span class="sd">        header of the ambient file. Getinfo(1) may be used to print out this information.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_af</span>
+
+    <span class="nd">@af</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">af</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_af</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mist extinction coefficient - default: 0.00e+000 0.00e+000 0.00e+000</span>
+
+<span class="sd">        Set the global medium extinction coefficient to the indicated color, in units of</span>
+<span class="sd">        1/distance (distance in world coordinates). Light will be scattered or absorbed</span>
+<span class="sd">        over distance according to this value. The ratio of scattering to total</span>
+<span class="sd">        scattering plus absorption is set by the albedo parameter, described below.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_me</span>
+
+    <span class="nd">@me</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">me</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_me</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ma</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mist scattering albedo - default: 0.000000 0.000000 0.000000</span>
+
+<span class="sd">        Set the global medium albedo to the given value between 0 0 0 and 1 1 1. A zero</span>
+<span class="sd">        value means that all light not transmitted by the medium is absorbed. A unitary</span>
+<span class="sd">        value means that all light not transmitted by the medium is scattered in some new</span>
+<span class="sd">        direction. The isotropy of scattering is determined by the Heyney-Greenstein</span>
+<span class="sd">        parameter, described below.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ma</span>
+
+    <span class="nd">@ma</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ma</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mist scattering eccentricity - default: 0.000000</span>
+
+<span class="sd">        Set the medium Heyney-Greenstein eccentricity parameter. This parameter</span>
+<span class="sd">        determines how strongly scattering favors the forward direction. A value of 0</span>
+<span class="sd">        indicates perfectly isotropic scattering. As this parameter approaches 1,</span>
+<span class="sd">        scattering tends to prefer the forward direction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mg</span>
+
+    <span class="nd">@mg</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mg</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mist sampling distance - default: 0.000000</span>
+
+<span class="sd">        Set the medium sampling distance, in world coordinate units. During source</span>
+<span class="sd">        scattering, this will be the average distance between adjacent samples. A</span>
+<span class="sd">        value of 0 means that only one sample will be taken per light source within a</span>
+<span class="sd">        given scattering volume.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ms</span>
+
+    <span class="nd">@ms</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">ms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ms</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Limit reflection (Russian roulette) - default: -10</span>
+
+<span class="sd">        Limit reflections to a maximum of N, if N is a positive integer. If N</span>
+<span class="sd">        is zero, then Russian roulette is used for ray termination, and the</span>
+<span class="sd">        -lw setting (below) must be positive. If N is a negative integer, then</span>
+<span class="sd">        this sets the upper limit of reflections past which Russian roulette</span>
+<span class="sd">        will be used. In scenes with dielectrics and total internal reflection,</span>
+<span class="sd">        a setting of 0 (no limit) may cause a stack overflow.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lr</span>
+
+    <span class="nd">@lr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">lr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lr</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">lw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Limit weight - default: 2.00e-003</span>
+
+<span class="sd">        Limit the weight of each ray to a minimum of frac. During ray-tracing,</span>
+<span class="sd">        a record is kept of the estimated contribution (weight) a ray would have</span>
+<span class="sd">        in the image. If this weight is less than the specified minimum and the</span>
+<span class="sd">        -lr setting (above) is positive, the ray is not traced. Otherwise,</span>
+<span class="sd">        Russian roulette is used to continue rays with a probability equal to</span>
+<span class="sd">        the ray weight divided by the given frac.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lw</span>
+
+    <span class="nd">@lw</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">lw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lw</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2021, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
