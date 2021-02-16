@@ -17,7 +17,8 @@ class RcontribOptions(RtraceOptions):
     """
 
     __slots__ = (
-        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M', '_o', '_ap'
+        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M', '_o', '_ap',
+        '_t'
     )
 
     def __init__(self):
@@ -40,6 +41,8 @@ class RcontribOptions(RtraceOptions):
         self._m = StringOption('m', 'modifier name')
         self._M = FileOption('M', 'modifiers file')
         self._ap = FileOption('ap', 'photon map contribution support')
+        self._t = IntegerOption(
+            't', 'optional input for reporting intervals in seconds.')
         self._on_setattr_check = True
 
     def _on_setattr(self):
@@ -237,3 +240,12 @@ class RcontribOptions(RtraceOptions):
     @ap.setter
     def ap(self, value):
         self._ap.value = value
+
+    @property
+    def t(self):
+        """Optional interval in seconds to report the progress."""
+        return self._t
+
+    @t.setter
+    def t(self, value):
+        self._t.value = value
