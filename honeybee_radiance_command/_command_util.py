@@ -1,12 +1,15 @@
 """Utility functions to process and run shell commands."""
+from __future__ import print_function  # hello Python 2 - let's say bye soon.
+
 import subprocess
 import re
 import shlex
 import platform
 import os
+import sys
 
 
-def run_command(input_command, env=None, cwd=None):
+def run_command(input_command, env=None, cwd=None, mute=True):
     """Run a shell command.
 
     Args:
@@ -33,32 +36,35 @@ def run_command(input_command, env=None, cwd=None):
                 g_env['PATH'] = os.pathsep.join((v, g_env['PATH']))
             else:
                 g_env[k] = v
+    command = command.replace('\\', '/')
+    if not mute:
+        print('running %s' % command)
 
     process = subprocess.Popen(
-        command.replace('\\', '/'), stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
         stderr=subprocess.PIPE, shell=True, env=g_env
     )
 
-    if process.stdout:
-        while True:
-            output = process.stdout.readline()
-            if (output == b'' or output == '') and process.poll() is not None:
-                break
-            if output:
-                print(output.strip())
-        stderr = process.stderr
-        rc = process.poll()
-    else:
-        # stdout is redirected to a file
-        _, stderr = process.communicate()
-        rc = process.returncode
+    while True:
+        stderr_output = process.stderr.readline()
+        if stderr_output:
+            print(stderr_output, file=sys.stderr)
+        output = process.stdout.readline()
+        if (output == b'' or output == '') and process.poll() is not None:
+            break
+        if output:
+            print(output.strip())
+
+    rc = process.poll()
+    # wait until the job is done
+    process.communicate()
+    rc = process.returncode
 
     if cwd:
         os.chdir(cur_dir)
 
     if rc != 0:
-        errors = _stream_file_content(stderr)
-        raise RuntimeError(errors)
+        raise RuntimeError('None zero return code: %d' % rc)
 
     # only gets here is successful
     return 0
