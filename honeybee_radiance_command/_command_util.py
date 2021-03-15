@@ -9,8 +9,17 @@ import os
 import sys
 
 
+if sys.version_info[0] < 3:
+    STDOUT_CHECK = ''
+else:
+    STDOUT_CHECK = b''
+
+
 def run_command(input_command, env=None, cwd=None, mute=True):
     """Run a shell command.
+
+    This function prints both STDOUT and STDERR to the same PIPE. Use shell piping
+    to pipe the stdout from the commands to a file.
 
     Args:
         input_command: Input command.
@@ -36,27 +45,26 @@ def run_command(input_command, env=None, cwd=None, mute=True):
                 g_env['PATH'] = os.pathsep.join((v, g_env['PATH']))
             else:
                 g_env[k] = v
+
+    g_env['PYTHONUNBUFFERED'] = '1'  # ensure stdout will not be buffered
+
     command = command.replace('\\', '/')
     if not mute:
         print('running %s' % command)
 
     process = subprocess.Popen(
         command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE, shell=True, env=g_env
+        stderr=subprocess.STDOUT, shell=True, env=g_env
     )
 
-    while True:
-        stderr_output = process.stderr.readline()
-        if stderr_output:
-            print(stderr_output, file=sys.stderr)
-        output = process.stdout.readline()
-        if (output == b'' or output == '') and process.poll() is not None:
-            break
-        if output:
-            print(output.strip())
+    for line in iter(process.stdout.readline, STDOUT_CHECK):
+        try:
+            # Python 3 - almost all the time that we use this library
+            print(line.decode('utf-8'), end='')
+        except AttributeError:
+            # python 2 - line is already a string
+            print(line, end='')
 
-    rc = process.poll()
-    # wait until the job is done
     process.communicate()
     rc = process.returncode
 
