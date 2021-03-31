@@ -74,7 +74,7 @@ class RpictOptions(OptionCollection):
     def __init__(self):
         """rpict command options."""
         self._vt = StringOptionJoined(
-            "vt", "view type - default: vtv",
+            "vt", "view type - default: v",
             value='v',
             valid_values=['v', 'l', 'c', 'h', 'a', 's'],
             whole=False
@@ -183,7 +183,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def vt(self):
-        """view type perspective - default: vtv
+        """view type perspective - default: v
 
         1. 'v' sets a perspective view.
         2. 'l' sets parallel view.
