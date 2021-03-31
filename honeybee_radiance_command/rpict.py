@@ -30,16 +30,17 @@ class Rpict(Command):
     @property
     def options(self):
         """Rpict options."""
-        if not self._options:
-            self._options = RpictOptions()
         return self._options
 
     @options.setter
-    def options(self, prop, value):
-        if value:
-            assert hasattr(self._options, prop), 'Expected RpictOptions'
-            ' not {}'.format(prop)
-            self._options.prop = value
+    def options(self, value):
+        if value is None:
+            value = RpictOptions()
+
+        if not isinstance(value, RpictOptions):
+            raise ValueError('Expected RpictOptions not {}'.format(type(value)))
+
+        self._options = value
 
     @property
     def octree(self):

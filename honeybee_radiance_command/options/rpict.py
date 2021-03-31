@@ -8,6 +8,7 @@ from .optionbase import (
     TupleOption,
     FileOption
 )
+import warnings
 
 
 class RpictOptions(OptionCollection):
@@ -72,7 +73,7 @@ class RpictOptions(OptionCollection):
     def __init__(self):
         """rpict command options."""
         self._vt = StringOptionJoined(
-            "vt", "view type perspective - default: vtv",
+            "vt", "view type perspective - default: v",
             valid_values=['v', 'l', 'c', 'h', 'a', 's'],
             whole=False
         )
@@ -159,21 +160,28 @@ class RpictOptions(OptionCollection):
         You can include a
         check to ensure this is always correct.
         """
-        assert not (self._dj > 0.0 and self._ps != -1), \
-            'It is usually wise to turn off image sampling when using direct jitter.'
+
         assert not (self._ai.is_set and self._ae.is_set), \
             'Both ai and ae are set. The program can use either an include list or ' \
             'an exclude list, but not both.'
         assert not (self._aI.is_set and self._aE.is_set), \
             'Both aI and aE are set. The program can use either an include list or ' \
             'an exclude list, but not both.'
-        assert (self._i and not self._dv), \
-            'If irradiance values are requested, it is better to keep -dv off so that' \
-            'light sources do not appear with their original radiance values.'
+
+        if not self._dj > 0.0 and self._ps != -1:
+            warnings.warn(
+                'It is usually wise to turn off image sampling when using direct jitter.'
+            )
+        if self._i and not self._dv:
+            warnings.warn(
+                'If irradiance values are requested, it is better to keep -dv off'
+                ' so that light sources do not appear with their original radiance'
+                ' values.'
+            )
 
     @property
     def vt(self):
-        """view type perspective - default: vtv
+        """view type perspective - default: v
 
         1. 'v' sets a perspective view.
         2. 'l' sets parallel view.
