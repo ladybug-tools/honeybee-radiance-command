@@ -1,3 +1,4 @@
+# coding: utf-8
 from .optionbase import (
     OptionCollection,
     BoolOption,
