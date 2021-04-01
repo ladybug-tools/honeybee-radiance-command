@@ -21,11 +21,10 @@ class Rpict(Command):
             octree: File path to the octree file (Default: None).
             view: File path to the octree file (Default: None).
         """
-        Command.__init__(self, options, output)
+        Command.__init__(self, output=output)
         self.options = options
-        self.output = output
-        self._octree = octree
-        self._view = view
+        self.octree = octree
+        self.view = view
 
     @property
     def options(self):
@@ -45,12 +44,14 @@ class Rpict(Command):
     @property
     def octree(self):
         """Octree file."""
-        return self.octree
+        return self._octree
 
     @octree.setter
     def octree(self, value):
-        if value:
-            self.octree = typing.normpath(value)
+        if value is None:
+            self._octree = value
+        else:
+            self._octree = typing.normpath(value)
 
     @property
     def view(self):
@@ -59,7 +60,9 @@ class Rpict(Command):
 
     @view.setter
     def view(self, value):
-        if value:
+        if value is None:
+            self._view = None
+        else:
             self._view = typing.normpath(value)
 
     def to_radiance(self, stdin_input=False):

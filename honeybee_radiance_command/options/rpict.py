@@ -73,10 +73,12 @@ class RpictOptions(OptionCollection):
 
     def __init__(self):
         """rpict command options."""
+
+        OptionCollection.__init__(self)
         self._vt = StringOptionJoined(
-            "vt", "view type - default: v",
-            value='v',
-            valid_values=['v', 'l', 'c', 'h', 'a', 's'],
+            "vt",
+            "view type - default: vtv",
+            valid_values=["v", "l", "c", "h", "a", "s"],
             whole=False
         )
         self._vp = TupleOption(
@@ -169,21 +171,23 @@ class RpictOptions(OptionCollection):
         assert not (self._aI.is_set and self._aE.is_set), \
             'Both aI and aE are set. The program can use either an include list or ' \
             'an exclude list, but not both.'
-
-        if not self._dj > 0.0 and self._ps != -1:
-            warnings.warn(
+        
+        if self._dj.is_set and self._ps.is_set:
+            if not (self._dj > 0.0 and self._ps != -1):
+                warnings.warn(
                 'It is usually wise to turn off image sampling when using direct jitter.'
-            )
-        if self._i and not self._dv:
-            warnings.warn(
-                'If irradiance values are requested, it is better to keep -dv off'
-                ' so that light sources do not appear with their original radiance'
-                ' values.'
-            )
+                )
+        if self._i.is_set and self._dv.is_set:
+            if self._i and not self._dv:
+                warnings.warn(
+                    'If irradiance values are requested, it is better to keep -dv off'
+                    ' so that light sources do not appear with their original radiance'
+                    ' values.'
+                )
 
     @property
     def vt(self):
-        """view type perspective - default: v
+        """view type perspective - default: vtv
 
         1. 'v' sets a perspective view.
         2. 'l' sets parallel view.
