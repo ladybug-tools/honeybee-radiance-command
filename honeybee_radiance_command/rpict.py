@@ -33,7 +33,7 @@ class Rpict(Command):
 
     @options.setter
     def options(self, value):
-        if value is None:
+        if not value:
             value = RpictOptions()
 
         if not isinstance(value, RpictOptions):
@@ -48,7 +48,7 @@ class Rpict(Command):
 
     @octree.setter
     def octree(self, value):
-        if value is None:
+        if not value:
             self._octree = value
         else:
             self._octree = typing.normpath(value)
@@ -60,7 +60,7 @@ class Rpict(Command):
 
     @view.setter
     def view(self, value):
-        if value is None:
+        if not value:
             self._view = None
         else:
             self._view = typing.normpath(value)
