@@ -2,7 +2,7 @@
 from .optionbase import OptionCollection, BoolOption, NumericOption, IntegerOption
 
 
-class RaGIFOptions(OptionCollection):
+class Ra_GIFOptions(OptionCollection):
     """ra_gif command options.
 
     Also see: https://floyd.lbl.gov/radiance/man_html/ra_gif.1.html
