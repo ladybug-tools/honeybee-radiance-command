@@ -105,19 +105,19 @@ class RpictOptions(OptionCollection):
         self._ps = IntegerOption("ps", "pixel sample - default: 4")
         self._pt = NumericOption("pt", "pixel threshold - default: 0.050000")
         self._t = IntegerOption("t", "time between reports - default: 0")
-        self._w = BoolOption("w", "warning messages - default: on")
-        self._i = BoolOption("i", "irradiance calculation - default: off")
+        self._w = BoolOption("w", "warning messages - default: True")
+        self._i = BoolOption("i", "irradiance calculation - default: False")
         self._u = BoolOption(
-            "u", "correlated quasi-Monte Carlo sampling - default: off"
+            "u", "correlated quasi-Monte Carlo sampling - default: False"
         )
-        self._bv = BoolOption("bv", "back face visibility - default: on")
+        self._bv = BoolOption("bv", "back face visibility - default: True")
         self._dt = NumericOption("dt", "direct threshold - default: 0.050000")
         self._dc = NumericOption("dc", "direct certainty - default: 0.500000")
         self._dj = NumericOption("dj", "direct jitter - default: 0.000000")
         self._ds = NumericOption("ds", "direct sampling - default: 0.250000")
         self._dr = IntegerOption("dr", "direct relays - default: 1")
         self._dp = IntegerOption("dp", "direct pretest density - default: 512")
-        self._dv = BoolOption("dv", "direct visibility - default: on")
+        self._dv = BoolOption("dv", "direct visibility - default: True")
         self._ss = NumericOption("ss", "specular sampling - default: 1.000000")
         self._st = NumericOption("st", "specular threshold - default: 0.150000")
         self._av = TupleOption(
@@ -171,11 +171,12 @@ class RpictOptions(OptionCollection):
         assert not (self._aI.is_set and self._aE.is_set), \
             'Both aI and aE are set. The program can use either an include list or ' \
             'an exclude list, but not both.'
-        
+
         if self._dj.is_set and self._ps.is_set:
             if not (self._dj > 0.0 and self._ps != -1):
                 warnings.warn(
-                'It is usually wise to turn off image sampling when using direct jitter.'
+                    'It is usually wise to turn off image sampling when using direct'
+                    ' jitter.'
                 )
         if self._i.is_set and self._dv.is_set:
             if self._i and not self._dv:
@@ -203,10 +204,6 @@ class RpictOptions(OptionCollection):
         6. 's' sets a planisphere (stereographic) view. A planisphere fisheye view
             maintains angular relationships between lines, and is commonly used for
             sun path analysis. This is more commonly known as a stereographic projection.
-
-        Note:
-
-        There is no space between the view type option and its single letter argument.
         """
         return self._vt
 
@@ -487,7 +484,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def w(self):
-        """warning messages - default: on
+        """warning messages - default: True
 
         Boolean switch for warning messages. The default is to print warnings,
         so the first appearance of this option turns them off.
@@ -500,7 +497,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def i(self):
-        """irradiance calculation - default: off
+        """irradiance calculation - default: False
 
         Boolean switch to compute irradiance rather than radiance values.
         This only affects the final result, substituting a Lambertian surface
@@ -517,7 +514,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def u(self):
-        """correlated quasi-Monte Carlo sampling - default: off
+        """correlated quasi-Monte Carlo sampling - default: False
 
         Boolean switch to control uncorrelated random sampling. When "off",
         a low-discrepancy sequence is used, which reduces variance but can result
@@ -532,7 +529,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def bv(self):
-        """back face visibility - default: on
+        """back face visibility - default: True
 
         Boolean switch for back face visibility. With this switch off,
         back faces of opaque objects will be invisible to all rays.
@@ -654,7 +651,7 @@ class RpictOptions(OptionCollection):
 
     @property
     def dv(self):
-        """direct visibility - default: on
+        """direct visibility - default: True
 
         Boolean switch for light source visibility. With this switch off,
         sources will be black when viewed directly although they will still

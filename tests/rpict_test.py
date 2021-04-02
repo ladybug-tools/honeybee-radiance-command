@@ -37,11 +37,10 @@ def test_validation():
     with pytest.raises(exceptions.MissingArgumentError):
         # missing octree
         rpict.to_radiance()
-
     rpict.octree = 'input.oct'
-    with pytest.raises(exceptions.MissingArgumentError):
-        # missing sensors
-        rpict.to_radiance()
 
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing view file
+        rpict.to_radiance()
     rpict.view = 'view.vf'
     assert rpict.to_radiance() == 'rpict input.oct < view.vf'
