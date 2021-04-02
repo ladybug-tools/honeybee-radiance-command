@@ -2,7 +2,7 @@
 
 """ra_gif command."""
 
-from .options.ra_gif import RaGIFOptions
+from .options.ra_gif import Ra_GIFOptions
 from ._command import Command
 import honeybee_radiance_command._typing as typing
 import honeybee_radiance_command._exception as exceptions
@@ -19,7 +19,7 @@ class Ra_GIF(Command):
         if options:
             self._options = options
         else:
-            self._options = RaGIFOptions()
+            self._options = Ra_GIFOptions()
 
     @property
     def options(self):
@@ -29,9 +29,9 @@ class Ra_GIF(Command):
     @options.setter
     def options(self, value):
         if not value:
-            value = RaGIFOptions()
+            value = Ra_GIFOptions()
 
-        if not isinstance(value, RaGIFOptions):
+        if not isinstance(value, Ra_GIFOptions):
             raise ValueError('Expected RaGIFoptions not {}'.format(value))
 
         self._options = value
