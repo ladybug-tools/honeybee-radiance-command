@@ -45,7 +45,7 @@ class Ra_GIF(Command):
     def input(self, value):
         if value[-4:].lower() != '.hdr':
             raise ValueError(
-                f'Radiance generated HDR required. Instead got {value}.')
+                'Radiance generated HDR required. Instead got %.' % (value))
         else:
             self._input = typing.normpath(value)
 

@@ -83,7 +83,7 @@ class Ra_GIFOptions(OptionCollection):
         else:
             raise ValueError(
                 'Only integers that are power of two are allowed.'
-                f' You provided {value}.')
+                ' You provided %.' % (value))
 
     @property
     def n(self):
