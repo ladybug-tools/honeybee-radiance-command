@@ -1,4 +1,5 @@
 """ra_gif parameters."""
+import math
 from .optionbase import OptionCollection, BoolOption, NumericOption, IntegerOption
 
 
@@ -11,6 +12,7 @@ class Ra_GIFOptions(OptionCollection):
 
     def __init__(self):
         """ra_gif command options."""
+
         OptionCollection.__init__(self)
         self._b = BoolOption("b", "Change image color - default: False")
         self._d = BoolOption("d", "Turn off dithering - default: False")
@@ -20,18 +22,11 @@ class Ra_GIFOptions(OptionCollection):
         self._n = NumericOption("n", "Sampling factor for large images", min_value=1,
                                 max_value=80)
 
-    @staticmethod
-    def _is_power_of_two(value):
-        """True if a given value is power of two."""
-        while (value % 2 == 0):
-            x = value / 2
-        return x == 1
-
     @property
     def b(self):
         """Change image color - default: False
 
-        Covert a radiance generated image to black and white.
+        Convert a radiance generated image to black and white.
         """
         return self._b
 
@@ -50,9 +45,7 @@ class Ra_GIFOptions(OptionCollection):
 
     @property
     def c(self):
-        """Fewer colors
-        This option allows fewer than 256 colors (and fewer than 8 bits per pixel).
-        """
+        """This option allows fewer than 256 colors (and fewer than 8 bits per pixel)."""
         return self._c
 
     @c.setter
@@ -85,8 +78,12 @@ class Ra_GIFOptions(OptionCollection):
     def e(self, value):
         if not self._e:
             self._e.value = None
-        elif self._is_power_of_two(value):
+        elif math.log2(value).is_integer():
             self._e.value = value
+        else:
+            raise ValueError(
+                'Only integers that are power of two are allowed.'
+                f' You provided {value}')
 
     @property
     def n(self):
