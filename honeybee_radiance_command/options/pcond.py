@@ -4,7 +4,7 @@ from .optionbase import (
     OptionCollection,
     BoolOption,
     NumericOption,
-    StringOptionJoined
+    StringOptionJoined,
     IntegerOption,
     TupleOption,
     FileOption
@@ -27,7 +27,7 @@ class PcondOptions(OptionCollection):
         "_i",
         "_I",
         "_l",
-        "_e",
+        # "_e",
         "_u",
         "_d",
         "_p",
@@ -38,7 +38,7 @@ class PcondOptions(OptionCollection):
     def __init__(self):
         """pcond command options."""
 
-        super.__init__(self)
+        super().__init__()
         self._h = BoolOption("h", "Human visual response - default: True")
         self._a = BoolOption("a", "Human visual acuity loss - default: False")
         self._v = BoolOption("v", "Veiling glare - default: False")
@@ -68,9 +68,9 @@ class PcondOptions(OptionCollection):
             'Both -f and -p do not go well together. This program can use either of' \
             ' the options but not both.'
 
-        if self._e.is_set:
-            assert self._e[0] in ('+', '-'), \
-                'The value must be preceeded by + or -'
+        # if self._e.is_set:
+        #     assert self._e[0] in ('+', '-'), \
+        #         'The value must be preceeded by + or -'
 
     @property
     def h(self):
@@ -296,4 +296,3 @@ class PcondOptions(OptionCollection):
     @x.setter
     def x(self, value):
         self._x.value = value
-        
