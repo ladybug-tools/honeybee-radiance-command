@@ -9,23 +9,23 @@ import honeybee_radiance_command._typing as typing
 class Pcomb(Command):
     """pcomb command."""
 
-    __slots__ = ('_images')
+    __slots__ = ('_input')
 
-    def __init__(self, options=None, output=None, images=None):
+    def __init__(self, options=None, output=None, input=[]):
         """Command.
 
         Args:
             options: Command options. It will be set to Radiance default values if not
                 provided by user.
             output: File path to the output file (Default: None).
-            images: A list of paths to radiance generated hdr images. (Default: None).
+            input: A list of paths to radiance generated hdr images. (Default: []).
         """
         Command.__init__(self, output=output)
         if options:
             self._options = options
         else:
             self._options = PcombOptions()
-        self._images = images
+        self._input = input
 
     @property
     def options(self):
@@ -43,21 +43,21 @@ class Pcomb(Command):
         self._options = value
 
     @property
-    def images(self):
+    def input(self):
         """A list of paths to radiance generated hdr images."""
-        return self._images
+        return self._input
 
-    @images.setter
-    def images(self, value):
-        if not value:
-            self._images = []
-        elif isinstance(value, list):
-            hdr_check = [image[-4:].lower() != '.hdr' for image in value]
+    @input.setter
+    def input(self, value):
+        if isinstance(value, list):
+            hdr_check = [image[-4:].lower() == '.hdr' for image in value]
             hdrs = hdr_check.count(True)
-            if len(hdrs) == len(value):
+            if hdrs == len(value):
                 image_paths = [typing.normpath(path) for path in value]
                 joined_paths = ' '.join(image_paths)
-                self._images = joined_paths
+                self._input = joined_paths
+        elif not value:
+            self._input = []
         else:
             raise ValueError(
                 'A list of .hdr files required. Instead got %.' % (value)
@@ -75,8 +75,8 @@ class Pcomb(Command):
 
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
-        if not stdin_input and self.images:
-            cmd = ' < '.join((cmd, self.images))
+        if not stdin_input and self.input:
+            cmd = ' < '.join((cmd, self.input))
         if self.pipe_to:
             cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
         elif self.output:
@@ -86,5 +86,6 @@ class Pcomb(Command):
 
     def validate(self, stdin_input=False):
         Command.validate(self)
-        if not stdin_input and not self.images:
-            raise exceptions.MissingArgumentError(self.command, 'images')
+        if not stdin_input and not self.input:
+            raise exceptions.MissingArgumentError(self.command, 'input')
+    
