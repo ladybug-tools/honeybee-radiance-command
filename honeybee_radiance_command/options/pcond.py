@@ -38,7 +38,7 @@ class PcondOptions(OptionCollection):
     def __init__(self):
         """pcond command options."""
 
-        super().__init__(self)
+        OptionCollection.__init__(self)
         self._h = BoolOption("h", "Human visual response - default: True")
         self._a = BoolOption("a", "Human visual acuity loss - default: False")
         self._v = BoolOption("v", "Veiling glare - default: False")
