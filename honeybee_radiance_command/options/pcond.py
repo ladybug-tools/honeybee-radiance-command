@@ -4,7 +4,7 @@ from .optionbase import (
     OptionCollection,
     BoolOption,
     NumericOption,
-    StringOptionJoined,
+    StringOption,
     IntegerOption,
     TupleOption,
     FileOption
@@ -27,7 +27,7 @@ class PcondOptions(OptionCollection):
         "_i",
         "_I",
         "_l",
-        # "_e",
+        "_e",
         "_u",
         "_d",
         "_p",
@@ -48,7 +48,7 @@ class PcondOptions(OptionCollection):
         self._i = IntegerOption("i", "Importance of fixation points -default: 0")
         self._I = BoolOption("I", "Precomputed histogram - default: False")
         self._l = BoolOption("l", "Linear response function - default: False")
-        # self._e = StringOption("e", "Exposure adjustment")
+        self._e = StringOption("e", "Exposure adjustment")
         self._u = IntegerOption("u", "Top of Luminance - default: 100")
         self._d = NumericOption("d", "Dynamic range - default: 32")
         self._p = TupleOption("p", "RGB primaries", value=None, length=8, numtype=float)
@@ -68,9 +68,9 @@ class PcondOptions(OptionCollection):
             'Both -f and -p do not go well together. This program can use either of' \
             ' the options but not both.'
 
-        # if self._e.is_set:
-        #     assert self._e[0] in ('+', '-'), \
-        #         'The value must be preceeded by + or -'
+        if self._e.is_set:
+            assert self._e[0] in ('+', '-'), \
+                'The value must be preceeded by + or -'
 
     @property
     def h(self):
@@ -209,19 +209,19 @@ class PcondOptions(OptionCollection):
     def l(self, value):
         self._l.value = value
 
-    # @property
-    # def e(self):
-    #     """Exposure adjustment
+    @property
+    def e(self):
+        """Exposure adjustment
 
-    #     Set the exposure adjustment for the picture to a value. This may either be a
-    #     real multiplier, or a (fractional) number of f-stops preceeded by
-    #     a + or -. This option implies a linear response (see the −l option above).
-    #     """
-    #     return self._e
+        Set the exposure adjustment for the picture to a value. This may either be a
+        real multiplier, or a (fractional) number of f-stops preceeded by
+        a + or -. This option implies a linear response (see the −l option above).
+        """
+        return self._e
 
-    # @e.setter
-    # def e(self, value):
-    #     self._e.value = value
+    @e.setter
+    def e(self, value):
+        self._e.value = value
 
     @property
     def u(self):
@@ -296,3 +296,4 @@ class PcondOptions(OptionCollection):
     @x.setter
     def x(self, value):
         self._x.value = value
+    
