@@ -62,11 +62,11 @@ class Ra_GIF(Command):
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
         if not stdin_input and self.input:
-            cmd = ' < '.join((cmd, self.input))
+            cmd = ' '.join((cmd, self.input))
         if self.pipe_to:
             cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
         elif self.output:
-            cmd = ' > '.join((cmd, self.output))
+            cmd = ' '.join((cmd, self.output))
 
         return ' '.join(cmd.split())
 
