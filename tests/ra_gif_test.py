@@ -16,17 +16,17 @@ def test_assignment():
 
     ra_gif.input = 'image.hdr'
     assert ra_gif.input == 'image.hdr'
-    assert ra_gif.to_radiance() == 'ra_gif < image.hdr'
-    ra_gif.output = 'results.dat'
-    assert ra_gif.output == 'results.dat'
-    assert ra_gif.to_radiance() == 'ra_gif < image.hdr > results.dat'
+    assert ra_gif.to_radiance() == 'ra_gif image.hdr'
+    ra_gif.output = 'image.gif'
+    assert ra_gif.output == 'image.gif'
+    assert ra_gif.to_radiance() == 'ra_gif image.hdr image.gif'
 
 
 def test_stdin():
     ra_gif = Ra_GIF()
     ra_gif.input = 'image.hdr'
-    ra_gif.output = 'results.dat'
-    assert ra_gif.to_radiance(stdin_input=True) == 'ra_gif > results.dat'
+    ra_gif.output = 'image.gif'
+    assert ra_gif.to_radiance(stdin_input=True) == 'ra_gif image.gif'
 
 
 def test_validation():
@@ -34,4 +34,4 @@ def test_validation():
     with pytest.raises(exceptions.MissingArgumentError):
         ra_gif.to_radiance()
     ra_gif.input = 'image.hdr'
-    assert ra_gif.to_radiance() == 'ra_gif < image.hdr'
+    assert ra_gif.to_radiance() == 'ra_gif image.hdr'
