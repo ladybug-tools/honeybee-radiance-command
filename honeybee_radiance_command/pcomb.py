@@ -76,7 +76,7 @@ class Pcomb(Command):
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
         if not stdin_input and self.input:
-            cmd = ' < '.join((cmd, self.input))
+            cmd = ' '.join((cmd, self.input))
         if self.pipe_to:
             cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
         elif self.output:
@@ -88,4 +88,5 @@ class Pcomb(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
+    
     
