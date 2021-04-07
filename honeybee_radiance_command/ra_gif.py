@@ -74,3 +74,4 @@ class Ra_GIF(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
+    
