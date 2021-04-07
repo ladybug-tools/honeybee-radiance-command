@@ -16,17 +16,17 @@ def test_assignment():
 
     pcond.input = 'image.hdr'
     assert pcond.input == 'image.hdr'
-    assert pcond.to_radiance() == 'pcond < image.hdr'
-    pcond.output = 'results.dat'
-    assert pcond.output == 'results.dat'
-    assert pcond.to_radiance() == 'pcond < image.hdr > results.dat'
+    assert pcond.to_radiance() == 'pcond image.hdr'
+    pcond.output = 'conditioned_image.hdr'
+    assert pcond.output == 'conditioned_image.hdr'
+    assert pcond.to_radiance() == 'pcond image.hdr conditioned_image.hdr'
 
 
 def test_stdin():
     pcond = Pcond()
     pcond.input = 'image.hdr'
-    pcond.output = 'results.dat'
-    assert pcond.to_radiance(stdin_input=True) == 'pcond > results.dat'
+    pcond.output = 'conditioned_image.hdr'
+    assert pcond.to_radiance(stdin_input=True) == 'pcond conditioned_image.hdr'
 
 
 def test_validation():
@@ -34,5 +34,4 @@ def test_validation():
     with pytest.raises(exceptions.MissingArgumentError):
         pcond.to_radiance()
     pcond.input = 'image.hdr'
-    assert pcond.to_radiance() == 'pcond < image.hdr'
-    
+    assert pcond.to_radiance() == 'pcond image.hdr'
