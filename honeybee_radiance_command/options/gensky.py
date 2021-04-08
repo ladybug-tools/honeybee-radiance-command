@@ -4,11 +4,7 @@ from .optionbase import (
     OptionCollection,
     BoolOption,
     NumericOption,
-    StringOption,
-    StringOptionJoined,
-    IntegerOption,
     TupleOption,
-    FileOption
 )
 import warnings
 
@@ -45,13 +41,10 @@ class GenskyOptions(OptionCollection):
         self._i = BoolOption("i", "Intermediate sky without sun - default: False")
         self._u = BoolOption("u", "Uniform cloudy sky - default : False")
         self._g = NumericOption("g", "Average ground reflectance")
-        self._b = NumericOption("b", "Zenith brightness from sun angle and sky"
-                                " turbidity")
-        self._B = NumericOption("B", "Zenith brightness from horizontal"
-                                " diffuse irradiance")
+        self._b = NumericOption("b", "Zenith brightness")
+        self._B = NumericOption("B", "Zenith brightness")
         self._r = NumericOption("r", "Solar radiance")
-        self._R = NumericOption("R", "Solar radiance computed with horizontal direct"
-                                " irradiance")
+        self._R = NumericOption("R", "Solar radiance")
         self._t = NumericOption("t", "Turbuity factor")
         self._a = NumericOption("a", "Site latitude")
         self._o = NumericOption("o", "Site longitude")
@@ -69,4 +62,190 @@ class GenskyOptions(OptionCollection):
         if self._t.is_set:
             assert (self._t.is_set >= 1.0), \
                 'Value less than 1.0 are physically impossible. Got %.' % (self._t.value)
+
+        if self._ang.is_set and (
+                self._a.is_set or self._o.is_set or self._m.is_set):
+            warnings.warn(
+                'Options -a, -o and -m do not apply when -ang is set.'
+            )
+
+    @property
+    def s(self):
+        """Sunny sky without sun - default: False
+
+        The sky distribution will correspond to a standard CIE clear day. If set to True,
+        in addition to the sky distribution function, a source description of the sun
+        is generated.
+        """
+        return self._s
+
+    @s.setter
+    def s(self, value):
+        self._s.value = value
+
+    @property
+    def c(self):
+        """Cloudy sky - default: False
+
+        The sky distribution will correspond to a standard CIE overcast day.
+        """
+        return self._c
+
+    @c.setter
+    def c(self, value):
+        self._c.value = value
+
+    @property
+    def i(self):
+        """Intermediate sky without sun - default: False
+
+        The sky will correspond to a standard CIE intermediate day. If set to true, in
+        addition to the sky distribution, a (somewhat subdued) sun is generated.
+        """
+        return self._i
+
+    @i.setter
+    def i(self, value):
+        self._i.value = value
+
+    @property
+    def u(self):
+        """Uniform cloudy sky - default : False
+
+        The sky distribution will be completely uniform
+        """
+        return self._u
+
+    @u.setter
+    def u(self, value):
+        self._u.value = value
+
+    @property
+    def g(self):
+        """Average ground reflectance
+
+        This value is used to compute skyfunc when Dz is negative. Ground plane
+        brightness is the same for −s as for +s. (Likewise for −i and +i)
+        """
+        return self._g
+
+    @g.setter
+    def g(self, value):
+        self._g.value = value
+
+    @property
+    def b(self):
+        """Zenith brightness.
+
+        Zenith radiance (in watts/steradian/meter2) is normally computed from the sun
+        angle and sky turbidity (for sunny sky). It can be given directly instead,
+        using this option.
+        """
+        return self._b
+
+    @b.setter
+    def b(self, value):
+        self._b.value = value
+
+    @property
+    def B(self):
+        """Zenith brightness.
+
+        In this option, zenith brightness is computed from the horizontal diffuse
+        irradiance (in watts/meter2).
+        """
+        return self._B
+
+    @B.setter
+    def B(self, value):
+        self._B.value = value
+
+    @property
+    def r(self):
+        """r [summary]
+
+        The value is solar radiance. Solar radiance (in watts/steradian/meter2)
+        is normally computed from the solar altitude. This option may be used to
+        override the default calculation. If a value of zero is given, no sun
+        description is produced, and the contribution of direct solar to ground
+        brightness is neglected.
+        """
+        return self._r
+
+    @r.setter
+    def r(self, value):
+        self._r.value = value
+
+    @property
+    def R(self):
+        """Solar radiance
+
+        Solar radiance is computed from the horizontal direct irradiance
+        (in watts/meter2).
+        """
+        return self._R
+
+    @R.setter
+    def R(self, value):
+        self._R.value = value
+
+    @property
+    def t(self):
+        """Turbuity factor
+
+        The value is turbidity factor. Greater turbidity factors correspond to greater
+        atmospheric scattering. A turbidity factor of 1.0 indicates an ideal clear
+        atmosphere (i.e. a completely dark sky). Values less than 1.0 are physically
+        impossible.
+        """
+        return self._t
+
+    @t.setter
+    def t(self, value):
+        self._t.value = value
+
+    @property
+    def a(self):
+        """Site latitude
+
+        The value is site latitude in degrees north.
+        (Use negative angle for south latitude.)
+        This is used in the calculation of sun angle
+        """
+        return self._a
+
+    @a.setter
+    def a(self, value):
+        self._a.value = value
+
+    @property
+    def o(self):
+        """Site longitude
+
+        The value is site longitude in degrees west.
+        (Use negative angle for east longitude.)
+        This is used in the calculation of solar time and sun angle. Be sure to give
+        the corresponding standard meridian also! If solar time is given directly,
+        then this option has no effect.
+        """
+        return self._o
+
+    @o.setter
+    def o(self, value):
+        self._o.value = value
+
+    @property
+    def m(self):
+        """Standard meridian
+
+        The site standard meridian is a value in degrees west of Greenwich.
+        (Use negative angle for east.) This is used in the calculation of solar time.
+        Be sure to give the correct longitude also! If a time zone or solar time is
+        given directly, then this option has no effect.
+        """
+        return self._m
+
+    @m.setter
+    def m(self, value):
+        self._m.value = value
 
