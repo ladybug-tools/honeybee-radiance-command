@@ -99,5 +99,6 @@ class Ra_GIFOptions(OptionCollection):
     @n.setter
     def n(self, value):
         self._n.value = value
+        
     
 

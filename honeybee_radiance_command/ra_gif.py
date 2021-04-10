@@ -16,14 +16,11 @@ class Ra_GIF(Command):
     def __init__(self, options=None, output=None, input=None):
         Command.__init__(self, output=output)
         self._input = input
-        if options:
-            self._options = options
-        else:
-            self._options = Ra_GIFOptions()
+        self.options = options
 
     @property
     def options(self):
-        """RaGIF options."""
+        """Ra_GIF options."""
         return self._options
 
     @options.setter
@@ -32,7 +29,7 @@ class Ra_GIF(Command):
             value = Ra_GIFOptions()
 
         if not isinstance(value, Ra_GIFOptions):
-            raise ValueError('Expected RaGIFoptions not {}'.format(value))
+            raise ValueError('Expected RaGIF options not {}'.format(value))
 
         self._options = value
 
@@ -45,7 +42,7 @@ class Ra_GIF(Command):
     def input(self, value):
         if value[-4:].lower() != '.hdr':
             raise ValueError(
-                'Radiance generated HDR required. Instead got %.' % (value))
+                'An HDR file is required. Instead got %.' % (value))
         else:
             self._input = typing.normpath(value)
 
@@ -54,8 +51,8 @@ class Ra_GIF(Command):
 
         Args:
             stdin_input: A boolean that indicates if the input for this command comes
-            from stdin. This is for instance the case when you pipe the input
-            from another command (default: False).
+                from stdin. This is for instance the case when you pipe the input
+                from another command (default: False).
         """
         self.validate(stdin_input)
 
@@ -74,4 +71,5 @@ class Ra_GIF(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
+            
     

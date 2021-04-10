@@ -35,3 +35,4 @@ def test_validation():
         ra_gif.to_radiance()
     ra_gif.input = 'image.hdr'
     assert ra_gif.to_radiance() == 'ra_gif image.hdr'
+    
