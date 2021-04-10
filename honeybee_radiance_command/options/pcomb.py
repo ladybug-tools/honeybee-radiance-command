@@ -9,7 +9,6 @@ from .optionbase import (
     TupleOption,
     FileOption
 )
-import warnings
 
 
 class PcombOptions(OptionCollection):
@@ -84,7 +83,10 @@ class PcombOptions(OptionCollection):
 
     @x.setter
     def x(self, value):
-        self._x.value = value
+        if value > 0:
+            self._x.value = value
+        else:
+            raise ValueError('The value must be a positive number.')
 
     @property
     def y(self):
@@ -99,7 +101,10 @@ class PcombOptions(OptionCollection):
 
     @y.setter
     def y(self, value):
-        self._y.value = value
+        if value > 0:
+            self._y.value = value
+        else:
+            raise ValueError('The value must be a positive number.')
 
     @property
     def f(self):
@@ -161,3 +166,4 @@ class PcombOptions(OptionCollection):
     @c.setter
     def c(self, value):
         self._c.value = value
+        

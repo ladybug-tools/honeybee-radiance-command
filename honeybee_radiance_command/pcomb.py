@@ -2,8 +2,10 @@
 
 from .options.pcomb import PcombOptions
 from ._command import Command
+
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
+
 
 
 class Pcomb(Command):
@@ -21,11 +23,8 @@ class Pcomb(Command):
             input: A list of paths to radiance generated hdr images. (Default: []).
         """
         Command.__init__(self, output=output)
-        if options:
-            self._options = options
-        else:
-            self._options = PcombOptions()
         self._input = input
+        self.options = options
 
     @property
     def options(self):
@@ -44,24 +43,21 @@ class Pcomb(Command):
 
     @property
     def input(self):
-        """A list of paths to radiance generated hdr images."""
+        """A string of joined paths to the hdr files."""
         return self._input
 
     @input.setter
     def input(self, value):
-        if isinstance(value, list):
-            hdr_check = [image[-4:].lower() == '.hdr' for image in value]
-            hdrs = hdr_check.count(True)
-            if hdrs == len(value):
-                image_paths = [typing.normpath(path) for path in value]
-                joined_paths = ' '.join(image_paths)
-                self._input = joined_paths
-        elif not value:
+        if not value:
             self._input = []
-        else:
-            raise ValueError(
-                'A list of .hdr files required. Instead got %.' % (value)
-            )
+        elif not isinstance(value, (list, tuple)):
+            value = [value]
+        for image in value:
+            if image[-4:].lower() != '.hdr':
+                raise ValueError(
+                    'A list of .hdr files required. Instead got %.' % (value)
+                )
+        self._input = ' '.join(typing.normpath(path) for path in value)
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
@@ -88,5 +84,3 @@ class Pcomb(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
-    
-    

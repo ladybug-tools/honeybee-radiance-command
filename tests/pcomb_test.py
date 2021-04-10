@@ -35,3 +35,4 @@ def test_validation():
         pcomb.to_radiance()
     pcomb.input = ['image1.hdr', 'image2.hdr']
     assert pcomb.to_radiance() == 'pcomb image1.hdr image2.hdr'
+    
