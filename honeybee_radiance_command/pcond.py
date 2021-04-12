@@ -9,7 +9,7 @@ import honeybee_radiance_command._typing as typing
 class Pcond(Command):
     """pcond command."""
 
-    __slots__ = ('_input')
+    __slots__ = ('_input',)
 
     def __init__(self, options=None, output=None, input=None):
         """Command.
@@ -20,11 +20,8 @@ class Pcond(Command):
             output: File path to the output file (Default: None).
             input: File path to the radiance generated hdr file (Default: None).
         """
-        Command.__init__(self, output = output)
-        if options:
-            self._options = options
-        else:
-            self._options = PcondOptions()
+        Command.__init__(self, output=output)
+        self.options = options
         self._input = input
 
     @property
@@ -38,7 +35,7 @@ class Pcond(Command):
             value = PcondOptions()
 
         if not isinstance(value, PcondOptions):
-            raise ValueError('Expected Pcondoptions not {}'.format(value))
+            raise ValueError('Expected Pcond options not {}'.format(value))
 
         self._options = value
 
@@ -67,12 +64,18 @@ class Pcond(Command):
 
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
+
+        if stdin_input and self.input and self.output:
+            cmd = '%s %s' % (cmd, self.input)
+
         if not stdin_input and self.input:
-            cmd = ' '.join((cmd, self.input))
+            cmd = '%s %s' % (cmd, self.input)
+
         if self.pipe_to:
-            cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
+            cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))
+
         elif self.output:
-            cmd = ' '.join((cmd, self.output))
+            cmd = '%s %s' % (cmd, self.output)
 
         return ' '.join(cmd.split())
 

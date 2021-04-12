@@ -39,7 +39,7 @@ class PcondOptions(OptionCollection):
         """pcond command options."""
 
         OptionCollection.__init__(self)
-        self._h = BoolOption("h", "Human visual response - default: True")
+        self._h = BoolOption("h", "Human visual response - default: False")
         self._a = BoolOption("a", "Human visual acuity loss - default: False")
         self._v = BoolOption("v", "Veiling glare - default: False")
         self._s = BoolOption("s", "Human contrast sensitivity - default: False")
@@ -61,8 +61,7 @@ class PcondOptions(OptionCollection):
 
         Use this method to add checks that are necessary for OptionCollection. For
         instance in pcond option collection -f and -p don't go together very well.
-        You can include a
-        check to ensure this is always correct.
+        You can include a check to ensure this is always correct.
         """
         assert not (self._f.is_set and self._p.is_set), \
             'Both -f and -p do not go well together. This program can use either of' \
@@ -70,11 +69,11 @@ class PcondOptions(OptionCollection):
 
         if self._e.is_set:
             assert self._e[0] in ('+', '-'), \
-                'The value must be preceeded by + or -'
+                'The value -e must be preceeded by + or -'
 
     @property
     def h(self):
-        """Human visual response - default: True
+        """Human visual response - default: False
 
         Mimic human visual response in the output. The goal of this process is to
         produce output that correlates strongly with a person’s subjective
