@@ -3,25 +3,26 @@ import pytest
 
 
 def test_defaults():
-    gensky = Gensky(1, 21, 23.33)
+    gensky = Gensky(month=1, day=21, time=23.33, ang=None)
     assert gensky.command == 'gensky'
     assert gensky.options.to_radiance() == ''
 
 
 def test_assignment():
-    gensky = Gensky(1, 21, 23.23)
+    gensky = Gensky(month=1, day=21, time=23.33, ang=None)
 
     gensky.time_zone = 'EST'
     gensky.solar_time = True
-    assert gensky.input == '+1 21 23.23EST'
-    assert gensky.to_radiance() == 'gensky +1 21 23.23EST'
+    print(gensky.solar_time)
+    assert gensky.input == '+1 21 23.33EST'
+    assert gensky.to_radiance() == 'gensky +1 21 23.33EST'
     gensky.output = 'test.sky'
     assert gensky.output == 'test.sky'
-    assert gensky.to_radiance() == 'gensky +1 21 23.23EST > test.sky'
+    assert gensky.to_radiance() == 'gensky +1 21 23.33EST > test.sky'
 
 
 def test_stdin():
-    gensky = Gensky(1, 21, 23.23)
+    gensky = Gensky(month=1, day=21, time=23.33, ang=None)
 
     gensky.time_zone = 'EST'
     gensky.solar_time = True

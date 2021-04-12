@@ -5,6 +5,7 @@ from .optionbase import (
     BoolOption,
     NumericOption,
     TupleOption,
+    ToggleOption
 )
 import warnings
 
@@ -36,19 +37,25 @@ class GenskyOptions(OptionCollection):
 
         OptionCollection.__init__(self)
 
-        self._s = BoolOption("s", "Sunny sky without sun - default: False")
-        self._c = BoolOption("c", "Cloudy sky - default: False")
-        self._i = BoolOption("i", "Intermediate sky without sun - default: False")
-        self._u = BoolOption("u", "Uniform cloudy sky - default : False")
+        # self._s = BoolOption("s", "Sunny sky without sun - default: False")
+        self._s = ToggleOption("s", "Sunny sky", value=None)
+        self._c = BoolOption("c", "Cloudy sky")
+        self._i = ToggleOption("i", "Intermediate sky", value=None)
+        self._u = BoolOption("u", "Uniform cloudy sky")
         self._g = NumericOption("g", "Average ground reflectance")
-        self._b = NumericOption("b", "Zenith brightness")
-        self._B = NumericOption("B", "Zenith brightness")
-        self._r = NumericOption("r", "Solar radiance")
-        self._R = NumericOption("R", "Solar radiance")
-        self._t = NumericOption("t", "Turbuity factor")
-        self._a = NumericOption("a", "Site latitude")
-        self._o = NumericOption("o", "Site longitude")
-        self._m = NumericOption("m", "Standard meridian")
+        self._b = NumericOption("b", "Zenith brightness computed from sun and"
+                                " sky turbidity.")
+        self._B = NumericOption("B", "Zenith brightness computed from"
+                                " horizontal diffuse irradiance.")
+        self._r = NumericOption("r", "Solar radiance computed from solar altitude.")
+        self._R = NumericOption("R", "Solar radiance computed from"
+                                " horizontal direct irradiance.")
+        self._t = NumericOption("t", "Turbuity factor", min_value=1.0)
+        self._a = NumericOption("a", "Site latitude", min_value=-90.0, max_value=90.0)
+        self._o = NumericOption("o", "Site longitude", min_value=-180.0,
+                                max_value=180.0)
+        self._m = NumericOption("m", "Standard meridian", min_value=-18.0,
+                                max_value=18.0)
         self._ang = TupleOption("ang", "Altitude & azimuth", value=None, length=2,
                                 numtype=float)
         self._on_setattr_check = True
@@ -58,11 +65,6 @@ class GenskyOptions(OptionCollection):
 
         Use this method to add checks that are necessary for OptionCollection. 
         """
-
-        if self._t.is_set:
-            assert (self._t.is_set >= 1.0), \
-                'Value less than 1.0 are physically impossible. Got %.' % (self._t.value)
-
         if self._ang.is_set and (
                 self._a.is_set or self._o.is_set or self._m.is_set):
             warnings.warn(
@@ -71,11 +73,12 @@ class GenskyOptions(OptionCollection):
 
     @property
     def s(self):
-        """Sunny sky without sun - default: False
+        """Sunny sky.
 
-        The sky distribution will correspond to a standard CIE clear day. If set to True,
-        in addition to the sky distribution function, a source description of the sun
-        is generated.
+        Setting it to '+' will create a sunny sky with sun. Setting it to '-' will
+        create a sunny sky without sun. The sky distribution will correspond to a
+        standard CIE clear day. If set to true, in addition to the sky distribution
+        function, a source description of the sun is generated.
         """
         return self._s
 
@@ -85,7 +88,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def c(self):
-        """Cloudy sky - default: False
+        """Cloudy sky.
 
         The sky distribution will correspond to a standard CIE overcast day.
         """
@@ -97,10 +100,12 @@ class GenskyOptions(OptionCollection):
 
     @property
     def i(self):
-        """Intermediate sky without sun - default: False
+        """Intermediate sky.
 
-        The sky will correspond to a standard CIE intermediate day. If set to true, in
-        addition to the sky distribution, a (somewhat subdued) sun is generated.
+        Setting it to '+' will create an intermediate sky with sun. Setting it to '-'
+        will create an intermediate sky without sun. The sky will correspond to a
+        standard CIE intermediate day. If set to true, in addition to the sky
+        distribution, a (somewhat subdued) sun is generated.
         """
         return self._i
 
@@ -110,7 +115,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def u(self):
-        """Uniform cloudy sky - default : False
+        """Uniform cloudy sky.
 
         The sky distribution will be completely uniform
         """
@@ -122,7 +127,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def g(self):
-        """Average ground reflectance
+        """Average ground reflectance.
 
         This value is used to compute skyfunc when Dz is negative. Ground plane
         brightness is the same for −s as for +s. (Likewise for −i and +i)
@@ -135,7 +140,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def b(self):
-        """Zenith brightness.
+        """Zenith brightness computed from sun and sky turbidity.
 
         Zenith radiance (in watts/steradian/meter2) is normally computed from the sun
         angle and sky turbidity (for sunny sky). It can be given directly instead,
@@ -149,7 +154,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def B(self):
-        """Zenith brightness.
+        """Zenith brightness computed from horizontal diffuse irradiance.
 
         In this option, zenith brightness is computed from the horizontal diffuse
         irradiance (in watts/meter2).
@@ -162,7 +167,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def r(self):
-        """r [summary]
+        """Solar radiance computed from solar altitude.
 
         The value is solar radiance. Solar radiance (in watts/steradian/meter2)
         is normally computed from the solar altitude. This option may be used to
@@ -178,7 +183,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def R(self):
-        """Solar radiance
+        """Solar radiance computed from horizontal direct irradiance.
 
         Solar radiance is computed from the horizontal direct irradiance
         (in watts/meter2).
@@ -191,7 +196,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def t(self):
-        """Turbuity factor
+        """Turbuity factor.
 
         The value is turbidity factor. Greater turbidity factors correspond to greater
         atmospheric scattering. A turbidity factor of 1.0 indicates an ideal clear
@@ -206,7 +211,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def a(self):
-        """Site latitude
+        """Site latitude.
 
         The value is site latitude in degrees north.
         (Use negative angle for south latitude.)
@@ -220,7 +225,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def o(self):
-        """Site longitude
+        """Site longitude.
 
         The value is site longitude in degrees west.
         (Use negative angle for east longitude.)
@@ -236,7 +241,7 @@ class GenskyOptions(OptionCollection):
 
     @property
     def m(self):
-        """Standard meridian
+        """Standard meridian.
 
         The site standard meridian is a value in degrees west of Greenwich.
         (Use negative angle for east.) This is used in the calculation of solar time.
