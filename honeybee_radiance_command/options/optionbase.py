@@ -507,3 +507,33 @@ class OptionCollection(object):
         check to ensure this is always correct.
         """
         pass
+
+
+class ToggleOption(Option):
+    """Toggle radiance option."""
+
+    __slots__ = ()
+
+    @property
+    def value(self):
+        """Toggle value."""
+        return self._value
+
+    @value.setter
+    def value(self, val):
+        if not val:
+            self._value = None
+        elif val in ('+', '-'):
+            if val == '+':
+                self._value = True
+            else:
+                self._value = False
+        else:
+            raise ValueError("The value needs to be either '+' or '-' only.")
+
+    def to_radiance(self):
+        """Translate option to Radiance format."""
+        if self.value is not None:
+            return '%s%s' % (self.value, self.name)
+        else:
+            return ''
