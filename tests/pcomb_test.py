@@ -26,7 +26,8 @@ def test_stdin():
     pcomb = Pcomb()
     pcomb.input = ['image1.hdr', 'image2.hdr']
     pcomb.output = 'combined.hdr'
-    assert pcomb.to_radiance(stdin_input=True) == 'pcomb > combined.hdr'
+    assert pcomb.to_radiance(stdin_input=True) == ('pcomb image1.hdr image2.hdr'
+                                                   ' > combined.hdr')
 
 
 def test_validation():
