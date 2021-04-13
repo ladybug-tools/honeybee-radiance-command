@@ -56,19 +56,29 @@ class GenskyOptions(OptionCollection):
                                 max_value=180.0)
         self._m = NumericOption("m", "Standard meridian", min_value=-18.0,
                                 max_value=18.0)
-        self._ang = TupleOption("ang", "Altitude & azimuth", value=None, length=2,
+        self._ang = TupleOption("ang", "Altitude & azimuth", length=2,
                                 numtype=float)
         self._on_setattr_check = True
 
     def _on_setattr(self):
         """This method executes after setting each new attribute.
 
-        Use this method to add checks that are necessary for OptionCollection. 
+        Use this method to add checks that are necessary for OptionCollection.
         """
         if self._ang.is_set and (
                 self._a.is_set or self._o.is_set or self._m.is_set):
             warnings.warn(
                 'Options -a, -o and -m do not apply when -ang is set.'
+            )
+
+        skies = {'sunny sky': self._s.is_set, 'cloudy sky': self._c.is_set,
+                 'Intermediate sky': self._i.is_set, 'Uniform sky': self._u.is_set}
+        skies_requested = [sky for sky in skies if skies[sky] is True]
+
+        if len(skies_requested) > 1:
+            raise ValueError(
+                'Multiple skies requested. %s.'
+                ' Only one allowed.' % (tuple(skies_requested))
             )
 
     @property
@@ -254,3 +264,15 @@ class GenskyOptions(OptionCollection):
     def m(self, value):
         self._m.value = value
 
+    @property
+    def ang(self):
+        """Altitude & azimuth
+
+        This option gives the solar angles explicitly. The altitude is measured in 
+        degrees above the horizon, and the azimuth is measured in degrees west of south.
+        """
+        return self._ang
+
+    @ang.setter
+    def ang(self, value):
+        self._ang.value = value

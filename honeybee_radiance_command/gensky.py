@@ -1,26 +1,28 @@
+# coding: utf-8
+
 """gensky command."""
 
 from .options.gensky import GenskyOptions
 from ._command import Command
+from ._typing import tuple_with_length, int_in_range, float_positive
 import honeybee_radiance_command._exception as exceptions
 
 
 class Gensky(Command):
-    """gensky command."""
+    """Gensky command."""
 
-    __slots__ = ('_ang', '_month', '_day', '_time', '_time_zone', '_solar_time',
-                 '_input')
+    __slots__ = ('_month', '_day', '_time', '_time_zone', '_solar_time', '_input')
 
-    def __init__(self, ang=None, month=None, day=None, time=None, time_zone=None,
+    def __init__(self, month=None, day=None, time=None, time_zone=None,
                  solar_time=False, options=None, output=None):
         """Command.
 
         Args:
-            ang: A tuple of altitude and azimuth values.
             month: An integer representing the number of the month. Count starts from 01.
             day: An integer representing the number of the day in a month. Count starts
                 from 01.
-            time: A float representing hour and minute.
+            time: A string representing hour and minute in 24 hours format.
+                Examples of acceptable format are 21.30 and 21:30.
             time_zone: A three letter text representing the time zone.
                 Following are acceptable time zones with their corresponding hour
                 differences from Greenwhich mean time;
@@ -37,25 +39,15 @@ class Gensky(Command):
         """
         Command.__init__(self, output=output)
         self.options = options
-        if ang:
-            self.options = ang
-            self._ang = ang
-            self._month = None
-            self._day = None
-            self._time = None
-            self._time_zone = None
-            self._solar_time = None
-        else:
-            self._ang = None
-            self._month = month
-            self._day = day
-            self._time = time
-            self._time_zone = time_zone
-            self._solar_time = solar_time
+        self.month = month
+        self.day = day
+        self.time = time
+        self.time_zone = time_zone
+        self.solar_time = solar_time
 
     @property
     def options(self):
-        """Rpict options."""
+        """Gensky options."""
         return self._options
 
     @options.setter
@@ -69,26 +61,16 @@ class Gensky(Command):
         self._options = value
 
     @property
-    def ang(self):
-        """Angles for altitude and azimuth."""
-        return self._ang
-
-    @ang.setter
-    def ang(self, value):
-        self._ang.value = value
-
-    @property
     def month(self):
         """Month."""
         return self._month
 
     @month.setter
     def month(self, value):
-        if value and isinstance(value, int) and value in range(1, 13):
-            self._month = value
+        if not value:
+            self._month = None
         else:
-            raise ValueError('The value of month needs to be an integer between'
-                             ' 1 and 12 inclusive. Instead got %.' % (value))
+            self._month = int_in_range(value, 1, 12)
 
     @property
     def day(self):
@@ -97,11 +79,10 @@ class Gensky(Command):
 
     @day.setter
     def day(self, value):
-        if value and isinstance(value, int) and value in range(1, 32):
-            self._day = value
+        if not value:
+            self._day = None
         else:
-            raise ValueError('The value of day needs to be an integer between'
-                             ' 1 and 31 inclusive. Instead got %.' % (value))
+            self._day = int_in_range(value, 1, 31)
 
     @property
     def time(self):
@@ -110,18 +91,30 @@ class Gensky(Command):
 
     @time.setter
     def time(self, value):
-        if value and isinstance(value, float, int):
-            hour, minute = str(float(value)).split('.')
-            if 1 <= int(hour) <= 24 and 0 <= int(minute) <= 59:
-                self._time = value
-            else:
-                raise ValueError(
-                    'The value of time is not valid.'
-                )
+        if not value:
+            self._time = None
+
+        elif isinstance(value, float):
+            hour, minute = str(value).split('.')
+            hour = int_in_range(int(hour), 0, 23)
+            minute = int_in_range(int(minute), 0, 59)
+            self._time = value
+
+        elif isinstance(value, str) and ('.' in value or ':' in value):
+            if '.' in value:
+                hour, minute = value.split('.')
+            elif ':' in value:
+                hour, minute = value.split(':')
+            hour = int_in_range(int(hour), 0, 23)
+            minute = int_in_range(int(minute), 0, 59)
+            self._time = value
+
         else:
             raise ValueError(
-                'The value of time must be a number. Instead got %s' % (value)
+                '%s is not a valid format. Examples of acceptable formats are'
+                ' 21.00 or 21:00.' % (value)
             )
+
 
     @property
     def time_zone(self):
@@ -135,13 +128,13 @@ class Gensky(Command):
             'JST', 'NZST', 'YDT', 'PDT', 'MDT', 'CDT', 'EDT', 'BST', 'CEST', 'EEST',
             'ADT', 'GDT', 'IDT', 'JDT', 'NZDT']
         if not value:
-            return None
-        if value and value.upper() in time_zones:
+            self._time_zone = None
+        elif value.upper() in time_zones:
             self._time_zone = value
         else:
             raise ValueError(
                 'Time zone must a three letter string from the following'
-                ' options %.' % (time_zones)
+                ' options %s.' % (time_zones)
             )
 
     @property
@@ -151,7 +144,9 @@ class Gensky(Command):
 
     @solar_time.setter
     def solar_time(self, value):
-        if isinstance(value, bool):
+        if not value:
+            self._solar_time = None
+        elif isinstance(value, bool):
             self._solar_time = value
         else:
             raise ValueError('Solar time only accepts True or False as a value.')
@@ -160,21 +155,25 @@ class Gensky(Command):
     def input(self):
         """Input string for gensky."""
 
+        if not self.month and not self.day and not self.time:
+            self._input = None
+            return self._input
+
         # Only month, day and time provided as arguments
-        if not (self.time_zone and self.solar_time):
-            self._input  = '%s %s %s' % (str(self.month), str(self.day), str(self.time))
+        elif not (self.time_zone and self.solar_time):
+            self._input = '%s %s %s' % (str(self.month), str(self.day), str(self.time))
             return self._input
 
         # Time zone is provided
         elif self.time_zone and not self.solar_time:
             self._input = '%s %s %s%s' % (str(self.month), str(self.day),
-                                           str(self.time), self.time_zone)
+                                          str(self.time), self.time_zone)
             return self._input
 
         # Local solar time requested
         elif self.solar_time and not self.time_zone:
             self._input = '+%s %s %s' % (str(self.month), str(self.day),
-                                          str(self.time))
+                                         str(self.time))
             return self._input
 
         # Time zone and solar time both requested
@@ -182,6 +181,26 @@ class Gensky(Command):
             self._input = '+%s %s %s%s' % (str(self.month), str(self.day),
                                            str(self.time), self.time_zone)
             return self._input
+
+    @classmethod
+    def from_ang(cls, angles, options=None):
+        """Create a Gensky command using sun altitude and azimuth angles in degrees.
+
+        The altitude is measured in degrees above the horizon, and the azimuth is
+        measured in degrees west of South.
+
+        Args:
+            angles: A tuple of altitude and azimuth angles.
+            options: Command options. It will be set to Radiance default values if not
+                provided by user.
+        """
+        if not options:
+            options = GenskyOptions()
+
+        if angles:
+            options.ang = tuple_with_length(angles, length=2)
+
+        return cls(options=options)
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
@@ -191,7 +210,8 @@ class Gensky(Command):
                 comes from stdin. This is for instance the case when you pipe the input
                 from another command (default: False).
         """
-        self.validate(stdin_input)
+        if not self.options.ang.is_set:
+            self.validate()
 
         command_parts = [self.command]
 
@@ -200,22 +220,23 @@ class Gensky(Command):
 
         cmd = ' '.join(command_parts)
 
+        # This will happen when from_ang method is used
+        if not stdin_input and not self.input:
+            cmd = '%s' % (cmd)
+
         if not stdin_input and self.input:
-            cmd = ' '.join((cmd, self.input))
+            cmd = '%s %s' % (cmd, self.input)
 
-        if self.pipe_to:
-            cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
-
-        elif self.output:
-            cmd = ' > '.join((cmd, self.output))
+        if self.output:
+            cmd = '%s > %s' % (cmd, self.output)
 
         return ' '.join(cmd.split())
 
-    def validate(self, stdin_input=False):
+    def validate(self):
         Command.validate(self)
-        if not stdin_input and not self.month:
+        if not self.month:
             raise exceptions.MissingArgumentError(self.command, 'month')
-        if not stdin_input and not self.day:
+        if not self.day:
             raise exceptions.MissingArgumentError(self.command, 'day')
-        if not stdin_input and not self.time:
+        if not self.time:
             raise exceptions.MissingArgumentError(self.command, 'time')
