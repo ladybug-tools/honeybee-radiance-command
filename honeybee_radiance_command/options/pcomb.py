@@ -36,8 +36,8 @@ class PcombOptions(OptionCollection):
 
         self._h = BoolOption("h", "Reduce information header - default: False")
         self._w = BoolOption("w", "Supress warning messages - default: False")
-        self._x = IntegerOption("x", "X resolution")
-        self._y = IntegerOption("y", "Y resolution")
+        self._x = IntegerOption("x", "X resolution", min_value=1)
+        self._y = IntegerOption("y", "Y resolution", min_value=1)
         self._f = FileOption("f", "function file")
         self._e = StringOption("e", "Expression")
         self._o = BoolOption("o", "Use original pixel values - default: False")
@@ -83,10 +83,7 @@ class PcombOptions(OptionCollection):
 
     @x.setter
     def x(self, value):
-        if value > 0:
-            self._x.value = value
-        else:
-            raise ValueError('The value must be a positive number.')
+        self._x.value = value
 
     @property
     def y(self):
@@ -101,10 +98,7 @@ class PcombOptions(OptionCollection):
 
     @y.setter
     def y(self, value):
-        if value > 0:
-            self._y.value = value
-        else:
-            raise ValueError('The value must be a positive number.')
+        self._y.value = value
 
     @property
     def f(self):

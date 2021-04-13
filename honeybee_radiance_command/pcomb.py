@@ -55,7 +55,7 @@ class Pcomb(Command):
         for image in value:
             if image[-4:].lower() != '.hdr':
                 raise ValueError(
-                    'A list of .hdr files required. Instead got %.' % (value)
+                    'A list of .hdr files required. Instead got %s.' % (value)
                 )
         self._input = ' '.join(typing.normpath(path) for path in value)
 
@@ -71,8 +71,9 @@ class Pcomb(Command):
 
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
+
         if stdin_input and self.input and self.output:
-            cmd = ' '.join((cmd, self.input))
+            cmd = '%s < %s' % (cmd, self.input)
 
         if not stdin_input and self.input:
             cmd = ' '.join((cmd, self.input))
