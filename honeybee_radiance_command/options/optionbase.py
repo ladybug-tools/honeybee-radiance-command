@@ -525,9 +525,9 @@ class ToggleOption(Option):
             self._value = None
         elif val in ('+', '-'):
             if val == '+':
-                self._value = True
+                self._value = '+'
             else:
-                self._value = False
+                self._value = '-'
         else:
             raise ValueError("The value needs to be either '+' or '-' only.")
 
