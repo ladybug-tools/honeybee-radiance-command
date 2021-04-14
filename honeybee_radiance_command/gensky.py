@@ -210,6 +210,7 @@ class Gensky(Command):
                 comes from stdin. This is for instance the case when you pipe the input
                 from another command (default: False).
         """
+        # If form_ang is not used, validate arguments
         if not self.options.ang.is_set:
             self.validate()
 
