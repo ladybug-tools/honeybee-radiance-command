@@ -96,23 +96,37 @@ class Gensky(Command):
 
         elif isinstance(value, float):
             hour, minute = str(value).split('.')
-            hour = int_in_range(int(hour), 0, 23)
-            minute = int_in_range(int(minute), 0, 59)
-            self._time = value
 
-        elif isinstance(value, str) and ('.' in value or ':' in value):
-            if '.' in value:
-                hour, minute = value.split('.')
-            elif ':' in value:
-                hour, minute = value.split(':')
+            # Validate hour
             hour = int_in_range(int(hour), 0, 23)
+
+            # Validate minute
+            if minute in ('25', '5', '75'):
+                minutes = {'25': '15', '5': '30', '75': '45'}
+
+                self._time = '%s:%s' % (hour, minutes[minute])
+            else:
+                raise ValueError(
+                    'Decimal values are only allowed for 15 minute increments.'
+                    ' Such as 9.25, 9.5, and 9.75 which will become 9:15, 9:30 and'
+                    ' 9:45 respectively. You provided %s' % (value)
+                )
+
+        elif isinstance(value, str) and ':' in value:
+            if ':' in value:
+                hour, minute = value.split(':')
+
+            # Validate hour
+            hour = int_in_range(int(hour), 0, 23)
+            # Validate minute
             minute = int_in_range(int(minute), 0, 59)
+
             self._time = value
 
         else:
             raise ValueError(
                 '%s is not a valid format. Examples of acceptable formats are'
-                ' 21.00 or 21:00.' % (value)
+                ' a float value of 21.5 or a string value of 21:30' % (value)
             )
 
 
