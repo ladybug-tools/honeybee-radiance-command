@@ -1,5 +1,6 @@
 from honeybee_radiance_command.gendaylit import Gendaylit
 import pytest
+import honeybee_radiance_command._exception as exceptions
 
 
 def test_defaults():
@@ -61,4 +62,21 @@ def test_stdin():
 
 def test_missing_arguments():
     gendaylit = Gendaylit()
-    assert gendaylit.month is None
+
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing month
+        gendaylit.to_radiance()
+
+    gendaylit.month = 1
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing day
+        gendaylit.to_radiance()
+
+    gendaylit.day = 21
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing time
+        gendaylit.to_radiance()
+
+    gendaylit.time = 21.5
+
+    assert gendaylit.to_radiance() == 'gendaylit 1 21 21:30'
