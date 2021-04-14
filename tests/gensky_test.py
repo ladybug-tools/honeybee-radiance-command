@@ -1,5 +1,6 @@
 from honeybee_radiance_command.gensky import Gensky
 import pytest
+import honeybee_radiance_command._exception as exceptions
 
 
 def test_defaults():
@@ -56,5 +57,23 @@ def test_assignment_not_allowed():
 
 
 def test_missing_arguments():
-    #TODO: Figure out why this is not failing
     gensky = Gensky()
+
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing month
+        gensky.to_radiance()
+
+    gensky.month = 1
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing day
+        gensky.to_radiance()
+
+    gensky.day = 21
+    with pytest.raises(exceptions.MissingArgumentError):
+        # missing time
+        gensky.to_radiance()
+
+    gensky.time = 21.5
+
+    assert gensky.to_radiance() == 'gensky 1 21 21:30'
+    
