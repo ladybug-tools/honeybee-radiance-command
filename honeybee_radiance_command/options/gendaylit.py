@@ -58,6 +58,16 @@ class GendaylitOptions(OptionCollection):
                 'Options -a, -o and -m do not apply when -ang is set.'
             )
 
+        params = {'perez': self._P.is_set, 'irradiance_values': self._W.is_set,
+                  'illuminance_values': self._L.is_set}
+        params_requested = [param for param in params if params[param] is True]
+
+        if len(params_requested) > 1:
+            raise ValueError(
+                'Multiple parameters requested. Only either of %s parameters are'
+                ' to be applied.' % (params_requested)
+            )
+
     @property
     def P(self):
         """Espilon data a.k.a Perez parameters"""
