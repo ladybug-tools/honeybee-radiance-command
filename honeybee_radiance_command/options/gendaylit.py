@@ -19,3 +19,14 @@ class GendaylitOptions(OptionCollection):
     """
 
     __slots__ = (
+        '_P',
+        '_W',
+        '_L',
+        '_O',
+        '_s',
+        '_g',
+        '_a',
+        '_o',
+        '_m',
+        '_ang'
+        )
