@@ -37,7 +37,6 @@ class GenskyOptions(OptionCollection):
 
         OptionCollection.__init__(self)
 
-        # self._s = BoolOption("s", "Sunny sky without sun - default: False")
         self._s = ToggleOption("s", "Sunny sky", value=None)
         self._c = BoolOption("c", "Cloudy sky")
         self._i = ToggleOption("i", "Intermediate sky", value=None)
@@ -268,7 +267,7 @@ class GenskyOptions(OptionCollection):
     def ang(self):
         """Altitude & azimuth
 
-        This option gives the solar angles explicitly. The altitude is measured in 
+        This option gives the solar angles explicitly. The altitude is measured in
         degrees above the horizon, and the azimuth is measured in degrees west of south.
         """
         return self._ang
