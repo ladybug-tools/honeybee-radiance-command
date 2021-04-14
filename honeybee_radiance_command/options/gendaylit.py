@@ -30,3 +30,10 @@ class GendaylitOptions(OptionCollection):
         '_m',
         '_ang'
         )
+
+    def __init__(self):
+        """Gendaylit command options."""
+
+        OptionCollection.__init__(self)
+
+        
