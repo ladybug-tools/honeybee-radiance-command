@@ -43,7 +43,19 @@ def test_stdin():
     assert gensky.to_radiance(stdin_input=True) == 'gensky > test.sky'
 
 
+def test_assignment_not_allowed():
+    # Test assignments of arguments that are not allowed to be assigned concurrently
+    gensky = Gensky.from_ang((23.33, 45.56))
+
+    try:
+        gensky.options.s = '+'
+        gensky.options.i = '+'
+        gensky.to_radiance()
+    except ValueError:
+        pass
+
+
 def test_missing_arguments():
+    #TODO: Figure out why this is not failing??
     gensky = Gensky()
-    assert gensky.month == None
-    
+    assert gensky.month is None
