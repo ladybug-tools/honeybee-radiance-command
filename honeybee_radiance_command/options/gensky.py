@@ -77,7 +77,7 @@ class GenskyOptions(OptionCollection):
         if len(skies_requested) > 1:
             raise ValueError(
                 'Multiple skies requested. %s.'
-                ' Only one allowed.' % (tuple(skies_requested))
+                ' Only one allowed.' % (skies_requested)
             )
 
     @property
