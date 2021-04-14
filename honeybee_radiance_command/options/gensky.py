@@ -11,7 +11,7 @@ import warnings
 
 
 class GenskyOptions(OptionCollection):
-    """gensky command options.
+    """Gensky command options.
 
     Also see: https://floyd.lbl.gov/radiance/man_html/gensky.1.html
     """

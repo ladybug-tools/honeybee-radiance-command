@@ -1,6 +1,6 @@
 # coding: utf-8
 
-"""gensky command."""
+"""Gensky command."""
 
 from .options.gensky import GenskyOptions
 from ._command import Command
