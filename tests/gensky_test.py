@@ -56,6 +56,5 @@ def test_assignment_not_allowed():
 
 
 def test_missing_arguments():
-    #TODO: Figure out why this is not failing??
+    #TODO: Figure out why this is not failing
     gensky = Gensky()
-    assert gensky.month is None
