@@ -1,15 +1,18 @@
 from honeybee_radiance_command.gensky import Gensky
 import pytest
+import warnings
 import honeybee_radiance_command._exception as exceptions
 
 
 def test_defaults():
+    """Test command."""
     gensky = Gensky(month=1, day=21, time=23.5)
     assert gensky.command == 'gensky'
     assert gensky.options.to_radiance() == ''
 
 
 def test_assignment():
+    """Test assigning options."""
     gensky = Gensky(month=1, day=21, time=23.5)
 
     gensky.options.g = 0.1
@@ -26,7 +29,9 @@ def test_assignment():
 
 
 def test_assignment_ang():
+    """Test form_ang method."""
     gensky = Gensky.from_ang((23.33, 45.56))
+
     gensky.options.s = '+'
     gensky.options.g = 0.1
     assert gensky.to_radiance() == 'gensky -ang 23.33 45.56 -g 0.1 +s'
@@ -36,6 +41,7 @@ def test_assignment_ang():
 
 
 def test_stdin():
+    """Test stdin."""
     gensky = Gensky(month=1, day=21, time='23:33')
 
     gensky.time_zone = 'EST'
@@ -45,18 +51,24 @@ def test_stdin():
 
 
 def test_assignment_not_allowed():
-    # Test assignments of arguments that are not allowed to be assigned concurrently
+    """Test assignments of arguments that are not allowed to be assigned concurrently."""
     gensky = Gensky.from_ang((23.33, 45.56))
 
-    try:
+    with pytest.raises(ValueError):
         gensky.options.s = '+'
         gensky.options.i = '+'
-        gensky.to_radiance()
-    except ValueError:
-        pass
+
+
+def test_assignment_warning():
+    """Test warning when one of the argument will be ignored."""
+    gensky = Gensky.from_ang((23.33, 45.56))
+
+    with pytest.warns(Warning):
+        gensky.options.m = -18.00
 
 
 def test_missing_arguments():
+    """Test validate command."""
     gensky = Gensky()
 
     with pytest.raises(exceptions.MissingArgumentError):
