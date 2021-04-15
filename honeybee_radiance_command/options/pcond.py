@@ -63,13 +63,12 @@ class PcondOptions(OptionCollection):
         instance in pcond option collection -f and -p don't go together very well.
         You can include a check to ensure this is always correct.
         """
-        assert not (self._f.is_set and self._p.is_set), \
-            'Both -f and -p do not go well together. This program can use either of' \
-            ' the options but not both.'
 
-        if self._e.is_set:
-            assert self._e[0] in ('+', '-'), \
-                'The value -e must be preceeded by + or -'
+        if self._f.is_set and self._p.is_set:
+            raise ValueError(
+                'Both -f and -p do not go well together.
+                ' This program can use either of the options but not both.'
+                    )
 
     @property
     def h(self):
@@ -256,7 +255,7 @@ class PcondOptions(OptionCollection):
 
         Specifies the RGB primaries for the target output device.
         These are the 1931 CIE (x,y) chromaticity values for red, green, blue and
-        white, respectively.
+        white, respectively in the format of (xr yr xg yg xb yb xw yw).
         """
         return self._p
 
