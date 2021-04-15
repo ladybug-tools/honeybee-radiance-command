@@ -66,7 +66,7 @@ class PcondOptions(OptionCollection):
 
         if self._f.is_set and self._p.is_set:
             raise ValueError(
-                'Both -f and -p do not go well together.
+                'Both -f and -p do not go well together.'
                 ' This program can use either of the options but not both.'
                     )
 
