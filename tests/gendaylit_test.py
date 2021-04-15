@@ -4,12 +4,14 @@ import honeybee_radiance_command._exception as exceptions
 
 
 def test_defaults():
+    """Test command."""
     gendaylit = Gendaylit(month=1, day=21, time=23.5)
     assert gendaylit.command == 'gendaylit'
     assert gendaylit.options.to_radiance() == ''
 
 
 def test_assignment():
+    """Test assigning options."""
     gendaylit = Gendaylit(month=1, day=21, time=23.5)
 
     gendaylit.options.g = 0.1
@@ -29,6 +31,7 @@ def test_assignment():
 
 
 def test_assignment_ang():
+    """Test form_ang method."""
     gendaylit = Gendaylit.from_ang((23.33, 45.56))
 
     gendaylit.options.P = (6.3, 0.12)
@@ -40,18 +43,24 @@ def test_assignment_ang():
 
 
 def test_assignment_not_allowed():
-    # Test assignments of arguments that are not allowed to be assigned concurrently
+    """Test assignments of arguments that are not allowed to be assigned concurrently."""
     gendaylit = Gendaylit.from_ang((23.33, 45.56))
 
-    try:
-        gendaylit.options.W = (840, 135)
+    gendaylit.options.W = (840, 135)
+    with pytest.raises(ValueError):
         gendaylit.options.L = (165, 200)
-        gendaylit.to_radiance()
-    except ValueError:
-        pass
+
+
+def test_assignment_warning():
+    """Test warning when one of the argument will be ignored."""
+    gensky = Gendaylit.from_ang((23.33, 45.56))
+
+    with pytest.warns(Warning):
+        gensky.options.m = -18.00
 
 
 def test_stdin():
+    """Test stdin."""
     gendaylit = Gendaylit(month=1, day=21, time='23:33')
 
     gendaylit.time_zone = 'EST'
@@ -61,6 +70,7 @@ def test_stdin():
 
 
 def test_missing_arguments():
+    """Test validate command."""
     gendaylit = Gendaylit()
 
     with pytest.raises(exceptions.MissingArgumentError):
