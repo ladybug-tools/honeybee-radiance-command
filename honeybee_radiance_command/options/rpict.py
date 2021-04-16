@@ -165,12 +165,17 @@ class RpictOptions(OptionCollection):
         check to ensure this is always correct.
         """
 
-        assert not (self._ai.is_set and self._ae.is_set), \
-            'Both ai and ae are set. The program can use either an include list or ' \
-            'an exclude list, but not both.'
-        assert not (self._aI.is_set and self._aE.is_set), \
-            'Both aI and aE are set. The program can use either an include list or ' \
-            'an exclude list, but not both.'
+        if self._ai.is_set and self._ae.is_set:
+            raise ValueError(
+                'Both ai and ae are set. The program can use either an include list or'
+                ' an exclude list, but not both.'
+            )
+
+        if self._aI.is_set and self._aE.is_set:
+            raise ValueError(
+                'Both aI and aE are set. The program can use either an include list or'
+                ' an exclude list, but not both.'
+            )
 
         if self._dj.is_set and self._ps.is_set:
             if not (self._dj > 0.0 and self._ps != -1):
@@ -178,13 +183,12 @@ class RpictOptions(OptionCollection):
                     'It is usually wise to turn off image sampling when using direct'
                     ' jitter.'
                 )
-        if self._i.is_set and self._dv.is_set:
-            if self._i and not self._dv:
-                warnings.warn(
-                    'If irradiance values are requested, it is better to keep -dv off'
-                    ' so that light sources do not appear with their original radiance'
-                    ' values.'
-                )
+        if self._i.value and self._dv.value:
+            warnings.warn(
+                'If irradiance values are requested, it is better to keep -dv off'
+                ' so that light sources do not appear with their original radiance'
+                ' values.'
+            )
 
     @property
     def vt(self):
