@@ -73,7 +73,7 @@ class Pcomb(Command):
         cmd = ' '.join(command_parts)
 
         if stdin_input and self.input and self.output:
-            cmd = '%s < %s' % (cmd, self.input)
+            cmd = '%s | %s %s' % (self.input, cmd, self.input)
 
         if not stdin_input and self.input:
             cmd = ' '.join((cmd, self.input))
