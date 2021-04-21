@@ -113,8 +113,7 @@ class Gensky(Command):
                 )
 
         elif isinstance(value, str) and ':' in value:
-            if ':' in value:
-                hour, minute = value.split(':')
+            hour, minute = value.split(':')
 
             # Validate hour
             hour = int_in_range(int(hour), 0, 23)
@@ -228,6 +227,13 @@ class Gensky(Command):
         if not self.options.ang.is_set:
             self.validate()
 
+        # Month, day, and time are set and then -ang option is set
+        elif self.options.ang.is_set and (self.month and self.day and self.time):
+            raise ValueError(
+                'Gensky command can be used with either month, day, time or with'
+                ' -ang option that uses sun altitude, azimuth. Setting both are'
+                ' not allowed.')
+
         command_parts = [self.command]
 
         if self.options:
@@ -255,3 +261,4 @@ class Gensky(Command):
             raise exceptions.MissingArgumentError(self.command, 'day')
         if not self.time:
             raise exceptions.MissingArgumentError(self.command, 'time')
+
