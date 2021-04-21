@@ -19,7 +19,7 @@ def test_assignment():
     assert pcond.to_radiance() == 'pcond image.hdr'
     pcond.output = 'conditioned_image.hdr'
     assert pcond.output == 'conditioned_image.hdr'
-    assert pcond.to_radiance() == 'pcond image.hdr conditioned_image.hdr'
+    assert pcond.to_radiance() == 'pcond image.hdr > conditioned_image.hdr'
 
 
 def test_options():
@@ -39,10 +39,10 @@ def test_options():
 def test_stdin():
     """Test stdin."""
     pcond = Pcond()
+
     pcond.input = 'image.hdr'
     pcond.output = 'conditioned.hdr'
-    assert pcond.to_radiance(stdin_input=True) == (
-        'image.hdr | pcond image.hdr > conditioned.hdr')
+    assert pcond.to_radiance(stdin_input=True) == ('pcond > conditioned.hdr')
 
 
 def test_validation():
