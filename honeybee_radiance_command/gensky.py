@@ -207,8 +207,10 @@ class Gensky(Command):
             options: Command options. It will be set to Radiance default values if not
                 provided by user.
         """
+        cls_from_ang = cls()
+
         if not options:
-            options = GenskyOptions()
+            options = cls_from_ang.options
 
         if angles:
             options.ang = tuple_with_length(angles, length=2)
