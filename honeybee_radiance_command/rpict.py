@@ -78,9 +78,6 @@ class Rpict(Command):
         command_parts = [self.command, self.options.to_radiance(), self.octree]
         cmd = ' '.join(command_parts)
 
-        if stdin_input and self.view and self.output:
-            cmd = '%s | %s' % (self.view, cmd)
-
         if not stdin_input and self.view:
             cmd = ' < '.join((cmd, self.view))
 
