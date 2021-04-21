@@ -72,8 +72,8 @@ class Pcomb(Command):
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
 
-        if stdin_input and self.input and self.output:
-            cmd = '%s | %s %s' % (self.input, cmd, self.input)
+        # if stdin_input and self.input and self.output:
+        #     cmd = '%s | %s %s' % (self.input, cmd, self.input)
 
         if not stdin_input and self.input:
             cmd = ' '.join((cmd, self.input))
