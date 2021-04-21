@@ -113,8 +113,7 @@ class Gendaylit(Command):
                 )
 
         elif isinstance(value, str) and ':' in value:
-            if ':' in value:
-                hour, minute = value.split(':')
+            hour, minute = value.split(':')
 
             # Validate hour
             hour = int_in_range(int(hour), 0, 23)
