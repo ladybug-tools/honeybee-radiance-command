@@ -6,7 +6,6 @@ from .optionbase import (
     IntegerOption,
     TupleOption,
 )
-import warnings
 
 
 class GendaylitOptions(OptionCollection):
@@ -54,7 +53,7 @@ class GendaylitOptions(OptionCollection):
         """
         if self._ang.is_set and (
                 self._a.is_set or self._o.is_set or self._m.is_set):
-            warnings.warn(
+            raise ValueError(
                 'Options -a, -o and -m do not apply when -ang is set.'
             )
 
