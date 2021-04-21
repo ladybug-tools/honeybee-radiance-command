@@ -65,8 +65,8 @@ class Pcond(Command):
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
 
-        if stdin_input and self.input and self.output:
-            cmd = '%s | %s %s >' % (self.input, cmd, self.input)
+        # if stdin_input and self.input and self.output:
+        #     cmd = '%s | %s %s >' % (self.input, cmd, self.input)
 
         if not stdin_input and self.input:
             cmd = '%s %s' % (cmd, self.input)
@@ -75,7 +75,7 @@ class Pcond(Command):
             cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))
 
         elif self.output:
-            cmd = '%s %s' % (cmd, self.output)
+            cmd = '%s > %s' % (cmd, self.output)
 
         return ' '.join(cmd.split())
 
