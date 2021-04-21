@@ -1,12 +1,13 @@
 from honeybee_radiance_command.gensky import Gensky
 import pytest
-import warnings
 import honeybee_radiance_command._exception as exceptions
 
 
 def test_defaults():
     """Test command."""
-    gensky = Gensky(month=1, day=21, time=23.5)
+    gensky = Gensky(1, 21, 23.5)
+
+    gensky.to_radiance()
     assert gensky.command == 'gensky'
     assert gensky.options.to_radiance() == ''
 
@@ -38,6 +39,20 @@ def test_assignment_ang():
     gensky.output = 'ang.sky'
     assert gensky.output == 'ang.sky'
     assert gensky.to_radiance() == 'gensky -ang 23.33 45.56 -g 0.1 +s > ang.sky'
+
+
+def test_assignment_both_methods():
+    """Gensky command can be used either with method one: month, day and time inputs or 
+    using method two: -ang option with altitude and azimuth values. Both methods can
+    not be used together."""
+    gensky = Gensky(1, 21, 23.5)
+
+    gensky.options.ang = (23.33, 45.56)
+    with pytest.raises(ValueError):
+        gensky.to_radiance()
+
+    gensky.options.ang = None
+    assert gensky.to_radiance() == 'gensky 1 21 23:30'
 
 
 def test_stdin():
