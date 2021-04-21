@@ -37,19 +37,12 @@ class Gendaylit(Gensky):
                 provided by user.
             output: File path to the output file (Default: None).
         """
-        Gensky.__init__(self, month=month, day=day, time_zone=time_zone,
+        Gensky.__init__(self, month=month, day=day, time=time, time_zone=time_zone,
             solar_time=solar_time, options=options, output=output)
-
-        self.options = options
-        self.month = month
-        self.day = day
-        self.time = time
-        self.time_zone = time_zone
-        self.solar_time = solar_time
 
     @property
     def options(self):
-        """Gensky options."""
+        """Gendaylit options."""
         return self._options
 
     @options.setter
@@ -61,23 +54,3 @@ class Gendaylit(Gensky):
             raise ValueError('Expected Gendaylit Options not {}'.format(type(value)))
 
         self._options = value
-
-    @classmethod
-    def from_ang(cls, angles, options=None):
-        """Create a Gendaylit command using sun altitude and azimuth angles in degrees.
-
-        The altitude is measured in degrees above the horizon, and the azimuth is
-        measured in degrees west of South.
-
-        Args:
-            angles: A tuple of altitude and azimuth angles.
-            options: Command options. It will be set to Radiance default values if not
-                provided by user.
-        """
-        if not options:
-            options = GendaylitOptions()
-
-        if angles:
-            options.ang = tuple_with_length(angles, length=2)
-
-        return cls(options=options)
