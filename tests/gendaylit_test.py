@@ -51,11 +51,11 @@ def test_assignment_not_allowed():
         gendaylit.options.L = (165, 200)
 
 
-def test_assignment_warning():
+def test_assignment_error():
     """Test warning when one of the argument will be ignored."""
     gensky = Gendaylit.from_ang((23.33, 45.56))
 
-    with pytest.warns(Warning):
+    with pytest.raises(ValueError):
         gensky.options.m = -18.00
 
 
