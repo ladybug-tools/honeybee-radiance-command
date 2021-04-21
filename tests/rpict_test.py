@@ -48,8 +48,7 @@ def test_stdin():
     rpict.octree = 'input.oct'
     rpict.view = 'view.vf'
     rpict.output = 'results.dat'
-    assert rpict.to_radiance(stdin_input=True) == (
-        'view.vf | rpict input.oct > results.dat')
+    assert rpict.to_radiance(stdin_input=True) == ('rpict input.oct > results.dat')
 
 
 def test_validation():
