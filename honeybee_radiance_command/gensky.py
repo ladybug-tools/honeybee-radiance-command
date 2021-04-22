@@ -212,10 +212,9 @@ class Gensky(Command):
         if not options:
             options = cls_from_ang.options
 
-        if angles:
-            options.ang = tuple_with_length(angles, length=2)
+        options.ang = tuple_with_length(angles, length=2)
 
-        return cls(options=options)
+        return cls_from_ang
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
