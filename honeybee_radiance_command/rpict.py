@@ -25,7 +25,7 @@ class Rpict(Command):
     __slots__ = ('_octree', '_view')
 
     def __init__(self, options=None, output=None, octree=None, view=None):
-        
+
         Command.__init__(self, output=output)
         self.options = options
         self.octree = octree
