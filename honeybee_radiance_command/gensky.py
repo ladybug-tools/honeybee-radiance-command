@@ -4,7 +4,7 @@
 
 from .options.gensky import GenskyOptions
 from ._command import Command
-from ._typing import tuple_with_length, int_in_range, float_positive
+from ._typing import tuple_with_length, int_in_range
 import honeybee_radiance_command._exception as exceptions
 
 
