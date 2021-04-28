@@ -6,20 +6,25 @@ import honeybee_radiance_command._typing as typing
 
 
 class Rtrace(Command):
-    """rtrace command."""
+    """Rtrace ommand.
+
+    Args:
+        options: Command options. It will be set to Radiance default values if not
+            provided by user.
+        output: Output file (Default: None).
+        octree: Octree file (Default: None).
+        sensors: Sensors file (Default: None).
+
+    Properties:
+        *options
+        *octree
+        *sensors
+    """
 
     __slots__ = ('_octree', '_sensors')
 
     def __init__(self, options=None, output=None, octree=None, sensors=None):
-        """Command.
-
-        Args:
-            options: Command options. It will be set to Radiance default values if not
-                provided by user.
-            output: Output file (Default: None).
-            octree: Octree file (Default: None).
-            sensors: Sensors file (Default: None).
-        """
+ 
         Command.__init__(self, output=output)
         self.octree = octree
         self.options = options
