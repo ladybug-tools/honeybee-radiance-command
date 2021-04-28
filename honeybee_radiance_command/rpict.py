@@ -7,20 +7,25 @@ import honeybee_radiance_command._typing as typing
 
 
 class Rpict(Command):
-    """rpict command."""
+    """Rpict Command.
+
+    Args:
+        options: Command options. It will be set to Radiance default values if not
+            provided by user.
+        output: File path to the output file (Default: None).
+        octree: File path to the octree file (Default: None).
+        view: File path to the octree file (Default: None).
+
+    Properties:
+        *options
+        *octree
+        *view
+    """
 
     __slots__ = ('_octree', '_view')
 
     def __init__(self, options=None, output=None, octree=None, view=None):
-        """Command.
-
-        Args:
-            options: Command options. It will be set to Radiance default values if not
-                provided by user.
-            output: File path to the output file (Default: None).
-            octree: File path to the octree file (Default: None).
-            view: File path to the octree file (Default: None).
-        """
+        
         Command.__init__(self, output=output)
         self.options = options
         self.octree = octree
