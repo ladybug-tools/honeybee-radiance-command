@@ -31,14 +31,14 @@ class Gensky(Command):
             provided by user.
         output: File path to the output file (Default: None).
 
-        Properties
-            *options
-            *month
-            *day
-            *time
-            *time_zone
-            *solar_time
-            *input
+    Properties
+        *options
+        *month
+        *day
+        *time
+        *time_zone
+        *solar_time
+        *input
     """
 
     __slots__ = ('_month', '_day', '_time', '_time_zone', '_solar_time', '_input')
