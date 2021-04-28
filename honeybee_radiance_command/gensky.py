@@ -39,13 +39,13 @@ class Gensky(Command):
             *time_zone
             *solar_time
             *input
-        """
+    """
 
     __slots__ = ('_month', '_day', '_time', '_time_zone', '_solar_time', '_input')
 
     def __init__(self, month=None, day=None, time=None, time_zone=None,
                  solar_time=False, options=None, output=None):
-        
+
         Command.__init__(self, output=output)
         self.options = options
         self.month = month
