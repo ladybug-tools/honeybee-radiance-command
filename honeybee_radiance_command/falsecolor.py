@@ -1,13 +1,13 @@
-"""pflip command."""
+"""falsecolor command."""
 
-from .options.pflip import PflipOptions
+from .options.falsecolor import FalsecolorOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Pflip(Command):
-    """pflip command."""
+class Falsecolor(Command):
+    """falsecolor command."""
 
     __slots__ = ('_input',)
 
@@ -26,16 +26,16 @@ class Pflip(Command):
 
     @property
     def options(self):
-        """pflip options."""
+        """falsecolor options."""
         return self._options
 
     @options.setter
     def options(self, value):
         if not value:
-            value = PflipOptions()
+            value = FalsecolorOptions()
 
-        if not isinstance(value, PflipOptions):
-            raise ValueError('Expected Pflip options not {}'.format(value))
+        if not isinstance(value, FalsecolorOptions):
+            raise ValueError('Expected Falsecolor options not {}'.format(value))
 
         self._options = value
 
@@ -66,7 +66,7 @@ class Pflip(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            cmd = '%s %s' % (cmd, self.input)
+            cmd = '%s -i %s' % (cmd, self.input)
 
         if self.pipe_to:
             cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))

@@ -161,8 +161,7 @@ class RpictOptions(OptionCollection):
 
         Use this method to add checks that are necessary for OptionCollection. For
         instance in rpict option collection -dj and -ps don't go together very well.
-        You can include a
-        check to ensure this is always correct.
+        You can include a check to ensure this is always correct.
         """
 
         if self._ai.is_set and self._ae.is_set:

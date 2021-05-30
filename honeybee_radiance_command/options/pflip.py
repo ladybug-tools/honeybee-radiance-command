@@ -4,15 +4,15 @@ from .optionbase import OptionCollection, BoolOption
 
 
 class PflipOptions(OptionCollection):
-    """pcond options.
+    """pflip options.
 
-    Also see: https://floyd.lbl.gov/radiance/man_html/pcond.1.html
+    Also see: https://floyd.lbl.gov/radiance/man_html/pflip.1.html
     """
 
     __slots__ = ('_h', '_v', '_c')
 
     def __init__(self):
-        """pcond command options."""
+        """pflip command options."""
 
         OptionCollection.__init__(self)
         self._h = BoolOption("h", "Flip horizontally - default: False")

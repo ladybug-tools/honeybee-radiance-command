@@ -135,11 +135,11 @@ class StringOption(FileOption):
         Args:
             name: Option name (e.g.: aa)
             description: Longer description for Radiance option (e.g. ambient accuracy).
-            value: Optional value for aa (Default: None).
+            value: Optional value for the option (Default: None).
             valid_values: An optional list of valid values. By default all the string
                 values are valid.
             whole: Set to true if the whole input string should be compared against valid
-                values. If set to False the validator will run for each charecter in
+                values. If set to False the validator will run for each character in
                 input string.
             pattern_in: A regex pattern that input values should match (Default: None).
             pattern_out: A format pattern to be applied to value for output e.g. "'%s'"
