@@ -41,8 +41,8 @@ class Ra_GIF(Command):
     @input.setter
     def input(self, value):
         if value[-4:].lower() != '.hdr':
-            raise ValueError(
-                'An HDR file is required. Instead got %.' % (value))
+            raise ValueError('"{}" does not have the expected extension for a Radiance '
+                             'generated HDR.'.format(type(value)))
         else:
             self._input = typing.normpath(value)
 

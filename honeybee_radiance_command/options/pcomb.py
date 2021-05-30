@@ -59,7 +59,7 @@ class PcombOptions(OptionCollection):
 
     @property
     def w(self):
-        """Supress warning messages - default: False
+        """Suppress warning messages - default: False
 
         The −w option can be used to suppress warning messages about invalid
         calculations.

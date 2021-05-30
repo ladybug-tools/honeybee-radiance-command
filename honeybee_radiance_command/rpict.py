@@ -14,7 +14,7 @@ class Rpict(Command):
             provided by user.
         output: File path to the output file (Default: None).
         octree: File path to the octree file (Default: None).
-        view: File path to the octree file (Default: None).
+        view: File path to a view file (Default: None).
 
     Properties:
         *options
@@ -48,7 +48,7 @@ class Rpict(Command):
 
     @property
     def octree(self):
-        """Octree file."""
+        """Octree file path."""
         return self._octree
 
     @octree.setter
@@ -60,7 +60,7 @@ class Rpict(Command):
 
     @property
     def view(self):
-        """view."""
+        """View file path (can be obtained using honeybee-radiance)."""
         return self._view
 
     @view.setter
@@ -80,11 +80,11 @@ class Rpict(Command):
         """
         self.validate(stdin_input)
 
-        command_parts = [self.command, self.options.to_radiance(), self.octree]
-        cmd = ' '.join(command_parts)
-
+        command_parts = [self.command, self.options.to_radiance()]
         if not stdin_input and self.view:
-            cmd = ' < '.join((cmd, self.view))
+            command_parts.append(' -vf {}'.format(self.view))
+        command_parts.append(self.octree)
+        cmd = ' '.join(command_parts)
 
         if self.pipe_to:
             cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
@@ -98,5 +98,3 @@ class Rpict(Command):
         Command.validate(self)
         if self.octree is None:
             raise exceptions.MissingArgumentError(self.command, 'octree')
-        if not stdin_input and not self.view:
-            raise exceptions.MissingArgumentError(self.command, 'view')

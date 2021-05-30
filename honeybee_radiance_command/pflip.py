@@ -1,13 +1,13 @@
-"""pcond command."""
+"""pflip command."""
 
-from .options.pcond import PcondOptions
+from .options.pflip import PflipOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Pcond(Command):
-    """pcond command."""
+class Pflip(Command):
+    """pflip command."""
 
     __slots__ = ('_input',)
 
@@ -32,10 +32,10 @@ class Pcond(Command):
     @options.setter
     def options(self, value):
         if not value:
-            value = PcondOptions()
+            value = PflipOptions()
 
-        if not isinstance(value, PcondOptions):
-            raise ValueError('Expected Pcond options not {}'.format(value))
+        if not isinstance(value, PflipOptions):
+            raise ValueError('Expected Pflip options not {}'.format(value))
 
         self._options = value
 
@@ -58,7 +58,7 @@ class Pcond(Command):
         Args:
             stdin_input: A boolean that indicates if the input for this command
                 comes from stdin. This is for instance the case when you pipe the input
-                from another command (default: False).
+                from another command. (Default: False).
         """
         self.validate(stdin_input)
 
@@ -80,4 +80,3 @@ class Pcond(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
-    

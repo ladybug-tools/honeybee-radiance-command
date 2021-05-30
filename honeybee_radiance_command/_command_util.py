@@ -57,13 +57,16 @@ def run_command(input_command, env=None, cwd=None, mute=True):
         stderr=subprocess.STDOUT, shell=True, env=g_env
     )
 
-    for line in iter(process.stdout.readline, STDOUT_CHECK):
-        try:
-            # Python 3 - almost all the time that we use this library
-            print(line.decode('utf-8'), end='')
-        except AttributeError:
-            # python 2 - line is already a string
-            print(line, end='')
+    try:
+        for line in iter(process.stdout.readline, STDOUT_CHECK):
+            try:
+                # Python 3 - almost all the time that we use this library
+                print(line.decode('utf-8'), end='')
+            except AttributeError:
+                # python 2 - line is already a string
+                print(line, end='')
+    except Exception:  # nothing in stdout
+        pass
 
     process.communicate()
     rc = process.returncode

@@ -19,10 +19,10 @@ def test_assignment():
     assert rpict.octree == 'input.oct'
     rpict.view = 'view.vf'
     assert rpict.view == 'view.vf'
-    assert rpict.to_radiance() == 'rpict input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -vf view.vf input.oct'
     rpict.output = 'results.dat'
     assert rpict.output == 'results.dat'
-    assert rpict.to_radiance() == 'rpict input.oct < view.vf > results.dat'
+    assert rpict.to_radiance() == 'rpict -vf view.vf input.oct > results.dat'
 
 
 def test_assignment_options():
@@ -32,13 +32,13 @@ def test_assignment_options():
     rpict.octree = 'input.oct'
     rpict.view = 'view.vf'
     rpict.options.vt = 'v'
-    assert rpict.to_radiance() == 'rpict -vtv input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -vtv -vf view.vf input.oct'
     with pytest.raises(exceptions.InvalidValueError):
         rpict.options.vt = 'k'
     rpict.options.av = (0.0, 0.0, 0.0)
-    assert rpict.to_radiance() == 'rpict -av 0.0 0.0 0.0 -vtv input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -av 0.0 0.0 0.0 -vtv -vf view.vf input.oct'
     rpict.options.x = 512
-    assert rpict.to_radiance() == 'rpict -av 0.0 0.0 0.0 -vtv -x 512 input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -av 0.0 0.0 0.0 -vtv -x 512 -vf view.vf input.oct'
 
 
 def test_stdin():
@@ -60,12 +60,8 @@ def test_validation():
         rpict.to_radiance()
     rpict.octree = 'input.oct'
 
-    with pytest.raises(exceptions.MissingArgumentError):
-        # missing view file
-        rpict.to_radiance()
-
     rpict.view = 'view.vf'
-    assert rpict.to_radiance() == 'rpict input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -vf view.vf input.oct'
 
 
 def test_error_0():
@@ -97,7 +93,7 @@ def test_warning_0():
     rpict.octree = 'input.oct'
     rpict.view = 'view.vf'
     rpict.options.ps = -1
-    assert rpict.to_radiance() == 'rpict -ps -1 input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -ps -1 -vf view.vf input.oct'
     with pytest.warns(Warning):
         rpict.options.dj = 0.0
 
@@ -109,6 +105,6 @@ def test_warning_1():
     rpict.octree = 'input.oct'
     rpict.view = 'view.vf'
     rpict.options.i = True
-    assert rpict.to_radiance() == 'rpict -i input.oct < view.vf'
+    assert rpict.to_radiance() == 'rpict -i -vf view.vf input.oct'
     with pytest.warns(Warning):
         rpict.options.dv = True
