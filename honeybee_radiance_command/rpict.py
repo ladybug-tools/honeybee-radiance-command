@@ -9,17 +9,21 @@ import honeybee_radiance_command._typing as typing
 class Rpict(Command):
     """Rpict Command.
 
+    Rpict generates a picture from the RADIANCE scene given in octree and sends
+    it to the standard output.
+
     Args:
-        options: Command options. It will be set to Radiance default values if not
-            provided by user.
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
         output: File path to the output file (Default: None).
         octree: File path to the octree file (Default: None).
         view: File path to a view file (Default: None).
 
     Properties:
-        *options
-        *octree
-        *view
+        * options
+        * output
+        * octree
+        * view
     """
 
     __slots__ = ('_octree', '_view')

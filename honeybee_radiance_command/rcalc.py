@@ -17,19 +17,22 @@ class Rcalc(Command):
     numeric fields separated by tabs. The -tS option is used to specify an alternate tab
     character.
 
-    See RcalcOptions for more information.
+    Args:
+        options: Rcalc command options. It will be set to Radiance default values
+            if unspecified.
+        output: Output file (Default: None).
+        inputs: A collection of scene files (Default: None)
+
+    Properties:
+        * options
+        * output
+        * input
     """
 
     __slots__ = ('_inputs',)
 
     def __init__(self, options=None, output=None, inputs=None):
-        """Rcalc command.
-
-        Args:
-            options: Rcalc command (Default: RcalcOptions()).
-            output: Output file (Default: None).
-            inputs: A collection of scene files (Default: [])
-        """
+        """Initialize Command."""
         Command.__init__(self, output=output)
         self.inputs = inputs or []
         self.options = options

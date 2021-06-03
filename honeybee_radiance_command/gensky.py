@@ -11,6 +11,11 @@ import honeybee_radiance_command._exception as exceptions
 class Gensky(Command):
     """Gensky Command.
 
+    Gensky produces a RADIANCE scene description for the CIE standard sky
+    distribution at the given month, day and time. By default, the time is
+    interpreted as local standard time on a 24-hour clock. The time value may
+    be given either as decimal hours, or using a colon to separate hours and minutes.
+
     Args:
         month: An integer representing the number of the month. Count starts from 01.
         day: An integer representing the number of the day in a month. Count starts
@@ -27,18 +32,18 @@ class Gensky(Command):
         solar_time: A boolean to use local solar time. If set to True then the time
             is preceded by '+' sign and local solar time is used instead of local
             standard time.
-        options: Command options. It will be set to Radiance default values if not
-            provided by user.
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
         output: File path to the output file (Default: None).
 
     Properties
-        *options
-        *month
-        *day
-        *time
-        *time_zone
-        *solar_time
-        *input
+        * options
+        * month
+        * day
+        * time
+        * time_zone
+        * solar_time
+        * input
     """
 
     __slots__ = ('_month', '_day', '_time', '_time_zone', '_solar_time', '_input')

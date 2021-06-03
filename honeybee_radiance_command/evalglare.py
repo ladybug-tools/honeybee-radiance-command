@@ -1,16 +1,29 @@
-"""falsecolor command."""
+"""evalglare command."""
 
-from .options.falsecolor import FalsecolorOptions
+from .options.evalglare import EvalglareOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Falsecolor(Command):
-    """Falsecolor command.
+class Evalglare(Command):
+    """Evalglare command.
 
-    Falsecolor produces a false color picture for lighting analysis. Input is a
-    rendered Radiance picture.
+    Evalglare determines and evaluates glare sources within a 180 degree fisheye image,
+    given in the RADIANCE image format (.pic or .hdr).
+
+    The image should be rendered as fisheye (e.g. using the -vta or -vth option)
+    using 180 degrees for the horizontal and vertical view angle (-vv 180, -vh 180.)
+    Due to runtime reasons of the evalglare code, the image should be smaller
+    than 1500x1500 pixels. The recommended size is 1000x1000 pixels, the minimum
+    recommended size is 800x800 pixels.
+
+    The program calculates the daylight glare probability (DGP) as well as other
+    glare indexes (DGI, DGI_MOD, UGR, UGR_EXP, VCP, CGI, UDP) to the standard
+    output. The DGP describes the fraction of persons disturbed caused by glare
+    from daylight as a number from 0 to 1, where 0 is no-one disturbed and 1 is
+    everyone. Values lower than 0.2 are out of the range of the user assessment
+    tests, where the program is based on and should be interpreted carefully.
 
     Args:
         options: Command options. It will be set to Radiance default values
@@ -34,16 +47,16 @@ class Falsecolor(Command):
 
     @property
     def options(self):
-        """falsecolor options."""
+        """evalglare options."""
         return self._options
 
     @options.setter
     def options(self, value):
         if not value:
-            value = FalsecolorOptions()
+            value = EvalglareOptions()
 
-        if not isinstance(value, FalsecolorOptions):
-            raise ValueError('Expected Falsecolor options not {}'.format(value))
+        if not isinstance(value, EvalglareOptions):
+            raise ValueError('Expected Evalglare options not {}'.format(value))
 
         self._options = value
 
@@ -74,7 +87,7 @@ class Falsecolor(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            cmd = '%s -i %s' % (cmd, self.input)
+            cmd = '%s %s' % (cmd, self.input)
 
         if self.pipe_to:
             cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))

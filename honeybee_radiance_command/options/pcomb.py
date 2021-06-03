@@ -35,7 +35,7 @@ class PcombOptions(OptionCollection):
         OptionCollection.__init__(self)
 
         self._h = BoolOption("h", "Reduce information header - default: False")
-        self._w = BoolOption("w", "Supress warning messages - default: False")
+        self._w = BoolOption("w", "Suppress warning messages - default: False")
         self._x = IntegerOption("x", "X resolution", min_value=1)
         self._y = IntegerOption("y", "Y resolution", min_value=1)
         self._f = FileOption("f", "function file")

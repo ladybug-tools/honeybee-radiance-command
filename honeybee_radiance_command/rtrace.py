@@ -6,19 +6,23 @@ import honeybee_radiance_command._typing as typing
 
 
 class Rtrace(Command):
-    """Rtrace ommand.
+    """Rtrace command.
+
+    Rtrace traces rays from the standard input through the RADIANCE scene given
+    by octree and sends the results to the standard output.
 
     Args:
-        options: Command options. It will be set to Radiance default values if not
-            provided by user.
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
         output: Output file (Default: None).
         octree: Octree file (Default: None).
         sensors: Sensors file (Default: None).
 
     Properties:
-        *options
-        *octree
-        *sensors
+        * options
+        * output
+        * octree
+        * sensors
     """
 
     __slots__ = ('_octree', '_sensors')

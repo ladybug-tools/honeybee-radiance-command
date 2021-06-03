@@ -1,64 +1,61 @@
-"""falsecolor command."""
+"""psign command."""
 
-from .options.falsecolor import FalsecolorOptions
+from .options.psign import PsignOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Falsecolor(Command):
-    """Falsecolor command.
+class Psign(Command):
+    """Psign command.
 
-    Falsecolor produces a false color picture for lighting analysis. Input is a
-    rendered Radiance picture.
+    Psign produces a RADIANCE picture of the given text. The output dimensions
+    are determined by the character height, aspect ratio, number of lines and
+    line length. (Also the character size if text squeezing is used.)
 
     Args:
         options: Command options. It will be set to Radiance default values
             if unspecified.
         output: File path to the output file (Default: None).
-        input: File path to the radiance generated hdr file (Default: None).
+        text: Text which will be converted into an image (Default: None).
 
     Properties:
         * options
         * output
-        * input
+        * text
     """
 
-    __slots__ = ('_input',)
+    __slots__ = ('_text',)
 
-    def __init__(self, options=None, output=None, input=None):
+    def __init__(self, options=None, output=None, text=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
         self.options = options
-        self._input = input
+        self._text = text
 
     @property
     def options(self):
-        """falsecolor options."""
+        """psign options."""
         return self._options
 
     @options.setter
     def options(self, value):
         if not value:
-            value = FalsecolorOptions()
+            value = PsignOptions()
 
-        if not isinstance(value, FalsecolorOptions):
-            raise ValueError('Expected Falsecolor options not {}'.format(value))
+        if not isinstance(value, PsignOptions):
+            raise ValueError('Expected Psign options not {}'.format(value))
 
         self._options = value
 
     @property
-    def input(self):
-        """Radiance HDR image file."""
-        return self._input
+    def text(self):
+        """Text string to be converted into an image."""
+        return self._text
 
-    @input.setter
-    def input(self, value):
-        if value[-4:].lower() not in ('.hdr', '.pic'):
-            raise ValueError('"{}" does not have the expected extension for a Radiance '
-                             'generated HDR.'.format(type(value)))
-        else:
-            self._input = typing.normpath(value)
+    @text.setter
+    def text(self, value):
+        self._text = str(value)
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
@@ -73,8 +70,8 @@ class Falsecolor(Command):
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)
 
-        if not stdin_input and self.input:
-            cmd = '%s -i %s' % (cmd, self.input)
+        if not stdin_input and self.text:
+            cmd = '%s "%s"' % (cmd, self.text)
 
         if self.pipe_to:
             cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))
@@ -86,5 +83,5 @@ class Falsecolor(Command):
 
     def validate(self, stdin_input=False):
         Command.validate(self)
-        if not stdin_input and not self.input:
-            raise exceptions.MissingArgumentError(self.command, 'input')
+        if not stdin_input and not self.text:
+            raise exceptions.MissingArgumentError(self.command, 'text')

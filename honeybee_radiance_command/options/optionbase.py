@@ -25,8 +25,7 @@ class Option(object):
 
     @property
     def name(self):
-        return self._name if not self._name.endswith('_') \
-            else self._name.replace('_', '')
+        return self._name.replace('_', '')
 
     @name.setter
     def name(self, name):

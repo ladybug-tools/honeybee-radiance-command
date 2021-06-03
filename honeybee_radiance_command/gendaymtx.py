@@ -16,18 +16,23 @@ class Gendaymtx(Command):
     to compute a column in the output matrix, where rows correspond to sky patch
     positions, starting with 0 for the ground and continuing to 145 for the zenith using
     the default -m 1 parameter setting.
+
+    Args:
+        options: Gendaymtx options. It will be set to Radiance default values
+            if unspecified.
+        output: Path to output file.
+        wea: Path to input wea file.
+
+    Properties:
+        * options
+        * output
+        * wea
     """
 
     __slots__ = ('_wea',)
 
     def __init__(self, options=None, output=None, wea=None):
-        """Gendaymtx.
-
-        Args:
-            options. Gendaymtx options.
-            output: Path to output file.
-            wea: Path to input wea file.
-        """
+        """Initialize Command."""
         Command.__init__(self, output=output)
         self.wea = wea
         self.options = options

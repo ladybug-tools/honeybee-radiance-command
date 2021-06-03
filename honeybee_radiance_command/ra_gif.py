@@ -9,7 +9,24 @@ import honeybee_radiance_command._exception as exceptions
 
 
 class Ra_GIF(Command):
-    """ra_gif command."""
+    """Ra_gif command.
+
+    Ra_gif converts from RADIANCE to Compuserve GIF color-mapped, compressed
+    image files. In the default mode, a RADIANCE picture is converted to a
+    color-mapped GIF file of the same horizontal and vertical dimensions with
+    8-bits per pixel.
+
+    Args:
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
+        output: File path to the output file (Default: None).
+        input: File path to the radiance generated hdr file (Default: None).
+
+    Properties:
+        * options
+        * output
+        * input
+    """
 
     __slots__ = ('_input')
 
@@ -40,7 +57,7 @@ class Ra_GIF(Command):
 
     @input.setter
     def input(self, value):
-        if value[-4:].lower() != '.hdr':
+        if value[-4:].lower() not in ('.hdr', '.pic'):
             raise ValueError('"{}" does not have the expected extension for a Radiance '
                              'generated HDR.'.format(type(value)))
         else:

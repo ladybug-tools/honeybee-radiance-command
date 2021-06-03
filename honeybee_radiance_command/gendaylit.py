@@ -11,6 +11,14 @@ from .gensky import Gensky
 class Gendaylit(Gensky):
     """Gendaylit Command.
 
+    Gendaylit produces a RADIANCE scene description based on an angular distribution
+    of the daylight sources (direct+diffuse) for the given atmospheric conditions
+    (direct and diffuse component of the solar radiation), date and local standard
+    time. The default output is the radiance of the sun (direct) and the sky (diffuse)
+    integrated over the visible spectral range (380-780 nm). We have used the
+    calculation of the sun's position and the ground brightness models which
+    were programmed in gensky.
+
     Args:
         month: An integer representing the number of the month. Count starts from 01.
         day: An integer representing the number of the day in a month. Count starts
@@ -27,18 +35,18 @@ class Gendaylit(Gensky):
         solar_time: A boolean to use local solar time. If set to True then the time
             is preceded by '+' sign and local solar time is used instead of local
             standard time.
-        options: Command options. It will be set to Radiance default values if not
-            provided by user.
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
         output: File path to the output file (Default: None).
     
     Properties:
-        *options
-        *month
-        *day
-        *time
-        *time_zone
-        *solar_time
-        *input
+        * options
+        * month
+        * day
+        * time
+        * time_zone
+        * solar_time
+        * input
     """
 
     __slots__ = ('_month', '_day', '_time', '_time_zone', '_solar_time', '_input')

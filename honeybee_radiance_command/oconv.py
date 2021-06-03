@@ -6,18 +6,31 @@ import honeybee_radiance_command._typing as typing
 
 
 class Oconv(Command):
-    """oconv command."""
+    """Oconv command.
+
+    Oconv adds each scene description input to octree and sends the result to the
+    standard output. Each input can be either a file name, or a command (enclosed
+    in quotes and preceded by a '!'). Similarly, the octree input may be given as
+    a command preceded by a '!'. If any of the surfaces will not fit in octree,
+    an error message is printed and the program aborts. If no octree is given, a
+    new one is created large enough for all of the surfaces.
+
+    Args:
+        options: Oconv command options. It will be set to Radiance default values
+            if unspecified.
+        output: Output file (Default: None).
+        inputs: A collection of scene files (Default: None)
+
+    Properties:
+        * options
+        * output
+        * input
+    """
 
     __slots__ = ('_inputs',)
 
     def __init__(self, options=None, output=None, inputs=None):
-        """Oconv command.
-
-        Args:
-            options: Oconv command (Default: OconvOptions()).
-            output: Output file (Default: None).
-            inputs: A collection of scene files (Default: [])
-        """
+        """Initialize Command."""
         Command.__init__(self, output=output)
         self.inputs = inputs or []
         self.options = options

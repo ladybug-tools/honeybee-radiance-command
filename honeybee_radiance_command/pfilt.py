@@ -1,16 +1,17 @@
-"""falsecolor command."""
+"""pfilt command."""
 
-from .options.falsecolor import FalsecolorOptions
+from .options.pfilt import PfiltOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Falsecolor(Command):
-    """Falsecolor command.
+class Pfilt(Command):
+    """Pfilt command.
 
-    Falsecolor produces a false color picture for lighting analysis. Input is a
-    rendered Radiance picture.
+    Pfilt performs anti-aliasing and scaling on a RADIANCE picture. The program
+    makes two passes on the picture file in order to set the exposure to the correct
+    average value.
 
     Args:
         options: Command options. It will be set to Radiance default values
@@ -34,16 +35,16 @@ class Falsecolor(Command):
 
     @property
     def options(self):
-        """falsecolor options."""
+        """pfilt options."""
         return self._options
 
     @options.setter
     def options(self, value):
         if not value:
-            value = FalsecolorOptions()
+            value = PfiltOptions()
 
-        if not isinstance(value, FalsecolorOptions):
-            raise ValueError('Expected Falsecolor options not {}'.format(value))
+        if not isinstance(value, PfiltOptions):
+            raise ValueError('Expected Pfilt options not {}'.format(value))
 
         self._options = value
 
@@ -74,7 +75,7 @@ class Falsecolor(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            cmd = '%s -i %s' % (cmd, self.input)
+            cmd = '%s %s' % (cmd, self.input)
 
         if self.pipe_to:
             cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))

@@ -13,7 +13,18 @@ class Rcontrib(Rtrace):
     RAYPATH environment variable determines directories to search for this file. (No
     search takes place if a file name begins with a '.', '/' or '~' character.).
 
-    See RcontribOptions class for more information.
+    Args:
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
+        output: Output file (Default: None).
+        octree: Octree file (Default: None).
+        sensors: Sensors file (Default: None).
+
+    Properties:
+        * options
+        * output
+        * octree
+        * sensors
 
     Note:
     https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rcontrib.pdf

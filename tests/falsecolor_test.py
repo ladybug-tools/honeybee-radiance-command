@@ -31,7 +31,6 @@ def test_options():
     falsecolor.options.s = 'auto'
     falsecolor.options.l = 'lux'
     falsecolor.options.cl = True
-    print(falsecolor.options.s)
     assert falsecolor.to_radiance() == 'falsecolor -cl -l lux -pal spec -s auto -i image.hdr'
 
 

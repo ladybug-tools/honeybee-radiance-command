@@ -75,7 +75,7 @@ class PcondOptions(OptionCollection):
         """Human visual response - default: False
 
         Mimic human visual response in the output. The goal of this process is to
-        produce output that correlates strongly with a person’s subjective
+        produce output that correlates strongly with a person's subjective
         impression of a scene. This switch is a bundle of the −a, −v, −s and −c options.
         """
         return self._h

@@ -1,22 +1,24 @@
-"""falsecolor command."""
+"""pcompos command."""
 
-from .options.falsecolor import FalsecolorOptions
+from .options.pcompos import PcomposOptions
 from ._command import Command
+
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-class Falsecolor(Command):
-    """Falsecolor command.
 
-    Falsecolor produces a false color picture for lighting analysis. Input is a
-    rendered Radiance picture.
+class Pcompos(Command):
+    """Pcompos command.
+
+    Pcompos arranges and composites RADIANCE pictures and sends the result to
+    the standard output.
 
     Args:
-        options: Command options. It will be set to Radiance default values
-            if unspecified.
+        options: Command options. It will be set to Radiance default values if not
+            provided by user.
         output: File path to the output file (Default: None).
-        input: File path to the radiance generated hdr file (Default: None).
+        input: A list of paths to radiance generated hdr images. (Default: None).
 
     Properties:
         * options
@@ -24,41 +26,46 @@ class Falsecolor(Command):
         * input
     """
 
-    __slots__ = ('_input',)
+    __slots__ = ('_input')
 
     def __init__(self, options=None, output=None, input=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
-        self.options = options
         self._input = input
+        self.options = options
 
     @property
     def options(self):
-        """falsecolor options."""
+        """pcompos options."""
         return self._options
 
     @options.setter
     def options(self, value):
         if not value:
-            value = FalsecolorOptions()
+            value = PcomposOptions()
 
-        if not isinstance(value, FalsecolorOptions):
-            raise ValueError('Expected Falsecolor options not {}'.format(value))
+        if not isinstance(value, PcomposOptions):
+            raise ValueError('Expected PcomposOptions not {}'.format(type(value)))
 
         self._options = value
 
     @property
     def input(self):
-        """Radiance HDR image file."""
+        """A string of joined paths to the hdr files."""
         return self._input
 
     @input.setter
     def input(self, value):
-        if value[-4:].lower() not in ('.hdr', '.pic'):
-            raise ValueError('"{}" does not have the expected extension for a Radiance '
-                             'generated HDR.'.format(type(value)))
-        else:
-            self._input = typing.normpath(value)
+        if not value:
+            self._input = []
+        elif not isinstance(value, (list, tuple)):
+            value = [value]
+        for image in value:
+            if image[-4:].lower() not in ('.hdr', '.pic'):
+                raise ValueError(
+                    'A list of .hdr files required. Instead got %s.' % (value)
+                )
+        self._input = ' '.join(typing.normpath(path) for path in value)
 
     def to_radiance(self, stdin_input=False):
         """Command in Radiance format.
@@ -66,7 +73,7 @@ class Falsecolor(Command):
         Args:
             stdin_input: A boolean that indicates if the input for this command
                 comes from stdin. This is for instance the case when you pipe the input
-                from another command. (Default: False).
+                from another command (default: False).
         """
         self.validate(stdin_input)
 
@@ -74,13 +81,13 @@ class Falsecolor(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            cmd = '%s -i %s' % (cmd, self.input)
+            cmd = ' '.join((cmd, self.input))
 
         if self.pipe_to:
-            cmd = '%s | %s' % (cmd, self.pipe_to.to_radiance(stdin_input=True))
+            cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
 
         elif self.output:
-            cmd = '%s > %s' % (cmd, self.output)
+            cmd = ' > '.join((cmd, self.output))
 
         return ' '.join(cmd.split())
 

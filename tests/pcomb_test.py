@@ -24,7 +24,7 @@ def test_assignment():
 
 
 def test_assignment_options():
-    """Test assignning options."""
+    """Test assigning options."""
     pcomb = Pcomb()
 
     pcomb.input = ['image1.hdr', 'image2.hdr']

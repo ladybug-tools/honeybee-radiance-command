@@ -7,19 +7,31 @@ import honeybee_radiance_command._typing as typing
 
 
 class Pcond(Command):
-    """pcond command."""
+    """Pcond command.
+    
+    Pcond conditions a Radiance picture for output to a display or hard copy device.
+    If the dynamic range of the scene exceeds that of the display (as is usually the
+    case), pcond will compress the dynamic range of the picture such that both dark
+    and bright regions are visible. In addition, certain limitations in human
+    vision may be mimicked in order to provide an appearance similar to the
+    experience one might have in the actual scene.
+
+    Args:
+        options: Command options. It will be set to Radiance default values
+            if unspecified.
+        output: File path to the output file (Default: None).
+        input: File path to the radiance generated hdr file (Default: None).
+
+    Properties:
+        * options
+        * output
+        * input
+    """
 
     __slots__ = ('_input',)
 
     def __init__(self, options=None, output=None, input=None):
-        """Command.
-
-        Args:
-            options: Command options. It will be set to Radiance default values if not
-                provided by user.
-            output: File path to the output file (Default: None).
-            input: File path to the radiance generated hdr file (Default: None).
-        """
+        """Initialize Command."""
         Command.__init__(self, output=output)
         self.options = options
         self._input = input
@@ -46,7 +58,7 @@ class Pcond(Command):
 
     @input.setter
     def input(self, value):
-        if value[-4:].lower() != '.hdr':
+        if value[-4:].lower() not in ('.hdr', '.pic'):
             raise ValueError('"{}" does not have the expected extension for a Radiance '
                              'generated HDR.'.format(type(value)))
         else:

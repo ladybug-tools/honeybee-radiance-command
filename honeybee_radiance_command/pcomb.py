@@ -9,19 +9,28 @@ import honeybee_radiance_command._typing as typing
 
 
 class Pcomb(Command):
-    """pcomb command."""
+    """Pcomb command.
+
+    Pcomb combines equal-sized RADIANCE pictures and sends the result to the
+    standard output. By default, the result is just a linear combination of the
+    input pictures.
+
+    Args:
+        options: Command options. It will be set to Radiance default values if not
+            provided by user.
+        output: File path to the output file (Default: None).
+        input: A list of paths to radiance generated hdr images. (Default: None).
+
+    Properties:
+        * options
+        * output
+        * input
+    """
 
     __slots__ = ('_input')
 
-    def __init__(self, options=None, output=None, input=[]):
-        """Command.
-
-        Args:
-            options: Command options. It will be set to Radiance default values if not
-                provided by user.
-            output: File path to the output file (Default: None).
-            input: A list of paths to radiance generated hdr images. (Default: []).
-        """
+    def __init__(self, options=None, output=None, input=None):
+        """Initialize Command."""
         Command.__init__(self, output=output)
         self._input = input
         self.options = options
@@ -53,7 +62,7 @@ class Pcomb(Command):
         elif not isinstance(value, (list, tuple)):
             value = [value]
         for image in value:
-            if image[-4:].lower() != '.hdr':
+            if image[-4:].lower() not in ('.hdr', '.pic'):
                 raise ValueError(
                     'A list of .hdr files required. Instead got %s.' % (value)
                 )
