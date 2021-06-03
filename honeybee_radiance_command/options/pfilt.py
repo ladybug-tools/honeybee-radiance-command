@@ -43,8 +43,8 @@ class PfiltOptions(OptionCollection):
 
         OptionCollection.__init__(self)
 
-        self._x = IntegerOption("x", "X resolution - default: same as input")
-        self._y = IntegerOption("y", "Y resolution - default: same as input")
+        self._x = StringOption("x", "X resolution - default: same as input")
+        self._y = StringOption("y", "Y resolution - default: same as input")
         self._p = NumericOption("p", "Pixel aspect ratio - default: 0")
         self._c = BoolOption("c", "Do not write PIXASPECT variable - default: False")
         self._e = NumericOption("e", "Exposure adjustment multiplier - default: 1")
@@ -81,11 +81,11 @@ class PfiltOptions(OptionCollection):
     def x(self):
         """X resolution - default: same as input
 
-        Set the output x resolution to a number. This must be less than or equal
-        to the x dimension of the target device. If res is given as a slash
-        followed by a real number, the input resolution is divided by this
-        number to get the output resolution. By default, the output resolution
-        is the same as the input.
+        Set the output x resolution to a number or to a division of the input resolution.
+        Numbers must be less than or equal to the x dimension of the target device.
+        If res is given as a slash followed by a real number (eg. /2), the input
+        resolution is divided by this number to get the output resolution. By default,
+        the output resolution is the same as the input.
         """
         return self._x
 
@@ -97,11 +97,11 @@ class PfiltOptions(OptionCollection):
     def y(self):
         """Y resolution - default: same as input
 
-        Set the output y resolution to a number. This must be less than or equal
-        to the y dimension of the target device. If res is given as a slash
-        followed by a real number, the input resolution is divided by this
-        number to get the output resolution. By default, the output resolution
-        is the same as the input.
+        Set the output y resolution to a number or to a division of the input resolution.
+        Numbers must be less than or equal to the x dimension of the target device.
+        If res is given as a slash followed by a real number (eg. /2), the input
+        resolution is divided by this number to get the output resolution. By default,
+        the output resolution is the same as the input.
         """
         return self._y
 
