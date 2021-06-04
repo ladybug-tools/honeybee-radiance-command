@@ -58,6 +58,7 @@ class RpictOptions(OptionCollection):
         "_ar",
         "_ad",
         "_as_",
+        "_af",
         "_ae",
         "_ai",
         "_aE",
@@ -129,6 +130,7 @@ class RpictOptions(OptionCollection):
         self._ar = IntegerOption("ar", "ambient resolution - default: 64")
         self._ad = IntegerOption("ad", "ambient divisions - default: 512")
         self._as_ = IntegerOption("as_", "ambient super-samples - default: 128")
+        self._af = FileOption('af', 'ambient cache file (.amb)')
         self._ae = StringOption('ae', 'ambient excluded modifier')
         self._ai = StringOption('ai', 'ambient included modifier')
         self._aE = FileOption('aE', 'ambient excluded modifiers file')
@@ -814,6 +816,36 @@ class RpictOptions(OptionCollection):
     @as_.setter
     def as_(self, value):
         self._as_.value = value
+
+    @property
+    def af(self):
+        """ambient cache file (.amb)
+
+        This is where indirect illuminance will be stored and retrieved. Normally,
+        indirect illuminance values are kept in memory and lost when the program
+        finishes or dies. By using a file, different invocations can share
+        illuminance values, saving time in the computation. Also, by creating an
+        ambient file during a low resolution rendering, better results can be
+        obtained in a second high resolution pass. The ambient file is in a
+        machine-independent binary format which may be examined with lookamb.
+
+        The ambient file may also be used as a means of communication and data
+        sharing between simultaneously executing processes. The same file may be
+        used by multiple processes, possibly running on different machines and
+        accessing the file via the network (ie. nfs). The network lock manager
+        lockd is used to insure that this information is used consistently.
+
+        If any calculation parameters are changed or the scene is modified, the
+        old ambient file should be removed so that the calculation can start over
+        from scratch. For convenience, the original ambient parameters are listed
+        in the header of the ambient file. Getinfo(1) may be used to print out
+        this information.
+        """
+        return self._af
+
+    @af.setter
+    def af(self, value):
+        self._af.value = value
 
     @property
     def ae(self):
