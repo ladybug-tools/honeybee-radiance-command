@@ -141,8 +141,8 @@ class StringOption(FileOption):
                 values. If set to False the validator will run for each character in
                 input string.
             pattern_in: A regex pattern that input values should match (Default: None).
-            pattern_out: A format pattern to be applied to value for output e.g. "'%s'"
-                (Default: None).
+            pattern_out: A format pattern to be applied to value for output e.g.
+                "'%s'" (Default: None).
         """
         self.valid_values = valid_values
         self.whole = whole

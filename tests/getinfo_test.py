@@ -32,6 +32,18 @@ def test_assignment_options():
     assert getinfo.to_radiance() == 'getinfo -d image1.hdr image2.hdr'
 
 
+def test_assignment_options_append():
+    """Test assigning options."""
+    getinfo = Getinfo()
+
+    getinfo.input = ['image1.hdr', 'image2.hdr']
+    getinfo.options.a = 'This is some Text to append to the header'
+    assert getinfo.to_radiance() == \
+        'getinfo -a "This is some Text to append to the header" image1.hdr image2.hdr' \
+        or getinfo.to_radiance() == \
+        "getinfo -a 'This is some Text to append to the header' image1.hdr image2.hdr"
+
+
 def test_stdin():
     """Test stdin."""
     getinfo = Getinfo()

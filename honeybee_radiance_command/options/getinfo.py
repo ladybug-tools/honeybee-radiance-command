@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from .optionbase import OptionCollection, BoolOption
+from .optionbase import OptionCollection, BoolOption, StringOption
 
 
 class GetinfoOptions(OptionCollection):
@@ -9,13 +9,14 @@ class GetinfoOptions(OptionCollection):
     Also see: https://floyd.lbl.gov/radiance/man_html/getinfo.1.html
     """
 
-    __slots__ = ('_d',)
+    __slots__ = ('_d', '_a')
 
     def __init__(self):
         """getinfo command options."""
 
         OptionCollection.__init__(self)
         self._d = BoolOption("d", "Print the dimensions instead - default: False")
+        self._a = StringOption("a", "Text to add to the file header", pattern_out='"%s"')
         self._on_setattr_check = False
 
     @property
@@ -32,3 +33,17 @@ class GetinfoOptions(OptionCollection):
     @d.setter
     def d(self, value):
         self._d.value = value
+
+    @property
+    def a(self):
+        """Text to add to the file header
+
+        Add one or more header lines to the standard input. These lines are given
+        as arguments to getinfo, and will be automatically quoted if they
+        contain spaces.
+        """
+        return self._a
+
+    @a.setter
+    def a(self, value):
+        self._a.value = value
