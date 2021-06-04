@@ -58,7 +58,7 @@ class Pcond(Command):
 
     @input.setter
     def input(self, value):
-        if value[-4:].lower() not in ('.hdr', '.pic'):
+        if value[-4:].lower() not in ('.hdr', '.pic', '.unf'):
             raise ValueError('"{}" does not have the expected extension for a Radiance '
                              'generated HDR.'.format(type(value)))
         else:

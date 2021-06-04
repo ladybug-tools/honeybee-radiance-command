@@ -32,7 +32,7 @@ class Pcomb(Command):
     def __init__(self, options=None, output=None, input=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
-        self._input = input
+        self.input = input
         self.options = options
 
     @property
@@ -58,11 +58,11 @@ class Pcomb(Command):
     @input.setter
     def input(self, value):
         if not value:
-            self._input = []
+            value = []
         elif not isinstance(value, (list, tuple)):
             value = [value]
         for image in value:
-            if image[-4:].lower() not in ('.hdr', '.pic'):
+            if image[-4:].lower() not in ('.hdr', '.pic', '.unf'):
                 raise ValueError(
                     'A list of .hdr files required. Instead got %s.' % (value)
                 )
