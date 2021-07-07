@@ -484,10 +484,10 @@ class OptionCollection(object):
     def __setattr__(self, name, value):
         try:
             object.__setattr__(self, name, value)
-        except AttributeError:
+        except (AttributeError, SystemError):
             try:
                 object.__setattr__(self, name + '_', value)
-            except AttributeError:
+            except (AttributeError, SystemError):
                 raise AttributeError(
                     '"{1}" object has no attribute "{0}".'
                     '\nYou can still try to use `update_from_string` method to add or'
