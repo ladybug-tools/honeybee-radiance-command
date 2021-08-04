@@ -1,0 +1,8 @@
+# VMTX representation for "skylight"
+
+#@rfluxmtx u=0,1,0 h=kf o=skylight..class_room.vmx
+void glow white_glow_skylight
+0
+0
+4 1.0 1.0 1.0 0.0
+
