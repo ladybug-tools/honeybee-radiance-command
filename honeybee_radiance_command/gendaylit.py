@@ -53,9 +53,9 @@ class Gendaylit(Gensky):
 
     def __init__(self, month=None, day=None, time=None, time_zone=None,
                  solar_time=False, options=None, output=None):
-        
+
         Gensky.__init__(self, month=month, day=day, time=time, time_zone=time_zone,
-            solar_time=solar_time, options=options, output=output)
+                        solar_time=solar_time, options=options, output=output)
 
     @property
     def options(self):

@@ -63,10 +63,10 @@ rtrace.run(env)
 """
 
 import warnings
-import os
 
 from .options import OptionCollection
 from ._command_util import run_command
+import honeybee_radiance_command._typing as typing
 
 
 class Command(object):
@@ -107,7 +107,7 @@ class Command(object):
     @output.setter
     def output(self, value):
         if value:
-            value = os.path.normpath(value)
+            value = typing.normpath(value)
         self._output = value
 
     @property
