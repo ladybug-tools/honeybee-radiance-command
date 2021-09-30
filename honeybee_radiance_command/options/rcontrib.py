@@ -249,3 +249,26 @@ class RcontribOptions(RtraceOptions):
     @t.setter
     def t(self, value):
         self._t.value = value
+
+    def to_radiance(self):
+        """Translate options to Radiance format."""
+
+        # Note on overriding this method here. (@sariths 29.09.2021)
+        # The options below have an impact of how modifiers specified through m and M will behave.
+        # So, I am checking for these upfront and placing them in the beginning of the options.
+        positional_options = ('_p', '_b', '_bn', '_o')
+
+        options = ""
+        for option_flag in positional_options:
+            if option_flag in self.slots:
+                positional_option_value = getattr(self, option_flag).to_radiance().strip()
+                if positional_option_value:
+                    options += " %s " % positional_option_value
+
+        options += \
+            ' '.join(getattr(self, opt).to_radiance() for opt in self.slots if opt not in positional_options)
+
+        additional_options = \
+            ' '.join('-%s %s' % (k, v) for k, v in self.additional_options.items())
+
+        return ' '.join(' '.join((options, additional_options)).split())
