@@ -30,31 +30,34 @@ class Dcglare(Command):
         options: Command options. It will be set to Radiance default values
             if unspecified.
         output: File path to the output file (Default: None).
-        dcdirect: File path to the direct contribution file (Default: None).
-        dctotal: File path to the total (direct and diffuse) contribution file
+        dc_direct: File path to the direct contribution file (Default: None).
+        dc_total: File path to the total (direct and diffuse) contribution file
             (Default: None).
         sky_matrix: File path to the sky contribution file (Default: None).
+        vmtx: File path to view matrix (three-phase methoc) (Default: None).
+        dmtx: File path to daylight matrix (three-phase methoc) (Default: None).
+        tmtx: File path to transmission matrix (three-phase methoc) (Default: None).
 
     Properties:
         * options
         * output
-        * dcdirect
-        * dctotal
+        * dc_direct
+        * dc_total
         * sky_matrix
         * vmtx
         * dmtx
         * tmtx
     """
 
-    __slots__ = ('_dcdirect', '_dctotal', '_sky_matrix', '_vmtx', '_dmtx', '_tmtx')
+    __slots__ = ('_dc_direct', '_dc_total', '_sky_matrix', '_vmtx', '_dmtx', '_tmtx')
 
-    def __init__(self, options=None, output=None, dcdirect=None, dctotal=None,
+    def __init__(self, options=None, output=None, dc_direct=None, dc_total=None,
                  sky_matrix=None, vmtx=None, dmtx=None, tmtx=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
         self.options = options
-        self.dcdirect = dcdirect
-        self.dctotal = dctotal
+        self.dc_direct = dc_direct
+        self.dc_total = dc_total
         self.sky_matrix = sky_matrix
         self.vmtx = vmtx
         self.dmtx = dmtx
@@ -76,28 +79,28 @@ class Dcglare(Command):
         self._options = value
     
     @property
-    def dcdirect(self):
+    def dc_direct(self):
         """Direct contribution matrix."""
-        return self._dcdirect
+        return self._dc_direct
     
-    @dcdirect.setter
-    def dcdirect(self, value):
+    @dc_direct.setter
+    def dc_direct(self, value):
         if value is None:
-            self._dcdirect = None
+            self._dc_direct = None
         else:
-            self._dcdirect = typing.normpath(value)
+            self._dc_direct = typing.normpath(value)
     
     @property
-    def dctotal(self):
+    def dc_total(self):
         """Total (direct and diffuse) contribution matrix."""
-        return self._dctotal
+        return self._dc_total
     
-    @dctotal.setter
-    def dctotal(self, value):
+    @dc_total.setter
+    def dc_total(self, value):
         if value is None:
-            self._dctotal = None
+            self._dc_total = None
         else:
-            self._dctotal = typing.normpath(value)
+            self._dc_total = typing.normpath(value)
     
     @property
     def sky_matrix(self):
@@ -158,10 +161,11 @@ class Dcglare(Command):
         self.validate(stdin_input)
 
         command_parts = [self.command, self.options.to_radiance()]
-        command_parts += [self.dcdirect]
-        command_parts += [self.dctotal] if not self.tmtx else [self.vmtx, self.tmtx,
+        command_parts += [self.dc_direct]
+        command_parts += [self.dc_total] if not self.tmtx else [self.vmtx, self.tmtx,
                           self.dmtx]
-        command_parts += [self.sky_matrix] if self.sky_matrix else []
+        if not stdin_input:
+            command_parts += [self.sky_matrix]
         cmd = ' '.join(command_parts)
 
         if self.pipe_to:
@@ -174,10 +178,10 @@ class Dcglare(Command):
 
     def validate(self, stdin_input=False):
         Command.validate(self)
-        if not self.dcdirect:
-            raise exceptions.MissingArgumentError(self.command, 'dcdirect')
-        if not self.dctotal and not self.tmtx:
-            raise exceptions.MissingArgumentError(self.command, 'dctotal')
+        if not self.dc_direct:
+            raise exceptions.MissingArgumentError(self.command, 'dc_direct')
+        if not self.dc_total and not self.tmtx:
+            raise exceptions.MissingArgumentError(self.command, 'dc_total')
         if self.tmtx and not self.vmtx:
             raise exceptions.MissingArgumentError(self.command, 'vmtx')
         if self.tmtx and not self.dmtx:
