@@ -254,8 +254,8 @@ class RcontribOptions(RtraceOptions):
         """Translate options to Radiance format."""
 
         # Note on overriding this method here. (@sariths 29.09.2021)
-        # The options below have an impact of how modifiers specified through m and M will behave.
-        # So, I am checking for these upfront and placing them in the beginning of the options.
+        # The options below have an impact on how modifiers specified through m and M will behave.
+        # So, I am checking for these upfront and placing them at the beginning of the options.
         positional_options = ('_p', '_b', '_bn', '_o')
 
         options = ""
