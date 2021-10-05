@@ -17,7 +17,8 @@ class RcontribOptions(RtraceOptions):
     """
 
     __slots__ = (
-        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M', '_o', '_ap',
+        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M',
+        '_o', '_ap',
         '_t'
     )
 
@@ -25,7 +26,8 @@ class RcontribOptions(RtraceOptions):
         """rcontrib command options."""
         RtraceOptions.__init__(self)
         self._on_setattr_check = False
-        self._c = IntegerOption('c', 'accumulated rays per record - default: 1')
+        self._c = IntegerOption('c',
+                                'accumulated rays per record - default: 1')
         self._V = BoolOption('V', 'output coefficients - default: off')
         self._fo = BoolOption('fo', 'format output - default: off')
         self._o = StringOption('o', 'output file. it can include ')
@@ -249,3 +251,28 @@ class RcontribOptions(RtraceOptions):
     @t.setter
     def t(self, value):
         self._t.value = value
+
+    def to_radiance(self):
+        """Translate options to Radiance format."""
+
+        positional_options = ('_p', '_b', '_bn', '_o')
+
+        slots = list(self.slots)
+        options = []
+        for option_flag in positional_options:
+            if option_flag in slots:
+                positional_option_value = getattr(self,
+                                                  option_flag).to_radiance().strip()
+                if positional_option_value:
+                    options.append(positional_option_value)
+
+        options.extend([getattr(self, opt).to_radiance() for opt in slots if
+                        opt not in positional_options])
+
+        options = " ".join(options)
+
+        additional_options = \
+            ' '.join(
+                '-%s %s' % (k, v) for k, v in self.additional_options.items())
+
+        return ' '.join(' '.join((options, additional_options)).split())
