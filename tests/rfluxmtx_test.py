@@ -1,5 +1,3 @@
-# coding=utf-8
-
 from honeybee_radiance_command.rfluxmtx import Rfluxmtx
 import pytest
 import honeybee_radiance_command._exception as exceptions

@@ -13,7 +13,7 @@ class Rfluxmtx(Command):
     Rfluxmtx samples rays uniformly over the surface given in sender.rad and
     records rays arriving at surfaces in the file receivers.rad, producing a
     flux transfer matrix per receiver. A system octree to which the receivers
-    will be appended may be given with a −i option following the receiver file.
+    will be appended may be given with a -i option following the receiver file.
     Additional system surfaces may be given in one or more system.rad files,
     which are compiled before the receiver file into an octree sent to the
     rcontrib program to do the actual work.
