@@ -6,19 +6,47 @@ import honeybee_radiance_command._typing as typing
 from .options.rfluxmtx import RfluxmtxOptions, RfluxmtxControlParameters
 
 
-# octree to octree and so on
 class Rfluxmtx(Command):
     """
     Rfluxmtx command.
 
-    Rfluxmtx computes the flux transfer matrices for a RADIANCE scene.
+    Rfluxmtx samples rays uniformly over the surface given in sender.rad and
+    records rays arriving at surfaces in the file receivers.rad, producing a
+    flux transfer matrix per receiver. A system octree to which the receivers
+    will be appended may be given with a −i option following the receiver file.
+    Additional system surfaces may be given in one or more system.rad files,
+    which are compiled before the receiver file into an octree sent to the
+    rcontrib program to do the actual work.
+
+    Args:
+    options: Command options. It will be set to Radiance default values
+        if unspecified.
+    output: Output file (Default: None).
+    octree: Octree file (Default: None).
+    sensors: Sensors file (Default: None).
+    receivers: Receivers file (Default: None).
+    sender: Sender file (Default: None).
+    system: System file (Default: None).
+
+
+    Properties:
+        * options
+        * output
+        * octree
+        * sensors
+        * system
+        * sender
+        * receivers
+
+    Note:
+    https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rfluxmtx.pdf
 
     """
 
-    __slots__ = ('_input', "_sensors", "_sender", "_octree", "_receivers", "_system")
+    __slots__ = ('_input', '_sensors', '_sender', '_octree', '_receivers', '_system')
 
-    def __init__(self, options=None, output=None, sensors=None, sender=None, receivers=None, system=None,
-                 octree=None):
+    def __init__(self, options=None, output=None, sensors=None, sender=None,
+                 receivers=None, system=None, octree=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
         self.options = options
@@ -81,8 +109,11 @@ class Rfluxmtx(Command):
 
     @property
     def system(self):
-        """System file. Note that rfluxmtx can accept any number of system files, however, to keep
-        the implementation clean, only one system file is being allowed. (SS: 23.Sep.2021)"""
+        """System file.
+
+        Note that rfluxmtx can accept any number of system files, however, to
+        keep the implementation clean, only one system file is being
+        allowed."""
         return self._system
 
     @system.setter

@@ -17,7 +17,8 @@ class RcontribOptions(RtraceOptions):
     """
 
     __slots__ = (
-        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M', '_o', '_ap',
+        '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M',
+        '_o', '_ap',
         '_t'
     )
 
@@ -25,7 +26,8 @@ class RcontribOptions(RtraceOptions):
         """rcontrib command options."""
         RtraceOptions.__init__(self)
         self._on_setattr_check = False
-        self._c = IntegerOption('c', 'accumulated rays per record - default: 1')
+        self._c = IntegerOption('c',
+                                'accumulated rays per record - default: 1')
         self._V = BoolOption('V', 'output coefficients - default: off')
         self._fo = BoolOption('fo', 'format output - default: off')
         self._o = StringOption('o', 'output file. it can include ')
@@ -253,22 +255,24 @@ class RcontribOptions(RtraceOptions):
     def to_radiance(self):
         """Translate options to Radiance format."""
 
-        # Note on overriding this method here. (@sariths 29.09.2021)
-        # The options below have an impact on how modifiers specified through m and M will behave.
-        # So, I am checking for these upfront and placing them at the beginning of the options.
         positional_options = ('_p', '_b', '_bn', '_o')
 
-        options = ""
+        slots = list(self.slots)
+        options = []
         for option_flag in positional_options:
-            if option_flag in self.slots:
-                positional_option_value = getattr(self, option_flag).to_radiance().strip()
+            if option_flag in slots:
+                positional_option_value = getattr(self,
+                                                  option_flag).to_radiance().strip()
                 if positional_option_value:
-                    options += " %s " % positional_option_value
+                    options.append(positional_option_value)
 
-        options += \
-            ' '.join(getattr(self, opt).to_radiance() for opt in self.slots if opt not in positional_options)
+        options.extend([getattr(self, opt).to_radiance() for opt in slots if
+                        opt not in positional_options])
+
+        options = " ".join(options)
 
         additional_options = \
-            ' '.join('-%s %s' % (k, v) for k, v in self.additional_options.items())
+            ' '.join(
+                '-%s %s' % (k, v) for k, v in self.additional_options.items())
 
         return ' '.join(' '.join((options, additional_options)).split())
