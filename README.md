@@ -40,7 +40,7 @@ pip install -r dev-requirements.txt
 
 3. Run Tests:
 ```console
-python -m pytests tests/
+python -m pytest tests/
 ```
 
 4. Generate Documentation:
