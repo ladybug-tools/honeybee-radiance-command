@@ -269,7 +269,7 @@ class RcontribOptions(RtraceOptions):
         options.extend([getattr(self, opt).to_radiance() for opt in slots if
                         opt not in positional_options])
 
-        options = " ".join(options)
+        options = ' '.join(options)
 
         additional_options = \
             ' '.join(
