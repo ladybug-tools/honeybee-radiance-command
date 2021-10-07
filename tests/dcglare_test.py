@@ -18,14 +18,27 @@ def test_assignment():
     dcglare.sky_matrix = 'sky_matrix.mtx'
     assert dcglare.sky_matrix == 'sky_matrix.mtx'
     assert dcglare.to_radiance() == 'dcglare dc_direct.mtx dc_total.mtx sky_matrix.mtx'
-    dcglare.output = 'views.dgp'
-    assert dcglare.output == 'views.dgp'
-    assert dcglare.to_radiance() == \
-        'dcglare dc_direct.mtx dc_total.mtx sky_matrix.mtx > views.dgp'
+
+
+def test_view_file():
+    dcglare = Dcglare()
+    dcglare.dc_direct = 'dc_direct.mtx'
+    dcglare.dc_total = 'dc_total.mtx'
+    dcglare.sky_matrix = 'sky_matrix.mtx'
     dcglare.options.vf = 'views.ray'
     assert dcglare.to_radiance() == \
-        'dcglare -vf views.ray dc_direct.mtx dc_total.mtx sky_matrix.mtx > views.dgp'
+        'dcglare -vf views.ray dc_direct.mtx dc_total.mtx sky_matrix.mtx'
 
+
+def test_three_phase():
+    dcglare = Dcglare()
+    dcglare.dc_direct = 'dc_direct.mtx'
+    dcglare.tmtx = 'tmtx.mtx'
+    dcglare.vmtx = 'vmtx.mtx'
+    dcglare.dmtx = 'dmtx.mtx'
+    dcglare.sky_matrix = 'sky_matrix.mtx'
+    assert dcglare.to_radiance() == \
+        'dcglare dc_direct.mtx vmtx.mtx tmtx.mtx dmtx.mtx sky_matrix.mtx'
 
 def test_stdin():
     dcglare = Dcglare()  
