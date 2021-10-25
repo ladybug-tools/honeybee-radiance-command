@@ -7,7 +7,6 @@ import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
 
 
-
 class Getinfo(Command):
     """Getinfo command.
 
@@ -81,7 +80,10 @@ class Getinfo(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            cmd = ' '.join((cmd, self.input))
+            if self.options.a:
+                cmd = ' < '.join((cmd, self.input))
+            else:
+                cmd = ' '.join((cmd, self.input))
 
         if self.pipe_to:
             cmd = ' | '.join((cmd, self.pipe_to.to_radiance(stdin_input=True)))
