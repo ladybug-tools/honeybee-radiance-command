@@ -118,7 +118,7 @@ class Pinterp(Command):
         Command.validate(self)
         if not stdin_input and not self.view:
             raise exceptions.MissingArgumentError(self.command, 'view')
-        if not self.image:
+        if not self.image[0]:
             raise exceptions.MissingArgumentError(self.command, 'image')
-        if not self.zspec:
+        if not self.zspec[0]:
             raise exceptions.MissingArgumentError(self.command, 'zspec')

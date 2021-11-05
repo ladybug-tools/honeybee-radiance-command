@@ -46,7 +46,7 @@ def test_stdin():
     pinterp.image = 'image.hdr'
     pinterp.output = 'output.hdr'
     pinterp.zspec = 1
-    assert pinterp.to_radiance(stdin_input=True) == ('pinterp -vf - image.hdr 1 > output.hdr')
+    assert pinterp.to_radiance(stdin_input=True) == 'pinterp -vf - image.hdr 1 > output.hdr'
 
 
 def test_validation():
@@ -62,10 +62,10 @@ def test_validation():
         # missing image
         pinterp.to_radiance()
     
-    pinterp.input = 'image.hdr'
+    pinterp.image = 'image.hdr'
     with pytest.raises(exceptions.MissingArgumentError):
         # missing zpec
         pinterp.to_radiance()
     
-    pinterp.zpec = 1
+    pinterp.zspec = 1
     assert pinterp.to_radiance() == 'pinterp -vf view.vf image.hdr 1'
