@@ -3,6 +3,7 @@
 from .options.pinterp import PinterpOptions
 from ._command import Command
 import honeybee_radiance_command._exception as exceptions
+import honeybee_radiance_command._typing as typing
 
 
 class Pinterp(Command):
@@ -15,9 +16,16 @@ class Pinterp(Command):
         options: Command options. It will be set to Radiance default values
             if unspecified.
         output: File path to the output file (Default: None).
-        view: View to interpolate or extrapolate (Default: None).
-        image: Radiance pictures to interpolate or extrapolate from (Default: None).
-        zspec: The distance to each pixel in the image(s) (Default: None).
+        view: File path to a view file. This is the view to interpolate or extrapolate 
+            (Default: None).
+        image: Radiance HDR image(s) to interpolate or extrapolate from. A list of images
+            can be given if multiple images are used (Default: None).
+        zspec: The distance from the view point to each pixel in the image(s). Typically
+            this input is generated as a file by using the -z option of rpict. A number
+            can also be given instead, which should only be used if the view point remains
+            constanst, e.g., if the view point in a single input image is equal to that 
+            of the input view. If a list of images is given, then the zspec must also be
+            a list matching the length of the list of images. (Default: None).
 
     Properties:
         * options
@@ -60,8 +68,10 @@ class Pinterp(Command):
 
     @view.setter
     def view(self, value):
-        # Add some checks for the view
-        self._view = value
+        if not value:
+            self._view = None
+        else:
+            self._view = typing.normpath(value)
 
     @property
     def image(self):
@@ -97,8 +107,18 @@ class Pinterp(Command):
         """
         self.validate(stdin_input)
 
-        if stdin_input: self.options.vf = '-'
-        else: self.options.vf = self.view
+        # length of images and zpec must be the same
+        if len(self.image) != len(self.zspec):
+            raise ValueError(
+                'Pinterp command needs each input image to be accompanied by a'
+                ' z specification. Found {} image(s) and {} z specification(s).'
+                ' Make sure the number of images are equal to the number of'
+                ' z specifications'.format(len(self.image), len(self.zspec)))
+
+        if stdin_input: 
+            self.options.vf = '-'
+        else: 
+            self.options.vf = self.view
 
         command_parts = [self.command, self.options.to_radiance()]
         cmd = ' '.join(command_parts)

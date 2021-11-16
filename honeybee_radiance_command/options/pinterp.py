@@ -141,12 +141,7 @@ class PinterpOptions(OptionCollection):
 
     @property
     def e(self):
-        """Exposure adjustment multiplier - default: 1
-
-        Adjust the exposure. If exp is preceded by a '+' or '-', the exposure is
-        interpreted in f-stops (ie. the power of two). Otherwise, exp is
-        interpreted as a straight multiplier.
-        """
+        """Exposure adjustment multiplier - default: 1"""
         return self._e
 
     @e.setter
