@@ -165,7 +165,7 @@ class Dctimestep(Command):
             self._t_matrix = None
         else:
             path, ext = os.path.splitext(value)
-            if ext.lower() != ".xml":
+            if ext.lower() != '.xml':
                 raise ValueError(
                     '%s does not appear to be a valid BSDF (.xml) file '
                     'that is meant for the t matrix' % value)
