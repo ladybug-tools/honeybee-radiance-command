@@ -43,7 +43,7 @@ def test_path_checker():
     if os.name=='nt':
         assert pth1==r'"test\some directory\some_file.rad"'
     else:
-        assert pth1 == r'"test/some directory/some_file.rad"'
+        assert pth1 == r'test\\some directory\\some_file.rad'
 
     with pytest.raises(ValueError):
         pth2=cmd.path_checker(test_path2,extn_list=['.rad','.sky'])
@@ -59,14 +59,14 @@ def test_path_checker_multiple():
         assert pth_list==[r'"test\some directory\some_file.rad"',
                   r'"test\some directory\some_file.bmp"']
     else:
-        assert pth_list == [r'"test/some directory/some_file.rad"',
-                            r'"test/some directory/some_file.bmp"']
+        assert pth_list == [r'test\\some directory\\some_file.rad',
+                            r'test\\some directory\\some_file.bmp']
 
     pth_list_str=cmd.path_checker_multiple([test_path1,test_path2],outputs_as_string=True)
     if os.name=='nt':
         assert pth_list_str==r'"test\some directory\some_file.rad" "test\some directory\some_file.bmp"'
     else:
-        assert pth_list_str == r'"test/some directory/some_file.rad" "test/some directory/some_file.bmp"'
+        assert pth_list_str == r'test\\some directory\\some_file.rad test\\some directory\\some_file.bmp'
 
     with pytest.raises(ValueError):
         pth_list=cmd.path_checker_multiple([test_path1,test_path2,test_path3],
