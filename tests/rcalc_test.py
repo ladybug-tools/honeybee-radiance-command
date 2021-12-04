@@ -16,10 +16,10 @@ def test_defaults():
         assert 'no inputs.' in str(w[0].message)
 
 
-input_path = os.path.normpath('result/input.dat')
-input_path_1 = os.path.normpath('result/input_1.dat')
-input_path_2 = os.path.normpath('result/input_2.dat')
-output_path = os.path.normpath('result/output.ill')
+input_path = 'result/input.dat'
+input_path_1 = 'result/input_1.dat'
+input_path_2 = 'result/input_2.dat'
+output_path = 'result/output.ill'
 
 
 def test_assigning_inputs():
