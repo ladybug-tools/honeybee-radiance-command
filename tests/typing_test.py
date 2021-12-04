@@ -16,14 +16,9 @@ def test_normpath():
     else:
         assert normpath_2 == "'tests/assets/dir with space/Jan 1 12.sky'"
 
-
     assert os.path.exists(test_path1)
     assert os.path.exists(test_path2)
 
     assert os.path.exists(normpath_1)
     with pytest.raises(AssertionError):
         assert os.path.exists(normpath_2)
-
-
-if __name__ == "__main__":
-    test_normpath()
