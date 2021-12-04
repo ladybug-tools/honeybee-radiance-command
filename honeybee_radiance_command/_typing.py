@@ -134,8 +134,14 @@ wrapper = '"' if os.name == 'nt' else '\''
 
 
 def normpath(value):
-    """Normalize path eliminating double slashes, etc and put it in quotes if needed."""
+    """Normalize a path by eliminating double slashes, etc and put it in quotes if
+    needed. Then, convert all the slashes are forwarded slashes to maintain compatibility
+    across platforms"""
+
     value = os.path.normpath(value)
+
+    # Needed For Windows.
+    value = value.replace('\\', '/')
     if ' ' in value:
         value = '{0}{1}{0}'.format(wrapper, value)
     return value
