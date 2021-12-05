@@ -145,3 +145,71 @@ def normpath(value):
     if ' ' in value:
         value = '{0}{1}{0}'.format(wrapper, value)
     return value
+
+
+def path_checker(file_path, extn_list=None, file_descr=''):
+    """A utility method to check for input file path and normalize the path if present.
+    If extension list and file_descr are provided, then do additional checks to
+    ensure that the correct file type has been specified.
+
+    Args:
+        file_path: The path of the input. Will be normalized through 'typing'
+        extn_list: List of extensions, including the leading dot e.g. ['.hdr','.pic']
+            which if provided will be checked for before the path is set. If there
+            is no match, a value error will be raised.
+        file_descr: A phrase describing the file (e.g. 'Radiance HDR') that can be
+            used to compose the error message in case the extension check fails.
+    """
+
+    if file_path is None:
+        return None
+    else:
+        file_name, file_extn = os.path.splitext(file_path)
+
+        if extn_list:
+            assert type(extn_list) in (list, tuple), \
+                'The input for extn_list(%s) should either be a list or a tuple that ' \
+                'contains extensions (e.g. [".jpg",".bmp"]'
+
+        if extn_list and file_extn.lower() not in extn_list:
+            file_descr = 'for %s files' % file_descr if file_descr else ''
+            err_msg = 'The provided input (%s) is invalid %s as only a file with the ' \
+                      'following extensions is allowed: %s' % (file_path, file_descr,
+                                                               ','.join(extn_list))
+            raise ValueError(err_msg)
+        return normpath(file_path)
+
+
+def path_checker_multiple(file_paths, extn_list=None, file_descr='',
+                          outputs_as_string=False):
+    """A utility method to check for list (or tuple) of input file paths and
+        return either a list of normalized paths or a single string containing
+        space-separated normalized paths. If extension list and file_descr are
+        provided, then do additional checks to ensure that the correct file type
+        has been specified.
+
+    Args:
+        file_paths: List of input file paths. Will be normalized through 'typing'
+        extn_list: List of extensions, including the leading dot e.g. ['.hdr','.pic']
+            which if provided will be checked for before the path is set. If there
+            is no match, a value error will be raised.
+        file_descr: A phrase describing the file (e.g. 'Radiance HDR') that can be
+            used to compose the error message in case the extension check fails.
+        outputs_as_string: If set to True, the files will be returned as single
+            string of normalized paths. Else a list of normalized paths will
+            be returned.
+    """
+
+    if not file_paths:
+        file_paths = []
+    elif not isinstance(file_paths, (list, tuple)):
+        file_paths = [file_paths]
+
+    final_path_list = [path_checker(file_path,
+                                    extn_list=extn_list, file_descr=file_descr)
+                       for file_path in file_paths]
+
+    if outputs_as_string:
+        return ' '.join(final_path_list)
+    else:
+        return final_path_list
