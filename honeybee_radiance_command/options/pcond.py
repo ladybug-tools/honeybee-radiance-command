@@ -82,7 +82,7 @@ class PcondOptions(OptionCollection):
 
     @h.setter
     def h(self, value):
-        self.h.value = value
+        self._h.value = value
 
     @property
     def a(self):
