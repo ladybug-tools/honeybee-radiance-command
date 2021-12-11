@@ -138,7 +138,7 @@ class EvalglareOptions(OptionCollection):
 
     @A.setter
     def A(self, value):
-        self.A.value = value
+        self._A.value = value
 
     @property
     def B(self):
@@ -153,7 +153,7 @@ class EvalglareOptions(OptionCollection):
 
     @B.setter
     def B(self, value):
-        self.B.value = value
+        self._B.value = value
 
     @property
     def b(self):
@@ -173,7 +173,7 @@ class EvalglareOptions(OptionCollection):
 
     @b.setter
     def b(self, value):
-        self.b.value = value
+        self._b.value = value
 
     @property
     def c(self):
@@ -185,7 +185,7 @@ class EvalglareOptions(OptionCollection):
 
     @c.setter
     def c(self, value):
-        self.c.value = value
+        self._c.value = value
 
     @property
     def C(self):
@@ -198,7 +198,7 @@ class EvalglareOptions(OptionCollection):
 
     @C.setter
     def C(self, value):
-        self.C.value = value
+        self._C.value = value
 
     @property
     def d(self):
@@ -207,7 +207,7 @@ class EvalglareOptions(OptionCollection):
 
     @d.setter
     def d(self, value):
-        self.d.value = value
+        self._d.value = value
 
     @property
     def f(self):
@@ -220,7 +220,7 @@ class EvalglareOptions(OptionCollection):
 
     @f.setter
     def f(self, value):
-        self.f.value = value
+        self._f.value = value
 
     @property
     def g(self):
@@ -234,7 +234,7 @@ class EvalglareOptions(OptionCollection):
 
     @g.setter
     def g(self, value):
-        self.g.value = value
+        self._g.value = value
 
     @property
     def G(self):
@@ -246,7 +246,7 @@ class EvalglareOptions(OptionCollection):
 
     @G.setter
     def G(self, value):
-        self.G.value = value
+        self._G.value = value
 
     @property
     def i(self):
@@ -259,7 +259,7 @@ class EvalglareOptions(OptionCollection):
 
     @i.setter
     def i(self, value):
-        self.i.value = value
+        self._i.value = value
 
     @property
     def I(self):
@@ -274,7 +274,7 @@ class EvalglareOptions(OptionCollection):
 
     @I.setter
     def I(self, value):
-        self.I.value = value
+        self._I.value = value
 
     @property
     def l(self):
@@ -288,7 +288,7 @@ class EvalglareOptions(OptionCollection):
 
     @l.setter
     def l(self, value):
-        self.l.value = value
+        self._l.value = value
 
     @property
     def L(self):
@@ -303,7 +303,7 @@ class EvalglareOptions(OptionCollection):
 
     @L.setter
     def L(self, value):
-        self.L.value = value
+        self._L.value = value
 
     @property
     def N(self):
@@ -323,7 +323,7 @@ class EvalglareOptions(OptionCollection):
 
     @N.setter
     def N(self, value):
-        self.N.value = value
+        self._N.value = value
 
     @property
     def q(self):
@@ -339,7 +339,7 @@ class EvalglareOptions(OptionCollection):
 
     @q.setter
     def q(self, value):
-        self.q.value = value
+        self._q.value = value
 
     @property
     def r(self):
@@ -352,7 +352,7 @@ class EvalglareOptions(OptionCollection):
 
     @r.setter
     def r(self, value):
-        self.r.value = value
+        self._r.value = value
 
     @property
     def s(self):
@@ -361,7 +361,7 @@ class EvalglareOptions(OptionCollection):
 
     @s.setter
     def s(self, value):
-        self.s.value = value
+        self._s.value = value
 
     @property
     def t(self):
@@ -374,7 +374,7 @@ class EvalglareOptions(OptionCollection):
 
     @t.setter
     def t(self, value):
-        self.t.value = value
+        self._t.value = value
 
     @property
     def T(self):
@@ -386,7 +386,7 @@ class EvalglareOptions(OptionCollection):
 
     @T.setter
     def T(self, value):
-        self.T.value = value
+        self._T.value = value
 
     @property
     def u(self):
@@ -399,7 +399,7 @@ class EvalglareOptions(OptionCollection):
 
     @u.setter
     def u(self, value):
-        self.u.value = value
+        self._u.value = value
 
     @property
     def x(self):
@@ -408,7 +408,7 @@ class EvalglareOptions(OptionCollection):
 
     @x.setter
     def x(self, value):
-        self.x.value = value
+        self._x.value = value
 
     @property
     def y(self):
@@ -417,7 +417,7 @@ class EvalglareOptions(OptionCollection):
 
     @y.setter
     def y(self, value):
-        self.y.value = value
+        self._y.value = value
 
     @property
     def Y(self):
@@ -429,4 +429,4 @@ class EvalglareOptions(OptionCollection):
 
     @Y.setter
     def Y(self, value):
-        self.Y.value = value
+        self._Y.value = value
