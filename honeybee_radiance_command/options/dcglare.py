@@ -82,7 +82,7 @@ class DcglareOptions(OptionCollection):
 
     @l.setter
     def l(self, value):
-        self.l.value = value
+        self._l.value = value
 
     @property
     def b(self):
@@ -97,7 +97,7 @@ class DcglareOptions(OptionCollection):
 
     @b.setter
     def b(self, value):
-        self.b.value = value
+        self._b.value = value
 
     @property
     def vf(self):
@@ -112,7 +112,7 @@ class DcglareOptions(OptionCollection):
 
     @vf.setter
     def vf(self, value):
-        self.vf.value = value
+        self._vf.value = value
 
     @property
     def vd(self):
@@ -125,7 +125,7 @@ class DcglareOptions(OptionCollection):
 
     @vd.setter
     def vd(self, value):
-        self.vd.value = value
+        self._vd.value = value
 
     @property
     def vu(self):
@@ -138,7 +138,7 @@ class DcglareOptions(OptionCollection):
 
     @vu.setter
     def vu(self, value):
-        self.vu.value = value
+        self._vu.value = value
 
     @property
     def vi(self):
@@ -152,7 +152,7 @@ class DcglareOptions(OptionCollection):
 
     @vi.setter
     def vi(self, value):
-        self.vi.value = value
+        self._vi.value = value
 
     @property
     def sf(self):
@@ -169,7 +169,7 @@ class DcglareOptions(OptionCollection):
 
     @sf.setter
     def sf(self, value):
-        self.sf.value = value
+        self._sf.value = value
 
     @property
     def ss(self):
@@ -184,7 +184,7 @@ class DcglareOptions(OptionCollection):
 
     @ss.setter
     def ss(self, value):
-        self.ss.value = value
+        self._ss.value = value
 
     @property
     def se(self):
@@ -199,4 +199,4 @@ class DcglareOptions(OptionCollection):
 
     @se.setter
     def se(self, value):
-        self.se.value = value
+        self._se.value = value
