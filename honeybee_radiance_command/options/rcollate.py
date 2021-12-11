@@ -17,7 +17,7 @@ class RcollateOptions(OptionCollection):
     Also see: https://www.radiance-online.org/learning/documentation/manual-pages/pdfs/rcollate.pdf
     """
     __slots__ = ('_h', '_w', '_fa', '_ff', '_fd', '_fb', '_t', '_ic', '_ir', '_oc',
-                 '_oR', '_o')
+                 '_or', '_o')
 
     def __init__(self):
         """rcollate command options"""
@@ -42,7 +42,7 @@ class RcollateOptions(OptionCollection):
         self._ir = IntegerOption('ir', 'Input rows')
         self._oc = IntegerOption('oc', 'Output columns')
         # or  is a protected keyword, so using oR
-        self._oR = IntegerOption('or', 'Output rows')
+        self._or = IntegerOption('or', 'Output rows')
         self._o = StringOption('o', 'Output matrix shape.')
         self._on_setattr_check = True
 
@@ -148,13 +148,13 @@ class RcollateOptions(OptionCollection):
         self._oc.value = value
 
     @property
-    def oR(self):
+    def or_(self):
         """Output rows"""
-        return self._oR
+        return self._or
 
-    @oR.setter
-    def oR(self, value):
-        self._oR.value = value
+    @or_.setter
+    def or_(self, value):
+        self._or.value = value
 
     @property
     def o(self):
@@ -201,7 +201,7 @@ class RcollateOptions(OptionCollection):
             raise ValueError(
                 'Only one of the -fa, -fb, -fd, -ff options can be set at a time.')
 
-        output_shape_set = self._o.is_set and (self._oc.is_set or self._oR.is_set)
+        output_shape_set = self._o.is_set and (self._oc.is_set or self._or.is_set)
         if output_shape_set:
             raise ValueError('The options for setting the output shape .i.e can either '
                              'be set through o or (or and oc). They cannot be set at the'
