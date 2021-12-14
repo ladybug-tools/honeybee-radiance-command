@@ -13,7 +13,7 @@ def test_defaults():
 
 def test_assignment():
     dctimestep = Dctimestep()
-    dctimestep.is_daylight_coef_calc = True
+    dctimestep._study_type = 'daylight_coef'
     dctimestep.day_coef_matrix = 'dc.mtx'
     assert dctimestep.day_coef_matrix == 'dc.mtx'
     with pytest.raises(AssertionError):
@@ -28,13 +28,13 @@ def test_assignment():
 
 
 def test_classmethod():
-    dctimestep = Dctimestep.for_four_phase_calc(options=None, output='res.mtx',
-                                                view_matrix='view.mtx',
-                                                daylight_matrix='daylight.mtx',
-                                                t_matrix='tmtx.xml',
-                                                sky_vector='sky.vec')
-    assert dctimestep.is_four_phase_calc == True
-    assert dctimestep.is_three_phase_calc == False
+    dctimestep = Dctimestep.four_phase_calc(options=None, output='res.mtx',
+                                            view_matrix='view.mtx',
+                                            daylight_matrix='daylight.mtx',
+                                            t_matrix='tmtx.xml',
+                                            sky_vector='sky.vec')
+    assert dctimestep._study_type == 'four_phase'
+    assert dctimestep._study_type != 'three_phase'
     with pytest.raises(AssertionError):
         dctimestep.validate()
     dctimestep.facade_matrix = 'facade.mtx'
@@ -51,7 +51,7 @@ def test_file_type_assignment():
 
 def test_exclusive_options():
     dctimestep = Dctimestep()
-    dctimestep.is_daylight_coef_calc = True
+    dctimestep._study_type = 'daylight_coef'
     dctimestep.day_coef_matrix = 'dc.mtx'
     dctimestep.sky_vector = 'sky.vec'
     dctimestep.options.o = 'output%02d.mtx'
