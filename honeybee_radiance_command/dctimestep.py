@@ -59,23 +59,17 @@ class Dctimestep(Command):
         * view_matrix
         * daylight_matrix
         * t_matrix
-        * is_direct_sun_calc
-        * is_daylight_coef_calc
-        * is_three_phase_calc
-        * is_four_phase_calc
 
     """
 
     __slots__ = ('_sky_vector', '_day_coef_matrix', '_view_matrix', '_daylight_matrix',
                  '_t_matrix', '_sun_vector', '_sun_coef_matrix', '_facade_matrix',
-                 '_is_direct_sun_calc', '_is_daylight_coef_calc', '_is_three_phase_calc',
-                 '_is_four_phase_calc')
+                 '_study_type')
 
     def __init__(self, options=None, output=None, sky_vector=None, sun_vector=None,
                  day_coef_matrix=None, sun_coef_matrix=None, view_matrix=None,
                  t_matrix=None, daylight_matrix=None, facade_matrix=None,
-                 is_direct_sun_calc=False, is_daylight_coef_calc=False,
-                 is_three_phase_calc=False, is_four_phase_calc=False):
+                 study_type=None):
         """Initialize command"""
         Command.__init__(self, output=output)
         self.options = options
@@ -87,42 +81,47 @@ class Dctimestep(Command):
         self.t_matrix = t_matrix
         self.daylight_matrix = daylight_matrix
         self.facade_matrix = facade_matrix
-        self.is_direct_sun_calc = is_direct_sun_calc
-        self.is_daylight_coef_calc = is_daylight_coef_calc
-        self.is_three_phase_calc = is_three_phase_calc
-        self.is_four_phase_calc = is_four_phase_calc
+        self._study_type = study_type
 
-    @property
-    def is_direct_sun_calc(self):
-        return self._is_direct_sun_calc
+    @classmethod
+    def daylight_coef_calc(cls, options=None, output=None,
+                           sky_vector=None, day_coef_matrix=None):
+        """Return a class instance explicitly for daylight coefficient calcs"""
+        dc_cls = cls(options=options, output=output, sky_vector=sky_vector,
+                     day_coef_matrix=day_coef_matrix)
+        dc_cls._study_type = 'daylight_coef'
+        return dc_cls
 
-    @is_direct_sun_calc.setter
-    def is_direct_sun_calc(self, value):
-        self._is_direct_sun_calc = value
+    @classmethod
+    def direct_sun_calc(cls, options=None, output=None,
+                        sun_vector=None, sun_coef_matrix=None):
+        """Return a class instance explicitly for sun coefficient calcs"""
+        sc_cls = cls(options=options, output=output, sun_vector=sun_vector,
+                     sun_coef_matrix=sun_coef_matrix)
+        sc_cls._study_type = 'direct_sun'
+        return sc_cls
 
-    @property
-    def is_daylight_coef_calc(self):
-        return self._is_daylight_coef_calc
+    @classmethod
+    def three_phase_calc(cls, options=None, output=None,
+                         sky_vector=None, view_matrix=None, t_matrix=None,
+                         daylight_matrix=None):
+        """Return a class instance explicitly for three phase calcs"""
+        tph_cls = cls(options=options, output=output, sky_vector=sky_vector,
+                      view_matrix=view_matrix, t_matrix=t_matrix,
+                      daylight_matrix=daylight_matrix)
+        tph_cls._study_type = 'three_phase'
+        return tph_cls
 
-    @is_daylight_coef_calc.setter
-    def is_daylight_coef_calc(self, value):
-        self._is_daylight_coef_calc = value
-
-    @property
-    def is_three_phase_calc(self):
-        return self._is_three_phase_calc
-
-    @is_three_phase_calc.setter
-    def is_three_phase_calc(self, value):
-        self._is_three_phase_calc = value
-
-    @property
-    def is_four_phase_calc(self):
-        return self._is_four_phase_calc
-
-    @is_four_phase_calc.setter
-    def is_four_phase_calc(self, value):
-        self._is_four_phase_calc = value
+    @classmethod
+    def four_phase_calc(cls, options=None, output=None,
+                        sky_vector=None, view_matrix=None, t_matrix=None,
+                        facade_matrix=None, daylight_matrix=None):
+        """Return a class instance explicitly for three phase calcs"""
+        fph_cls = cls(options=options, output=output, sky_vector=sky_vector,
+                      view_matrix=view_matrix, t_matrix=t_matrix,
+                      daylight_matrix=daylight_matrix, facade_matrix=facade_matrix)
+        fph_cls._study_type = 'four_phase'
+        return fph_cls
 
     @property
     def options(self):
@@ -215,82 +214,37 @@ class Dctimestep(Command):
     def facade_matrix(self, value):
         self._facade_matrix = typing.path_checker(value)
 
-    @classmethod
-    def for_daylight_coef_calc(cls, options=None, output=None,
-                               sky_vector=None, day_coef_matrix=None):
-        """Return a class instance explicitly for daylight coefficient calcs"""
-        dc_cls = cls(options=options, output=output, sky_vector=sky_vector,
-                     day_coef_matrix=day_coef_matrix)
-        dc_cls.is_daylight_coef_calc = True
-        return dc_cls
-
-    @classmethod
-    def for_direct_sun_calc(cls, options=None, output=None,
-                            sun_vector=None, sun_coef_matrix=None):
-        """Return a class instance explicitly for sun coefficient calcs"""
-        sc_cls = cls(options=options, output=output, sun_vector=sun_vector,
-                     sun_coef_matrix=sun_coef_matrix)
-        sc_cls.is_direct_sun_calc = True
-        return sc_cls
-
-    @classmethod
-    def for_three_phase_calc(cls, options=None, output=None,
-                             sky_vector=None, view_matrix=None, t_matrix=None,
-                             daylight_matrix=None):
-        """Return a class instance explicitly for three phase calcs"""
-        tph_cls = cls(options=options, output=output, sky_vector=sky_vector,
-                      view_matrix=view_matrix, t_matrix=t_matrix,
-                      daylight_matrix=daylight_matrix)
-        tph_cls.is_three_phase_calc = True
-        return tph_cls
-
-    @classmethod
-    def for_four_phase_calc(cls, options=None, output=None,
-                            sky_vector=None, view_matrix=None, t_matrix=None,
-                            facade_matrix=None, daylight_matrix=None):
-        """Return a class instance explicitly for three phase calcs"""
-        fph_cls = cls(options=options, output=output, sky_vector=sky_vector,
-                      view_matrix=view_matrix, t_matrix=t_matrix,
-                      daylight_matrix=daylight_matrix, facade_matrix=facade_matrix)
-        fph_cls.is_four_phase_calc = True
-        return fph_cls
-
     def validate(self):
         Command.validate(self)
 
-        calc_inputs_dict = {'is_direct_sun_calc': ('sun_coef_matrix', 'sun_vector'),
-                            'is_daylight_coef_calc': ('day_coef_matrix', 'sky_vector'),
-                            'is_three_phase_calc': ('view_matrix', 't_matrix',
-                                                    'daylight_matrix', 'sky_vector'),
-                            'is_four_phase_calc': (
-                            'view_matrix', 't_matrix', 'facade_matrix',
-                            'daylight_matrix', 'sky_vector')}
+        calc_inputs_dict = {'direct_sun': ('sun_coef_matrix', 'sun_vector'),
+                            'daylight_coef': ('day_coef_matrix', 'sky_vector'),
+                            'three_phase': ('view_matrix', 't_matrix', 'daylight_matrix',
+                                            'sky_vector'),
+                            'four_phase': ('view_matrix', 't_matrix', 'facade_matrix',
+                                           'daylight_matrix', 'sky_vector')}
 
-        # Perform two checks:
-        #   Check1: Ensure that exactly one of the calc types are set to be run.
+        # Perform two checks to ensure that:
+        #   Check1: An appropriate study type has been selected/assigned.
         #   Check2: Ensure that all the inputs are available for the selected calc type.
         # What can still go wrong:
         #   If inputs that are not required for a particular calc type are set,
         #   they will be ignored.
 
         # Check 1
-        calc_list = [(key, getattr(self, key)) for key in calc_inputs_dict.keys()]
-        calc_set_true = [key for key, val in calc_list if val]
-
-        assert len(calc_set_true) == 1, \
-            'Exactly one of the calc types must be set to True. Currently the following ' \
-            'calcs have been set to True: %s' % (', '.join(calc_set_true)
-                                                 if calc_set_true else 'None')
+        assert self._study_type in calc_inputs_dict.keys(), \
+            'A valid study type has not been set. The valid options are: (%s) and the ' \
+            'appropriate one will be set automatically if this class being accessed ' \
+            'through a classmethod.' % ','.join(calc_inputs_dict.keys())
 
         # Check 2
-        calc_type_set = calc_set_true.pop()
-        inputs_for_calc = calc_inputs_dict[calc_type_set]
+        inputs_for_calc = calc_inputs_dict[self._study_type]
         inputs_not_set = [val for val in inputs_for_calc if not getattr(self, val)]
 
         assert not inputs_not_set, \
             'The follwing inputs for the calc ' \
             'type "%s" have not been set: %s' % (
-            calc_type_set, ', '.join(inputs_not_set))
+                self._study_type, ', '.join(inputs_not_set))
 
         if self.options.o and self.output:
             raise Exception('The output has been specified using the "output" attribute'
@@ -303,14 +257,14 @@ class Dctimestep(Command):
 
         command_parts = [self.command, self.options.to_radiance()]
 
-        if self.is_daylight_coef_calc:
+        if self._study_type == 'daylight_coef':
             command_parts.extend([self.day_coef_matrix, self.sky_vector])
-        elif self.is_direct_sun_calc:
+        elif self._study_type == 'direct_sun':
             command_parts.extend([self.sun_coef_matrix, self.sun_vector])
-        elif self.is_three_phase_calc:
+        elif self._study_type == 'three_phase':
             command_parts.extend([self.view_matrix, self.t_matrix, self.daylight_matrix,
                                   self.sky_vector])
-        if self.is_four_phase_calc:
+        elif self._study_type == 'four_phase':
             command_parts.extend([self.view_matrix, self.t_matrix, self.facade_matrix,
                                   self.daylight_matrix, self.sky_vector])
         cmd = ' '.join(command_parts)
