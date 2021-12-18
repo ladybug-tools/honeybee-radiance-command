@@ -8,6 +8,10 @@ import honeybee_radiance_command._typing as typing
 class Dctimestep(Command):
     """"Dctimestep command.
 
+    This class should ideally be accessed through one of the four classmethods defined
+    for it. Accessing through class method ensures that the _study_type variable is
+    appropriately set and all the tests in the validation method are run properly.
+
     Dctimestep computes annual simulation time steps via matrix-multiplication.
     Dctimestep has two invocation forms. In the first form, dctimestep is given a
     daylight coefficient specification and an optional sky vector or matrix, which
@@ -42,11 +46,6 @@ class Dctimestep(Command):
             simulations.
         facade_matrix: Path to the input facade matrix, created by rfluxmtx, for
             four-phase and four-phase-direct simulations.
-        is_direct_sun_calc: Set to True if the simulation is a direct sun calculation.
-        is_daylight_coef_calc: Set to True if the simulation is a daylight coefficient
-            calculation.
-        is_three_phase_calc: Set to True if the simulation is a three phase simulation.
-        is_four_phase_calc: Set to True if the simulation is a four phase simulation.
 
     Properties:
         * options
