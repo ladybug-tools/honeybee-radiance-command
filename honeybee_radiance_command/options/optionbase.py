@@ -449,7 +449,7 @@ class OptionCollection(object):
                         if p.startswith('f') and '_fio' in slots:
                             setattr(self, 'fio', p[1:])
                         else:
-                            setattr(self, p[1], p[1:])
+                            setattr(self, p[0], p[1:])
                     except AttributeError:
                         # fall back to unknown item
                         pass
