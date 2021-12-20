@@ -17,10 +17,8 @@ else:
 
 def run_command(input_command, env=None, cwd=None, mute=True):
     """Run a shell command.
-
     This function prints both STDOUT and STDERR to the same PIPE. Use shell piping
     to pipe the stdout from the commands to a file.
-
     Args:
         input_command: Input command.
         env: Additional environmental variable that will be added to global environment.
@@ -85,7 +83,7 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     except Exception:  # nothing in stderr
         pass
 
-    if rc != 0:
+    if isinstance(rc, int) and rc != 0:
         raise RuntimeError('None zero return code: %d' % rc)
 
     # only gets here is successful
