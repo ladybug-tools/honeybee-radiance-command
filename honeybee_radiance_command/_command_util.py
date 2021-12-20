@@ -15,7 +15,7 @@ else:
     STDOUT_CHECK = b''
 
 
-def run_command(input_command, env=None, cwd=None, mute=True):
+def run_command(input_command, env=None, cwd=None, mute=True, print_stderr=False):
     """Run a shell command.
 
     This function prints both STDOUT and STDERR to the same PIPE. Use shell piping
@@ -26,6 +26,8 @@ def run_command(input_command, env=None, cwd=None, mute=True):
         env: Additional environmental variable that will be added to global environment.
         cwd: Current working directory. If provided command will be executed from this
             folder.
+        print_stderr: Boolean to note whether the stderr should be printed after
+            running the command. This is useful for debugging. (Default: False).
     """
     if platform.system() == 'Windows':
         command = input_command.replace('\'', '"')
@@ -52,10 +54,16 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     if not mute:
         print('running %s' % command)
 
-    process = subprocess.Popen(
-        command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT, shell=True, env=g_env
-    )
+    if print_stderr:
+        process = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT, shell=True, env=g_env
+        )
+    else:
+        process = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            shell=True, env=g_env
+        )
 
     try:
         for line in iter(process.stdout.readline, STDOUT_CHECK):
@@ -67,6 +75,18 @@ def run_command(input_command, env=None, cwd=None, mute=True):
                 print(line, end='')
     except Exception:  # nothing in stdout
         pass
+
+    if print_stderr:
+        try:
+            for line in iter(process.stderr.readline, STDOUT_CHECK):
+                try:
+                    # Python 3 - almost all the time that we use this library
+                    print(line.decode('utf-8'), end='')
+                except AttributeError:
+                    # python 2 - line is already a string
+                    print(line, end='')
+        except Exception:  # nothing in stderr
+            pass
 
     process.communicate()
     rc = process.returncode
