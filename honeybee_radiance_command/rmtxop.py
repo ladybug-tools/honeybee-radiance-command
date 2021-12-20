@@ -20,6 +20,10 @@ class Rmtxop(Command):
     must be taken to ensure that the order of transformations, scaling etc. is correctly
     assigned to the sequence of the matrices.
 
+    An extensive number of input and parameter possibilities are evaluated in the test
+    module for this class. A review of that module is higly recommended to understand
+    how to specify inputs, scalars, transforms and transposition options for this class.
+
         Args:
         options: Command options. It will be set to Radiance default values
             if unspecified.
