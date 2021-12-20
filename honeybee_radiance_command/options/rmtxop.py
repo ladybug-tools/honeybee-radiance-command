@@ -22,6 +22,7 @@ class RmtxopOptions(OptionCollection):
 
     @property
     def v(self):
+        """Turn on verbose reporting, which announces each matrix operation"""
         return self._v
 
     @v.setter
@@ -30,6 +31,9 @@ class RmtxopOptions(OptionCollection):
 
     @property
     def f(self):
+        """Output data format. Can be specified as ASCII(a), binary double(d),
+        float(f) or RGBE colors(c). By default, the output is written in the lowest
+        resolution format among inputs."""
         return self._f
 
     @f.setter
