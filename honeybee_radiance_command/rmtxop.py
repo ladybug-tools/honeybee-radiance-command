@@ -181,8 +181,8 @@ class Rmtxop(Command):
         multiplication('*'), division(/) or concatenation(.) between two matrices.
         The default operation is concatenation.
         In the case of addition, the two matrices involved must have the same number of
-        components. If subtraction is desired, use addition (’+’) with a scaling
-        parameter of -1 for the second matrix (the −s option). For element-wise
+        components. If subtraction is desired, use addition ('+') with a scaling
+        parameter of -1 for the second matrix (the -s option). For element-wise
         multiplication and division, the second matrix is permitted to have a single
         component per element, which will be applied equally to all components of the
         first matrix. If element-wise division is specified, any zero elements in the
