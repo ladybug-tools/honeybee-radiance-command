@@ -37,5 +37,6 @@ def test_incorrect_assignment():
 
 def test_from_string():
     options = RmtxopOptions()
-    options.update_from_string('-v')
+    options.update_from_string('-v -fa')
     assert options.v == True
+    assert options.f == 'a'
