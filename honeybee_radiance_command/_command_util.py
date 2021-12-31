@@ -50,10 +50,22 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     if not mute:
         print('running %s' % command)
 
-    process = subprocess.Popen(
-        command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE, shell=True, env=g_env
-    )
+    try:
+        process = subprocess.Popen(
+            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT, shell=True, env=g_env
+        )
+    except Exception as e:
+        # this is an edge case that is happening for certain commands on Mac when
+        # the command is executed from inside IronPython 2.7
+        # see: https://discourse.ladybug.tools/t/hdr-adjust-false-color-not-working-on-mac/16941/3
+        if 'Cannot redirect stderr to stdout yet' in str(e):
+            process = subprocess.Popen(
+                command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE, shell=True, env=g_env
+            )
+        else:
+            raise ValueError(e)
 
     try:
         for line in iter(process.stdout.readline, STDOUT_CHECK):
@@ -66,7 +78,7 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     except Exception:  # nothing in stdout
         pass
 
-    stdout, stderr = process.communicate()
+    _, stderr = process.communicate()
     rc = process.returncode
 
     if cwd:
@@ -83,7 +95,7 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     except Exception:  # nothing in stderr
         pass
 
-    if isinstance(rc, int) and rc != 0:
+    if rc != 0:
         raise RuntimeError('None zero return code: %d' % rc)
 
     # only gets here is successful
