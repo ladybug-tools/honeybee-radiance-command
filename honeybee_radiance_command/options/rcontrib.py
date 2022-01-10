@@ -54,10 +54,11 @@ class RcontribOptions(RtraceOptions):
         instance in rtrace option collection -ti and -te are exclusive. You can include a
         check to ensure this is always correct.
         """
-        RtraceOptions._on_setattr(self)
-        # -r and -fo cannot both be True.
         if not hasattr(self, 'r'):
             return  # this happens on init
+        # -i and -I cannot both be True.
+        assert not (self.i == True and self.I == True), \
+            'You can either set -i or -I to True not both.'
         if self.r.is_set and self.fo.is_set:
             raise exceptions.ExclusiveOptionsError(self.command, 'r', 'fo')
         if self.m.is_set and self.M.is_set:
