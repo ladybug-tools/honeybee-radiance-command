@@ -471,7 +471,9 @@ class OptionCollection(object):
         additional_options = \
             ' '.join('-%s %s' % (k, v) for k, v in self.additional_options.items())
 
-        return ' '.join(' '.join((options, additional_options)).split())
+        # handle replace %% with % to handle % in both Window and Unix
+        return ' '.join(
+            ' '.join((options, additional_options)).split()).replace('%%', '%')
 
     def to_file(self, folder, file_name, mkdir=False):
         """Write options to a file."""

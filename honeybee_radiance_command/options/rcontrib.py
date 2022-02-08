@@ -276,4 +276,5 @@ class RcontribOptions(RtraceOptions):
             ' '.join(
                 '-%s %s' % (k, v) for k, v in self.additional_options.items())
 
-        return ' '.join(' '.join((options, additional_options)).split())
+        return ' '.join(
+            ' '.join((options, additional_options)).split()).replace('%%', '%')

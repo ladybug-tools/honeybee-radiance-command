@@ -1,6 +1,6 @@
 """Test Radiance commands options base classes."""
 from honeybee_radiance_command.options import StringOptionJoined, NumericOption, \
-    IntegerOption, BoolOption,  OptionCollection
+    IntegerOption, BoolOption,  OptionCollection, StringOption
 import pytest
 import honeybee_radiance_command._exception as exceptions
 
@@ -64,7 +64,7 @@ def test_bool_option():
 
 class OptionsTestClass(OptionCollection):
 
-    __slots__ = ('_ab', '_aa', '_ld', '_fa', '_as')
+    __slots__ = ('_ab', '_aa', '_ld', '_fa', '_as', '_o')
 
     def __init__(self):
         OptionCollection.__init__(self)
@@ -73,6 +73,7 @@ class OptionsTestClass(OptionCollection):
         self._ld = BoolOption('ld', 'limit distance')
         self._fa = StringOptionJoined('fa', 'output format', valid_values=['a', 'd'])
         self._as = IntegerOption('as', 'ambient somthing!', min_value=0)
+        self._o = StringOption('o', 'output file format.')
 
     @property
     def ab(self):
@@ -114,6 +115,15 @@ class OptionsTestClass(OptionCollection):
     def as_(self, value):
         self._as.value = value
 
+    @property
+    def o(self):
+        """Format output."""
+        return self._o
+
+    @o.setter
+    def o(self, value):
+        self._o.value = value
+
 
 def test_collection():
     options_test = OptionsTestClass()
@@ -127,5 +137,7 @@ def test_collection():
     options_test.ld = True
     assert options_test.to_radiance() == '-as 128 -ld -ad 2500'
 
+    options_test.o = '%%s.vmtx'
+    assert '-o %s.vmtx' in options_test.to_radiance()
     with pytest.raises(AttributeError):
         options_test.ad = 2400
