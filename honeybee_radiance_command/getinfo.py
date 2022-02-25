@@ -30,13 +30,25 @@ class Getinfo(Command):
         * input
     """
 
-    __slots__ = ('_input')
+    __slots__ = ('_input', '_header')
 
-    def __init__(self, options=None, output=None, input=None):
+    def __init__(self, options=None, output=None, input=None, header=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
         self._input = input
         self.options = options
+        self._header = header
+
+    @classmethod
+    def header(cls, options=None, output=None, input=None):
+        """Return a class instance explicitly for removing the header. 
+        
+        This instance returns getinfo with a hyphen that simply removes the header and 
+        copies the body of the file from the standard input to the standard output.
+        """
+        header_cls = cls(options=options, output=output, input=input)
+        header_cls._header = True
+        return header_cls
 
     @property
     def options(self):
@@ -76,11 +88,16 @@ class Getinfo(Command):
         """
         self.validate(stdin_input)
 
-        command_parts = [self.command, self.options.to_radiance()]
+        command_parts = [self.command]
+        if not self._header:
+            command_parts.append(self.options.to_radiance())
+        else:
+            command_parts.append('-')
+
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            if self.options.a:
+            if self.options.a or self._header:
                 cmd = ' < '.join((cmd, self.input))
             else:
                 cmd = ' '.join((cmd, self.input))

@@ -62,3 +62,13 @@ def test_validation():
 
     getinfo.input = ['image1.hdr', 'image2.hdr']
     assert getinfo.to_radiance() == 'getinfo image1.hdr image2.hdr'
+
+def test_header():
+    """Test removing header."""
+    getinfo = Getinfo.header()
+
+    getinfo.input = 'image1.hdr'
+    getinfo.output = 'headerless.hdr'
+
+    assert getinfo.to_radiance() == 'getinfo - < image1.hdr > headerless.hdr'
+    assert getinfo.to_radiance(stdin_input=True) == 'getinfo - > headerless.hdr'
