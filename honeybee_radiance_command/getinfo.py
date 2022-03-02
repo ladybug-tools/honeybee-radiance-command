@@ -5,6 +5,7 @@ from ._command import Command
 
 import honeybee_radiance_command._exception as exceptions
 import honeybee_radiance_command._typing as typing
+import warnings
 
 
 class Getinfo(Command):
@@ -28,26 +29,28 @@ class Getinfo(Command):
         * options
         * output
         * input
+        * remove_header
     """
 
-    __slots__ = ('_input', '_header')
+    __slots__ = ('_input', '_remove_header')
 
-    def __init__(self, options=None, output=None, input=None, header=None):
+    def __init__(self, options=None, output=None, input=None):
         """Initialize Command."""
         Command.__init__(self, output=output)
         self._input = input
         self.options = options
-        self._header = header
+        self._remove_header = False
 
     @classmethod
-    def header(cls, options=None, output=None, input=None):
+    def remove_header(cls, output=None, input=None):
         """Return a class instance explicitly for removing the header. 
         
         This instance returns getinfo with a hyphen that simply removes the header and 
         copies the body of the file from the standard input to the standard output.
+        Options a and d will be ignored if this class is used.
         """
-        header_cls = cls(options=options, output=output, input=input)
-        header_cls._header = True
+        header_cls = cls(output=output, input=input)
+        header_cls._remove_header = True
         return header_cls
 
     @property
@@ -89,7 +92,7 @@ class Getinfo(Command):
         self.validate(stdin_input)
 
         command_parts = [self.command]
-        if not self._header:
+        if not self._remove_header:
             command_parts.append(self.options.to_radiance())
         else:
             command_parts.append('-')
@@ -97,7 +100,7 @@ class Getinfo(Command):
         cmd = ' '.join(command_parts)
 
         if not stdin_input and self.input:
-            if self.options.a or self._header:
+            if self.options.a or self._remove_header:
                 cmd = ' < '.join((cmd, self.input))
             else:
                 cmd = ' '.join((cmd, self.input))
@@ -114,3 +117,7 @@ class Getinfo(Command):
         Command.validate(self)
         if not stdin_input and not self.input:
             raise exceptions.MissingArgumentError(self.command, 'input')
+        if self._remove_header and self.options.a:
+            warnings.warn('getinfo: option a will be ignored when using remove_header')
+        if self._remove_header and self.options.d:
+            warnings.warn('getinfo: option d will be ignored when using remove_header')

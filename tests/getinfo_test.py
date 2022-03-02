@@ -65,7 +65,7 @@ def test_validation():
 
 def test_header():
     """Test removing header."""
-    getinfo = Getinfo.header()
+    getinfo = Getinfo.remove_header()
 
     getinfo.input = 'image1.hdr'
     getinfo.output = 'headerless.hdr'
