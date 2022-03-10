@@ -56,10 +56,6 @@ class DcglareOptions(OptionCollection):
         if self._vf.is_set and self._vu.is_set:
             warnings.warn(
                 'Both -vf and -vu are set. %s will ignore -vu.' % self.command)
-        if self._sf.is_set and not self._l.is_set:
-            warnings.warn(
-                '-sf is set but -l is not. %s will ignore -sf if -ls is not set.'
-                % self.command)
         if self._ss.is_set and not self._l.is_set:
             warnings.warn(
                 '-ss is set but -l is not. %s will ignore -ss if -ls is not set.'

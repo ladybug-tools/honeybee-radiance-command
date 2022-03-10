@@ -100,3 +100,12 @@ def test_input_matrix_limit():
     rmtxop.matrices = ['dc1.mtx', 'dc2.mtx', 'dc3.mtx', 'dc4.mtx', 'dc5.mtx']
     with pytest.raises(AssertionError):
         rmtxop.validate()
+
+
+def test_stdin_input():
+    """Test assignments."""
+    rmtxop = Rmtxop()
+
+    rmtxop.matrices = ['dc.mtx', 'sky.mtx']
+    rmtxop.transforms = [['47.4', '119.9', '11.6']]
+    assert rmtxop.to_radiance(stdin_input=True) == 'rmtxop -c 47.4 119.9 11.6 -'

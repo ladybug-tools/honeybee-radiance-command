@@ -242,6 +242,8 @@ class Rmtxop(Command):
                 comes from stdin. This is for instance the case when you pipe the input
                 from another command (default: False).
         """
+        if stdin_input:
+            self.matrices = '-'
         self.validate(stdin_input)
 
         command_parts = [self.command, self.options.to_radiance()]
