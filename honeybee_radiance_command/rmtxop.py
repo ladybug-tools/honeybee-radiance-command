@@ -100,7 +100,17 @@ class Rmtxop(Command):
 
     @matrices.setter
     def matrices(self, value):
-        self._matrices = typing.path_checker_multiple(value)
+        if value is not None:
+            if not isinstance(value, (tuple, list)):
+                value = [value]
+            # check if values are Radiance commands
+            if value and any([isinstance(v, Command) for v in value]):
+                self._matrices = [cmd.enclose_command() if isinstance(cmd, Command) else \
+                    typing.path_checker(cmd) for cmd in value]
+            else:
+                self._matrices = typing.path_checker_multiple(value)
+        else:
+            self._matrices = []
 
     @property
     def transforms(self):

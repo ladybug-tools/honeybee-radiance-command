@@ -63,6 +63,7 @@ rtrace.run(env)
 """
 
 import warnings
+import os
 
 from .options import OptionCollection
 from ._command_util import run_command
@@ -125,6 +126,18 @@ class Command(object):
             )
         self._pipe_to_command = command
         self.validate()
+    
+    def enclose_command(self, stdin_input=False):
+        """Enclose command in quotes and exclamation point ('!'). This method should be 
+        used when reading the input of a command from another Radiance command.
+        
+        Example:
+        rmtxop -c 47.4 119.9 11.6 "!rmtxop view transmission daylight sky" > output
+        """
+        if os.name == 'posix':
+            return '\'!%s\'' % self.to_radiance(stdin_input)
+        else:
+            return '\"!%s\"' % self.to_radiance(stdin_input)
 
     def to_radiance(self, stdin_input=False):
         """Radiance command.

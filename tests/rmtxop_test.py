@@ -105,7 +105,42 @@ def test_input_matrix_limit():
 def test_stdin_input():
     """Test assignments."""
     rmtxop = Rmtxop()
-
     rmtxop.matrices = ['dc.mtx', 'sky.mtx']
     rmtxop.transforms = [['47.4', '119.9', '11.6']]
     assert rmtxop.to_radiance(stdin_input=True) == 'rmtxop -c 47.4 119.9 11.6 -'
+
+
+def test_from_command():
+    """Test reading matrices input from another command."""
+    multiplication = Rmtxop()
+    multiplication.matrices = ['view.vmx', 'clear.xml', 'daylight.dmx', 'sky.smx']
+
+    rmtxop = Rmtxop()
+    rmtxop.transforms = [['47.4', '119.9', '11.6']]
+    rmtxop.matrices = multiplication
+    if os.name == 'posix':
+        assert rmtxop.to_radiance() == 'rmtxop -c 47.4 119.9 11.6 \'!rmtxop view.vmx ' \
+            'clear.xml daylight.dmx sky.smx\''
+    else:
+        assert rmtxop.to_radiance() == 'rmtxop -c 47.4 119.9 11.6 "!rmtxop view.vmx ' \
+            'clear.xml daylight.dmx sky.smx"'
+
+def test_from_command_multiple():
+    """Test reading multiple matrices input from another command."""
+    total = Rmtxop()
+    total.matrices = ['total.mtx', 'sky.smx']
+    direct = Rmtxop()
+    direct.matrices = ['direct.mtx', 'direct.smx']
+
+    rmtxop = Rmtxop()
+    rmtxop.operators = ['+', '+']
+    rmtxop.scalars = [None, -1, None]
+    rmtxop.matrices = [total, direct, 'sun.ill']
+    if os.name == 'posix':
+        assert rmtxop.to_radiance() == 'rmtxop \'!rmtxop total.mtx sky.smx\' ' \
+            '+ -s -1.0 \'!rmtxop direct.mtx direct.smx\' ' \
+            '+ sun.ill'
+    else:
+        assert rmtxop.to_radiance() == 'rmtxop "!rmtxop total.mtx sky.smx" ' \
+            '+ -s -1.0 "!rmtxop direct.mtx direct.smx" ' \
+            '+ sun.ill'
