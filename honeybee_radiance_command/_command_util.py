@@ -59,7 +59,7 @@ def run_command(input_command, env=None, cwd=None, mute=True):
         # this is an edge case that is happening for certain commands on Mac when
         # the command is executed from inside IronPython 2.7
         # see: https://discourse.ladybug.tools/t/hdr-adjust-false-color-not-working-on-mac/16941/3
-        if 'Cannot redirect stderr to stdout yet' in str(e):
+        if platform.system() == 'Darwin':
             process = subprocess.Popen(
                 command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE, shell=True, env=g_env

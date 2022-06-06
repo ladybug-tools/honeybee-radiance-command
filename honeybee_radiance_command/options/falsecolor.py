@@ -5,7 +5,6 @@ from .optionbase import (
     BoolOption,
     NumericOption,
     StringOption,
-    StringOptionJoined,
     IntegerOption,
     FileOption
 )
@@ -58,7 +57,7 @@ class FalsecolorOptions(OptionCollection):
         self._g = StringOption("g", "Green channel mapping (expression of 'v')")
         self._b = StringOption("b", "Blue channel mapping (expression of 'v')")
         self._on_setattr_check = True
-    
+
     def _on_setattr(self):
         """This method executes after setting each new attribute.
 
@@ -97,7 +96,6 @@ class FalsecolorOptions(OptionCollection):
     @s.setter
     def s(self, value):
         self._s.value = value
-    
 
     @property
     def m(self):
@@ -198,7 +196,6 @@ class FalsecolorOptions(OptionCollection):
     def lw(self, value):
         self._lw.value = value
 
-
     @property
     def lh(self):
         """Legend height in pixels - default: 200
@@ -248,7 +245,7 @@ class FalsecolorOptions(OptionCollection):
     @g.setter
     def g(self, value):
         self._g.value = value
-    
+
     @property
     def b(self):
         """Blue channel mapping as an expression of 'v'
