@@ -95,7 +95,7 @@ def run_command(input_command, env=None, cwd=None, mute=True):
     except Exception:  # nothing in stderr
         pass
 
-    if rc != 0:
+    if rc != 0 and isinstance(rc, int):  # return code not included on Mac
         raise RuntimeError('None zero return code: %d' % rc)
 
     # only gets here is successful
