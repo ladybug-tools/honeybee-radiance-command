@@ -6,7 +6,8 @@ from .optionbase import (
     NumericOption,
     StringOption,
     IntegerOption,
-    FileOption
+    FileOption,
+    TupleOption
 )
 
 
@@ -31,7 +32,8 @@ class FalsecolorOptions(OptionCollection):
         "_e",
         "_r",
         "_g",
-        "_b"
+        "_b",
+        "_odim"
     )
 
     def __init__(self):
@@ -56,6 +58,10 @@ class FalsecolorOptions(OptionCollection):
         self._r = StringOption("r", "Red channel mapping (expression of 'v')")
         self._g = StringOption("g", "Green channel mapping (expression of 'v')")
         self._b = StringOption("b", "Blue channel mapping (expression of 'v')")
+        self._odim = TupleOption(
+            "odim", "X and Y grid dimensions for value overlay", length=2,
+            numtype=int
+        )
         self._on_setattr_check = True
 
     def _on_setattr(self):
@@ -258,3 +264,15 @@ class FalsecolorOptions(OptionCollection):
     @b.setter
     def b(self, value):
         self._b.value = value
+
+    @property
+    def odim(self):
+        """"X and Y grid dimensions for value overlay.
+
+        The expression must be a tuple with two integer values.
+        """
+        return self._odim
+
+    @odim.setter
+    def odim(self, value):
+        self._odim.value = value

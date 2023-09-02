@@ -50,3 +50,13 @@ def test_validation():
         falsecolor.to_radiance()
     falsecolor.input = 'image.hdr'
     assert falsecolor.to_radiance() == 'falsecolor -i image.hdr'
+
+
+def test_odim():
+    """Test odim option."""
+    falsecolor = Falsecolor()
+
+    falsecolor.input = 'image.hdr'
+    falsecolor.output = 'image_odim.hdr'
+    falsecolor.options.odim = (5, 5)
+    assert falsecolor.to_radiance() == 'falsecolor -odim 5 5 -i image.hdr > image_odim.hdr'
