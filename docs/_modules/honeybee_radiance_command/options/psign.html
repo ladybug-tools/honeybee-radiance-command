@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.options.psign &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.dcglare.html">honeybee_radiance_command.dcglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.dctimestep.html">honeybee_radiance_command.dctimestep module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.evalglare.html">honeybee_radiance_command.evalglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.falsecolor.html">honeybee_radiance_command.falsecolor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gendaylit.html">honeybee_radiance_command.gendaylit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gendaymtx.html">honeybee_radiance_command.gendaymtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gensky.html">honeybee_radiance_command.gensky module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.getinfo.html">honeybee_radiance_command.getinfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcomb.html">honeybee_radiance_command.pcomb module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcompos.html">honeybee_radiance_command.pcompos module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcond.html">honeybee_radiance_command.pcond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pfilt.html">honeybee_radiance_command.pfilt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pflip.html">honeybee_radiance_command.pflip module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pinterp.html">honeybee_radiance_command.pinterp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.psign.html">honeybee_radiance_command.psign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.ra_gif.html">honeybee_radiance_command.ra_gif module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.ra_xyze.html">honeybee_radiance_command.ra_xyze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcollate.html">honeybee_radiance_command.rcollate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rfluxmtx.html">honeybee_radiance_command.rfluxmtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rmtxop.html">honeybee_radiance_command.rmtxop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rpict.html">honeybee_radiance_command.rpict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for honeybee_radiance_command.options.psign</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">.optionbase</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OptionCollection</span><span class="p">,</span>
+    <span class="n">BoolOption</span><span class="p">,</span>
+    <span class="n">IntegerOption</span><span class="p">,</span>
+    <span class="n">NumericOption</span><span class="p">,</span>
+    <span class="n">FileOption</span><span class="p">,</span>
+    <span class="n">TupleOption</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="PsignOptions"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.psign.html#honeybee_radiance_command.options.psign.PsignOptions">[docs]</a><span class="k">class</span> <span class="nc">PsignOptions</span><span class="p">(</span><span class="n">OptionCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;psign command options.</span>
+
+<span class="sd">    Also see: https://floyd.lbl.gov/radiance/man_html/psign.1.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;_cb&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_cf&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_dr&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_du&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_dl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_dd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_x&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_y&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_f&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;psign command options.&quot;&quot;&quot;</span>
+
+        <span class="n">OptionCollection</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span>
+            <span class="s2">&quot;cb&quot;</span><span class="p">,</span> <span class="s2">&quot;Background RGB - default: (1, 1, 1)&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">numtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cf</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span>
+            <span class="s2">&quot;cf&quot;</span><span class="p">,</span> <span class="s2">&quot;Foreground RGB - default: (0, 0, 0)&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">numtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;dr&quot;</span><span class="p">,</span> <span class="s2">&quot;Text reads to the right - default: True&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_du</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Text reads upwards - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dl</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;dl&quot;</span><span class="p">,</span> <span class="s2">&quot;Text reads left (upside down) - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dd</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;dd&quot;</span><span class="p">,</span> <span class="s2">&quot;Text reads downwards - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;Character height - default: 32 pixels&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Character aspect ratio (h/w) - default: 1.67&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;Horizontal image size in pixels&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;Vertical image size in pixels&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;Character spacing - default: 0&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;Font file - default lib/helvet.fnt&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_on_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This method executes after setting each new attribute.</span>
+
+<span class="sd">        Use this method to add checks that are necessary for OptionCollection. For</span>
+<span class="sd">        instance in pcond option collection -f and -p don&#39;t go together very well.</span>
+<span class="sd">        You can include a check to ensure this is always correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_orient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_du</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dl</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dd</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">is_set</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">all_orient</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Only one of the -dr, -du, -dl, -dd options can be set at a time.&#39;</span>
+            <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Background RGB color - default: (1, 1, 1) for white&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cb</span>
+
+    <span class="nd">@cb</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cb</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Foreground RGB color - default: (0, 0, 0) for black&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf</span>
+
+    <span class="nd">@cf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cf</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Text reads to the right - default: True&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span>
+
+    <span class="nd">@dr</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dr</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">du</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Text reads upwards - default: False&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_du</span>
+
+    <span class="nd">@du</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">du</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_du</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dl</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Text reads to the left - default: False&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dl</span>
+
+    <span class="nd">@dl</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dl</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Text reads downwards - default: False&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dd</span>
+
+    <span class="nd">@dd</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dd</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Character height - default: 32 pixels&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h</span>
+
+    <span class="nd">@h</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Character aspect ratio (height/width) - default: 1.67&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span>
+
+    <span class="nd">@a</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Horizontal image size in pixels</span>
+
+<span class="sd">        Use with −y option in place of the −h specification to control output</span>
+<span class="sd">        image size directly. If the character aspect ratio (−a option, above)</span>
+<span class="sd">        is non-zero, then one of the specified x or y output dimensions may be</span>
+<span class="sd">        reduced to maintain this ratio. If direction is right (−dr) or left (−dl),</span>
+<span class="sd">        then it is not necessary to give the −y option, since it can be computed</span>
+<span class="sd">        from the character height (−h).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Vertical image size in pixels</span>
+
+<span class="sd">        Use with the −x option. If direction is up (−du) or down (−dd), then it</span>
+<span class="sd">        is not necessary to give the −x option, since it can be computed from</span>
+<span class="sd">        the character height (−h).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+
+    <span class="nd">@y</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Character spacing - default: 0</span>
+
+<span class="sd">        The magnitude of this value is multiplied by the character height over the</span>
+<span class="sd">        aspect ratio (ie. the character width) to compute the desired distance between</span>
+<span class="sd">        characters in the output. The sign of the value, positive or negative,</span>
+<span class="sd">        determines how this ideal spacing is used in the actual placement of</span>
+<span class="sd">        characters. If spacing is positive, then the overall width of the line</span>
+<span class="sd">        will not be affected, nor will indentation of textual elements. Thus, the</span>
+<span class="sd">        text format will be mostly unaffected. However, spacing between characters</span>
+<span class="sd">        will reflect their relative size for a more natural appearance. If spacing</span>
+<span class="sd">        is negative, characters will be squeezed together to meet the spacing</span>
+<span class="sd">        criterion, regardless of how it might affect the format of the output. The</span>
+<span class="sd">        default value for spacing is zero, which is interpreted as uniformly</span>
+<span class="sd">        spaced characters.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span>
+
+    <span class="nd">@s</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Font file - default lib/helvet.fnt&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span>
+
+    <span class="nd">@f</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

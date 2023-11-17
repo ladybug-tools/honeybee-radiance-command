@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>honeybee_radiance_command.options.optionbase module &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="honeybee_radiance_command.options.pcomb module" href="honeybee_radiance_command.options.pcomb.html" />
+    <link rel="prev" title="honeybee_radiance_command.options.oconv module" href="honeybee_radiance_command.options.oconv.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.dcglare.html">honeybee_radiance_command.dcglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.dctimestep.html">honeybee_radiance_command.dctimestep module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.evalglare.html">honeybee_radiance_command.evalglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.falsecolor.html">honeybee_radiance_command.falsecolor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gendaylit.html">honeybee_radiance_command.gendaylit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gendaymtx.html">honeybee_radiance_command.gendaymtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gensky.html">honeybee_radiance_command.gensky module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.getinfo.html">honeybee_radiance_command.getinfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcomb.html">honeybee_radiance_command.pcomb module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcompos.html">honeybee_radiance_command.pcompos module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcond.html">honeybee_radiance_command.pcond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pfilt.html">honeybee_radiance_command.pfilt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pflip.html">honeybee_radiance_command.pflip module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pinterp.html">honeybee_radiance_command.pinterp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.psign.html">honeybee_radiance_command.psign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.ra_gif.html">honeybee_radiance_command.ra_gif module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.ra_xyze.html">honeybee_radiance_command.ra_xyze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcollate.html">honeybee_radiance_command.rcollate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rfluxmtx.html">honeybee_radiance_command.rfluxmtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rmtxop.html">honeybee_radiance_command.rmtxop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rpict.html">honeybee_radiance_command.rpict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="honeybee_radiance_command.options.oconv.html" title="Previous Chapter: honeybee_radiance_command.options.oconv module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; honeybee_radi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="honeybee_radiance_command.options.pcomb.html" title="Next Chapter: honeybee_radiance_command.options.pcomb module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">honeybee_radi... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/honeybee_radiance_command.options.optionbase.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <section id="module-honeybee_radiance_command.options.optionbase">
+<span id="honeybee-radiance-command-options-optionbase-module"></span><h1>honeybee_radiance_command.options.optionbase module<a class="headerlink" href="#module-honeybee_radiance_command.options.optionbase" title="Permalink to this headline">¶</a></h1>
+<p>Base classes for Radiance Options.</p>
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">BoolOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#BoolOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.Option" title="honeybee_radiance_command.options.optionbase.Option"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.Option</span></code></a></p>
+<p>Boolean Radiance option.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#BoolOption.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.BoolOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.BoolOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">FileOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#FileOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.Option" title="honeybee_radiance_command.options.optionbase.Option"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.Option</span></code></a></p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#FileOption.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.FileOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.FileOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">IntegerOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">min_value</span><span class="o">=</span><span class="default_value">- inf</span></em>, <em class="sig-param"><span class="n">max_value</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#IntegerOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.NumericOption" title="honeybee_radiance_command.options.optionbase.NumericOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.NumericOption</span></code></a></p>
+<p>Integer Radiance option.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.max_value">
+<code class="sig-name descname">max_value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.max_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.min_value">
+<code class="sig-name descname">min_value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.min_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.IntegerOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.IntegerOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">NumericOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">min_value</span><span class="o">=</span><span class="default_value">- inf</span></em>, <em class="sig-param"><span class="n">max_value</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#NumericOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.Option" title="honeybee_radiance_command.options.optionbase.Option"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.Option</span></code></a></p>
+<p>Numerical Radiance option.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.max_value">
+<code class="sig-name descname">max_value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.max_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.min_value">
+<code class="sig-name descname">min_value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.min_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.NumericOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.NumericOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.Option">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">Option</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#Option"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Radiance Option base class.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#Option.ToString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#Option.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.Option.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.Option.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">OptionCollection</code><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#OptionCollection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Collection of Radiance Options.</p>
+<p>This is base class for difference Radiance command options.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.to_file">
+<code class="sig-name descname">to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">mkdir</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#OptionCollection.to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write options to a file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#OptionCollection.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate options to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.update_from_string">
+<code class="sig-name descname">update_from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#OptionCollection.update_from_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.update_from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update options from a standard radiance string.</p>
+<p>If the option is not currently part of the collection, it will be added to
+additional_options.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.additional_options">
+<code class="sig-name descname">additional_options</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.additional_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.command">
+<em class="property">property </em><code class="sig-name descname">command</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.options">
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print out list of options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.OptionCollection.slots">
+<em class="property">property </em><code class="sig-name descname">slots</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.OptionCollection.slots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return slots including the ones from the baseclass if any.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">StringOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">valid_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">whole</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">pattern_in</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pattern_out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#StringOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.FileOption" title="honeybee_radiance_command.options.optionbase.FileOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.FileOption</span></code></a></p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.pattern_in">
+<code class="sig-name descname">pattern_in</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.pattern_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.pattern_out">
+<code class="sig-name descname">pattern_out</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.pattern_out" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.valid_values">
+<code class="sig-name descname">valid_values</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.valid_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOption.whole">
+<code class="sig-name descname">whole</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOption.whole" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">StringOptionJoined</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">valid_values</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">whole</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">pattern_in</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pattern_out</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#StringOptionJoined"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.StringOption" title="honeybee_radiance_command.options.optionbase.StringOption"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.StringOption</span></code></a></p>
+<p>Joined String Radiance option (e.g.: vtv, fa, etc.).</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#StringOptionJoined.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.pattern_in">
+<code class="sig-name descname">pattern_in</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.pattern_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.pattern_out">
+<code class="sig-name descname">pattern_out</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.pattern_out" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.valid_values">
+<code class="sig-name descname">valid_values</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.valid_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.StringOptionJoined.whole">
+<code class="sig-name descname">whole</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.StringOptionJoined.whole" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">ToggleOption</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">description</span></em>, <em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#ToggleOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.Option" title="honeybee_radiance_command.options.optionbase.Option"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.Option</span></code></a></p>
+<p>Toggle radiance option.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#ToggleOption.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.ToggleOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.ToggleOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.optionbase.</code><code class="sig-name descname">TupleOption</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">description</em>, <em class="sig-param">value=None</em>, <em class="sig-param">length=3</em>, <em class="sig-param">numtype=&lt;class 'float'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#TupleOption"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#honeybee_radiance_command.options.optionbase.Option" title="honeybee_radiance_command.options.optionbase.Option"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.Option</span></code></a></p>
+<p>Tuple Radiance option.</p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.ToString">
+<code class="sig-name descname">ToString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.ToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/optionbase.html#TupleOption.to_radiance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate option to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.is_set">
+<em class="property">property </em><code class="sig-name descname">is_set</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.is_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the value is set by user.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.length">
+<code class="sig-name descname">length</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.numtype">
+<code class="sig-name descname">numtype</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.numtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.optionbase.TupleOption.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#honeybee_radiance_command.options.optionbase.TupleOption.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Option value.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

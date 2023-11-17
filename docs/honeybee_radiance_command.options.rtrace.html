@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>honeybee_radiance_command.options.rtrace module &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="honeybee_radiance_command.cutil module" href="honeybee_radiance_command.cutil.html" />
+    <link rel="prev" title="honeybee_radiance_command.options.rpict module" href="honeybee_radiance_command.options.rpict.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.dcglare.html">honeybee_radiance_command.dcglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.dctimestep.html">honeybee_radiance_command.dctimestep module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.evalglare.html">honeybee_radiance_command.evalglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.falsecolor.html">honeybee_radiance_command.falsecolor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gendaylit.html">honeybee_radiance_command.gendaylit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gendaymtx.html">honeybee_radiance_command.gendaymtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.gensky.html">honeybee_radiance_command.gensky module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.getinfo.html">honeybee_radiance_command.getinfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcomb.html">honeybee_radiance_command.pcomb module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcompos.html">honeybee_radiance_command.pcompos module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pcond.html">honeybee_radiance_command.pcond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pfilt.html">honeybee_radiance_command.pfilt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pflip.html">honeybee_radiance_command.pflip module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.pinterp.html">honeybee_radiance_command.pinterp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.psign.html">honeybee_radiance_command.psign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.ra_gif.html">honeybee_radiance_command.ra_gif module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.ra_xyze.html">honeybee_radiance_command.ra_xyze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcollate.html">honeybee_radiance_command.rcollate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rfluxmtx.html">honeybee_radiance_command.rfluxmtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rmtxop.html">honeybee_radiance_command.rmtxop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rpict.html">honeybee_radiance_command.rpict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="honeybee_radiance_command.options.rpict.html" title="Previous Chapter: honeybee_radiance_command.options.rpict module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; honeybee_radi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="honeybee_radiance_command.cutil.html" title="Next Chapter: honeybee_radiance_command.cutil module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">honeybee_radi... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/honeybee_radiance_command.options.rtrace.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="honeybee_radiance_command.html">honeybee_radiance_command package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="honeybee_radiance_command.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="honeybee_radiance_command.options.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <section id="module-honeybee_radiance_command.options.rtrace">
+<span id="honeybee-radiance-command-options-rtrace-module"></span><h1>honeybee_radiance_command.options.rtrace module<a class="headerlink" href="#module-honeybee_radiance_command.options.rtrace" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions">
+<em class="property">class </em><code class="sig-prename descclassname">honeybee_radiance_command.options.rtrace.</code><code class="sig-name descname">RtraceOptions</code><a class="reference internal" href="_modules/honeybee_radiance_command/options/rtrace.html#RtraceOptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="honeybee_radiance_command.options.optionbase.html#honeybee_radiance_command.options.optionbase.OptionCollection" title="honeybee_radiance_command.options.optionbase.OptionCollection"><code class="xref py py-class docutils literal notranslate"><span class="pre">honeybee_radiance_command.options.optionbase.OptionCollection</span></code></a></p>
+<p>rtrace command options.</p>
+<p>Also see: <a class="reference external" href="https://floyd.lbl.gov/radiance/man_html/rtrace.1.html">https://floyd.lbl.gov/radiance/man_html/rtrace.1.html</a></p>
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.adjust_limit_weight">
+<code class="sig-name descname">adjust_limit_weight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/rtrace.html#RtraceOptions.adjust_limit_weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.adjust_limit_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust lw to be 1 / ad if the value is larger than 1 / ad.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.direct_studies">
+<em class="property">classmethod </em><code class="sig-name descname">direct_studies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/honeybee_radiance_command/options/rtrace.html#RtraceOptions.direct_studies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.direct_studies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for direct studies.</p>
+<p>In particular this classmethod will set options below:
+irradiance_calc (-I) = True
+ambient_bounces (-ab) = 0
+direct_certainty (-dc) = 1
+direct_threshold (-dt) = 0
+direct_jitter (-dj) = 0
+direct_sec_relays (-dr) = 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.to_file">
+<code class="sig-name descname">to_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">file_name</span></em>, <em class="sig-param"><span class="n">mkdir</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write options to a file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.to_radiance">
+<code class="sig-name descname">to_radiance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.to_radiance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Translate options to Radiance format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.update_from_string">
+<code class="sig-name descname">update_from_string</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.update_from_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update options from a standard radiance string.</p>
+<p>If the option is not currently part of the collection, it will be added to
+additional_options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.I">
+<em class="property">property </em><code class="sig-name descname">I</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>off</p>
+<p>Boolean switch to compute irradiance rather than radiance, with the input origin
+and direction interpreted instead as measurement point and orientation.</p>
+<p>For understanding the difference between -i and -I see here:
+<a class="reference external" href="https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3">https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Irradiance calculation switch - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.aE">
+<em class="property">property </em><code class="sig-name descname">aE</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.aE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append modifier to the ambient exclude list from file.</p>
+<p>Same as -ae, except read modifiers to be excluded from file. The RAYPATH
+environment variable determines which directories are searched for this file. The
+modifier names are separated by white space in the file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.aI">
+<em class="property">property </em><code class="sig-name descname">aI</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.aI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add modifier to the ambient include list from file.</p>
+<p>Same as -ai, except read modifiers to be included from file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.aa">
+<em class="property">property </em><code class="sig-name descname">aa</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.aa" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.100000</p>
+<p>Number of ambient accuracy. This value will approximately equal the error from
+indirect illuminance interpolation. A value of zero implies no interpolation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient accuracy - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ab">
+<em class="property">property </em><code class="sig-name descname">ab</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ab" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+<p>Number of ambient bounces. This is the maximum number of diffuse bounces computed
+by the indirect calculation. A value of zero implies no indirect calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient bounces - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ad">
+<em class="property">property </em><code class="sig-name descname">ad</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ad" title="Permalink to this definition">¶</a></dt>
+<dd><p>1024</p>
+<p>Number of ambient divisions. The error in the Monte Carlo calculation of indirect
+illuminance will be inversely proportional to the square root of this number. A
+value of zero implies no indirect calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient divisions - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.additional_options">
+<code class="sig-name descname">additional_options</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.additional_options" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ae">
+<em class="property">property </em><code class="sig-name descname">ae</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ae" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append modifier to the ambient exclude list.</p>
+<p>So that it will not be considered during the indirect calculation. This is a hack
+for speeding the indirect computation by ignoring certain objects. Any object
+having mod as its modifier will get the default ambient level rather than a
+calculated value. Any number of excluded modifiers may be given, but each must
+appear in a separate option.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.af">
+<em class="property">property </em><code class="sig-name descname">af</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.af" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the ambient file to filename.</p>
+<p>This is where indirect illuminance will be stored and retrieved. Normally,
+indirect illuminance values are kept in memory and lost when the program
+finishes or dies. By using a file, different invocations can share illuminance
+values, saving time in the computation. The ambient file is in a
+machine-independent binary format which can be examined with lookamb.</p>
+<p>The ambient file may also be used as a means of communication and data sharing
+between simultaneously executing processes. The same file may be used by multiple
+processes, possibly running on different machines and accessing the file via the
+network (ie. nfs(4)). The network lock manager lockd(8) is used to insure that
+this information is used consistently.</p>
+<p>If any calculation parameters are changed or the scene is modified, the old
+ambient file should be removed so that the calculation can start over from
+scratch. For convenience, the original ambient parameters are listed in the
+header of the ambient file. Getinfo(1) may be used to print out this information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ai">
+<em class="property">property </em><code class="sig-name descname">ai</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ai" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add modifier to the ambient include list.</p>
+<p>So that it will be considered during the indirect calculation. The program can
+use either an include list or an exclude list, but not both.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ar">
+<em class="property">property </em><code class="sig-name descname">ar</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ar" title="Permalink to this definition">¶</a></dt>
+<dd><p>256</p>
+<p>This number will determine the maximum density of ambient values used in
+interpolation. Error will start to increase on surfaces spaced closer than the
+scene size divided by the ambient resolution. The maximum ambient value density
+is the scene size times the ambient accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient resolution - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.as_">
+<em class="property">property </em><code class="sig-name descname">as_</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.as_" title="Permalink to this definition">¶</a></dt>
+<dd><p>512</p>
+<p>Number of ambient super-samples. Super-samples are applied only to the ambient
+divisions which show a significant change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient super-samples - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.av">
+<em class="property">property </em><code class="sig-name descname">av</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.av" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.000000 0.000000 0.000000</p>
+<p>Set the ambient value to a radiance of red grn blu . This is the final value used
+in place of an indirect light calculation. If the number of ambient bounces is
+one or greater and the ambient value weight is non-zero (see -aw and -ab below),
+this value may be modified by the computed indirect values to improve overall
+accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient value - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.aw">
+<em class="property">property </em><code class="sig-name descname">aw</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.aw" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+<p>Set the relative weight of the ambient value given with the -av option. As
+new indirect irradiances are computed, they will modify the default ambient
+value in a moving average, with the specified weight assigned to the initial
+value given on the command and all other weights set to 1. If a value of 0 is
+given with this option, then the initial ambient value is never modified. This is
+the safest value for scenes with large differences in indirect contributions,
+such as when both indoor and outdoor (daylight) areas are visible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Ambient value weight - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.bv">
+<em class="property">property </em><code class="sig-name descname">bv</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.bv" title="Permalink to this definition">¶</a></dt>
+<dd><p>on</p>
+<p>Boolean switch for back face visibility. With this switch off, back faces of
+opaque objects will be invisible to all rays. This is dangerous unless the model
+was constructed such that all surface normals on opaque objects face outward.
+Although turning off back face visibility does not save much computation time
+under most circumstances, it may be useful as a tool for scene debugging, or for
+seeing through one-sided walls from the outside. This option has no effect on
+transparent or translucent materials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Back face visibility - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.command">
+<em class="property">property </em><code class="sig-name descname">command</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dc">
+<em class="property">property </em><code class="sig-name descname">dc</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dc" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.750000</p>
+<p>Set the direct certainty to frac. A value of one guarantees that the
+absolute accuracy of the direct calculation will be equal to or better
+than that given in the -dt specification. A value of zero only insures
+that all shadow lines resulting in a contrast change greater than the
+-dt specification will be calculated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct certainty - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dj">
+<em class="property">property </em><code class="sig-name descname">dj</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dj" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.000000</p>
+<p>Set the direct jittering to frac. A value of zero samples each source
+at specific sample points (see the -ds option below), giving a smoother
+but somewhat less accurate rendering. A positive value causes rays to
+be distributed over each source sample according to its size,
+resulting in more accurate penumbras. This option should never be
+greater than 1, and may even cause problems (such as speckle) when the
+value is smaller. A warning about aiming failure will issued if frac is
+too large. It is usually wise to turn off image sampling when using
+direct jitter by setting -ps to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct jitter - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dp">
+<em class="property">property </em><code class="sig-name descname">dp</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dp" title="Permalink to this definition">¶</a></dt>
+<dd><p>512</p>
+<p>Set the secondary source presampling density to D. This is the number of
+samples per steradian that will be used to determine ahead of time
+whether or not it is worth following shadow rays through all the
+reflections and/or transmissions associated with a secondary source path.
+A value of 0 means that the full secondary source path will always be
+tested for shadows if it is tested at all.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct pretest density - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dr">
+<em class="property">property </em><code class="sig-name descname">dr</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dr" title="Permalink to this definition">¶</a></dt>
+<dd><p>2</p>
+<p>Set the number of relays for secondary sources to N. A value of 0 means
+that secondary sources will be ignored. A value of 1 means that sources
+will be made into first generation secondary sources; a value of 2 means
+that first generation secondary sources will also be made into second
+generation secondary sources, and so on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct relays - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ds">
+<em class="property">property </em><code class="sig-name descname">ds</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ds" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.200000</p>
+<p>Set the direct sampling ratio to frac. A light source will be subdivided
+until the width of each sample area divided by the distance to the
+illuminated point is below this ratio. This assures accuracy in regions
+close to large area sources at a slight computational expense. A value
+of zero turns source subdivision off, sending at most one shadow ray to
+each light source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct sampling - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dt">
+<em class="property">property </em><code class="sig-name descname">dt</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.030000</p>
+<p>Set the direct threshold to frac. Shadow testing will stop when the
+potential contribution of at least the next and at most all remaining
+light source samples is less than this fraction of the accumulated value.
+The remaining light source contributions are approximated statistically.
+A value of zero means that all light source samples will be tested for
+shadow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct threshold - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.dv">
+<em class="property">property </em><code class="sig-name descname">dv</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.dv" title="Permalink to this definition">¶</a></dt>
+<dd><p>on</p>
+<p>Boolean switch for light source visibility. With this switch off, sources will be
+black when viewed directly although they will still participate in the direct
+calculation. This option is mostly for the program <cite>mkillum</cite> to avoid
+inappropriate counting of light sources, but it may also be desirable in
+conjunction with the -i option.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Direct visibility - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.e">
+<em class="property">property </em><code class="sig-name descname">e</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.e" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send error messages and progress reports to efile.</p>
+<p>By default the error messages are directed to standard error.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.fio">
+<em class="property">property </em><code class="sig-name descname">fio</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.fio" title="Permalink to this definition">¶</a></dt>
+<dd><p>faa</p>
+<p>Format input according to the character <cite>i</cite> and output according to the character
+<cite>o</cite>. Rtrace understands the following input and output formats
+- <cite>a</cite> for ascii
+- <cite>f</cite> for single-precision floating point
+- <cite>d</cite> for double-precision floating point</p>
+<p>In addition to these three choices, the character <cite>c</cite> may be used to denote
+4-byte floating point (Radiance) color format for the output of values only (-ov
+option, below). If the output character is missing, the input format is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Format input/output = ascii/ascii - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.h">
+<em class="property">property </em><code class="sig-name descname">h</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>on</p>
+<p>Boolean switch for information header on output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Output header - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.i">
+<em class="property">property </em><code class="sig-name descname">i</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.i" title="Permalink to this definition">¶</a></dt>
+<dd><p>off</p>
+<p>Boolean switch to compute irradiance rather than radiance values. This
+only affects the final result, substituting a Lambertian surface and
+multiplying the radiance by pi. Glass and other transparent surfaces are
+ignored during this stage. Light sources still appear with their original
+radiance values, though the -dv option (below) may be used to override
+this. This option is especially useful in conjunction with ximage for computing
+illuminance at scene points.</p>
+<p>Keep in mind that -i sends a ray into the scene and calculates the incident
+irradiance at that surface point. For calculating irradiance at the sensor point
+see -I.</p>
+<p>For understanding the difference between -i and -I see here:
+<a class="reference external" href="https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3">https://discourse.radiance-online.org/t/rtrace-i-i-flags/4192/3</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Irradiance calculation - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ld">
+<em class="property">property </em><code class="sig-name descname">ld</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ld" title="Permalink to this definition">¶</a></dt>
+<dd><p>off</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Limit distance - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.lr">
+<em class="property">property </em><code class="sig-name descname">lr</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.lr" title="Permalink to this definition">¶</a></dt>
+<dd><p>-10</p>
+<p>Limit reflections to a maximum of N, if N is a positive integer. If N
+is zero, then Russian roulette is used for ray termination, and the
+-lw setting (below) must be positive. If N is a negative integer, then
+this sets the upper limit of reflections past which Russian roulette
+will be used. In scenes with dielectrics and total internal reflection,
+a setting of 0 (no limit) may cause a stack overflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Limit reflection (Russian roulette) - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.lw">
+<em class="property">property </em><code class="sig-name descname">lw</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.lw" title="Permalink to this definition">¶</a></dt>
+<dd><p>2.00e-003</p>
+<p>Limit the weight of each ray to a minimum of frac. During ray-tracing,
+a record is kept of the estimated contribution (weight) a ray would have
+in the image. If this weight is less than the specified minimum and the
+-lr setting (above) is positive, the ray is not traced. Otherwise,
+Russian roulette is used to continue rays with a probability equal to
+the ray weight divided by the given frac.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Limit weight - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ma">
+<em class="property">property </em><code class="sig-name descname">ma</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ma" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.000000 0.000000 0.000000</p>
+<p>Set the global medium albedo to the given value between 0 0 0 and 1 1 1. A zero
+value means that all light not transmitted by the medium is absorbed. A unitary
+value means that all light not transmitted by the medium is scattered in some new
+direction. The isotropy of scattering is determined by the Heyney-Greenstein
+parameter, described below.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Mist scattering albedo - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.me">
+<em class="property">property </em><code class="sig-name descname">me</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.me" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.00e+000 0.00e+000 0.00e+000</p>
+<p>Set the global medium extinction coefficient to the indicated color, in units of
+1/distance (distance in world coordinates). Light will be scattered or absorbed
+over distance according to this value. The ratio of scattering to total
+scattering plus absorption is set by the albedo parameter, described below.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Mist extinction coefficient - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.mg">
+<em class="property">property </em><code class="sig-name descname">mg</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.mg" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.000000</p>
+<p>Set the medium Heyney-Greenstein eccentricity parameter. This parameter
+determines how strongly scattering favors the forward direction. A value of 0
+indicates perfectly isotropic scattering. As this parameter approaches 1,
+scattering tends to prefer the forward direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Mist scattering eccentricity - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ms">
+<em class="property">property </em><code class="sig-name descname">ms</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.000000</p>
+<p>Set the medium sampling distance, in world coordinate units. During source
+scattering, this will be the average distance between adjacent samples. A
+value of 0 means that only one sample will be taken per light source within a
+given scattering volume.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Mist sampling distance - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.n">
+<em class="property">property </em><code class="sig-name descname">n</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.n" title="Permalink to this definition">¶</a></dt>
+<dd><p>1</p>
+<p>Execute in parallel on nproc local processes.</p>
+<p>Note:</p>
+<p>This option is incompatible with the -P and -PP, options. Multiple processes also
+do not work properly with ray tree output using any of the <cite>-o*t*</cite> options. There
+is no benefit from specifying more processes than there are cores available on
+the system or the -x setting, which forces a wait at each flush.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Number of rendering processes - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.o">
+<em class="property">property </em><code class="sig-name descname">o</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.o" title="Permalink to this definition">¶</a></dt>
+<dd><p>ov
+-o[spec]</p>
+<p>Produce output fields according to spec. Characters are interpreted as follows:
+o - origin (input)
+d - direction (normalized)
+v - value (radiance)
+V - contribution (radiance)
+w - weight
+W - color coefficient
+l - effective length of ray
+L - first intersection distance
+c - local (u,v) coordinates
+p - point of intersection
+n - normal at intersection (perturbed)
+N - normal at intersection (unperturbed)
+s - surface name
+m - modifier name
+M - material name
+~ tilde (end of trace marker)
+If the letter <cite>t</cite> appears in spec, then the fields following will be printed for
+every ray traced, not just the final result. If the capital letter <cite>T</cite> is given
+instead of <cite>t</cite>, then all rays will be reported, including shadow testing rays to
+light sources. Spawned rays are indented one tab for each level. The tilde
+marker (<cite>~</cite>) is a handy way of differentiating the final ray value from daughter
+values in a traced ray tree, and usually appears right before the <cite>t</cite> or <cite>T</cite>
+output flags. E.g., -ov~TmW will emit a tilde followed by a tab at the end of
+each trace, which can be easily distinguished even in binary output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Output value - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.options">
+<em class="property">property </em><code class="sig-name descname">options</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print out list of options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.slots">
+<em class="property">property </em><code class="sig-name descname">slots</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.slots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return slots including the ones from the baseclass if any.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ss">
+<em class="property">property </em><code class="sig-name descname">ss</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ss" title="Permalink to this definition">¶</a></dt>
+<dd><p>1.000000</p>
+<p>Set the specular sampling to samp. For values less than 1, this is the
+degree to which the highlights are sampled for rough specular materials.
+A value greater than one causes multiple ray samples to be sent to reduce
+noise at a commmesurate cost. A value of zero means that no jittering
+will take place, and all reflections will appear sharp even when they
+should be diffuse. This may be desirable when used in combination with
+image sampling to obtain faster renderings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Specular sampling - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.st">
+<em class="property">property </em><code class="sig-name descname">st</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.st" title="Permalink to this definition">¶</a></dt>
+<dd><p>0.150000</p>
+<p>Set the specular sampling threshold to frac. This is the minimum
+fraction of reflection or transmission, under which no specular sampling
+is performed. A value of zero means that highlights will always be
+sampled by tracing reflected or transmitted rays. A value of one means
+that specular sampling is never used. Highlights from light sources
+will always be correct, but reflections from other surfaces will be
+approximated using an ambient value. A sampling threshold between zero
+and one offers a compromise between image accuracy and rendering time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Specular threshold - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.tE">
+<em class="property">property </em><code class="sig-name descname">tE</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.tE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append modifier to the trace exclude list from file.</p>
+<p>Same as -te, except read modifiers to be excluded from file. The RAYPATH
+environment variable determines which directories are searched for this file. The
+modifier names are separated by white space in the file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.tI">
+<em class="property">property </em><code class="sig-name descname">tI</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.tI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add modifier to the trace include list from file.</p>
+<p>Same as -ti, except read modifiers to be included from file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.te">
+<em class="property">property </em><code class="sig-name descname">te</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.te" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append modifier to the trace exclude list.</p>
+<p>The excluded modifier will not be reported by the trace option <cite>-o*t*</cite>. Any ray
+striking an object having mod as its modifier will not be reported to the
+standard output with the rest of the rays being traced. This option has no
+effect unless either the <cite>t</cite> or <cite>T</cite> option has been given as part of the output
+specifier. Any number of excluded modifiers may be given, but each must appear in
+a separate option.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.ti">
+<em class="property">property </em><code class="sig-name descname">ti</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.ti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add modifier to the trace include list.</p>
+<p>Add modifier to the trace include list, so that it will be reported by the trace
+option. The program can use either an include list or an exclude list, but not
+both.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.u">
+<em class="property">property </em><code class="sig-name descname">u</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.u" title="Permalink to this definition">¶</a></dt>
+<dd><p>on</p>
+<p>Boolean switch to control uncorrelated random sampling. When “off”, a
+low-discrepancy sequence is used, which reduces variance but can result
+in a brushed appearance in specular highlights. When “on”, pure Monte
+Carlo sampling is used in all calculations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Uncorrelated Monte Carlo sampling - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.w">
+<em class="property">property </em><code class="sig-name descname">w</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>on</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Warning messages - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.x">
+<em class="property">property </em><code class="sig-name descname">x</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+<p>Set the x resolution to res. The output will be flushed after every res input
+rays if -y is set to zero. A value of one means that every ray will be flushed,
+whatever the setting of -y. A value of zero means that no output flushing will
+take place.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Flush interval - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="honeybee_radiance_command.options.rtrace.RtraceOptions.y">
+<em class="property">property </em><code class="sig-name descname">y</code><a class="headerlink" href="#honeybee_radiance_command.options.rtrace.RtraceOptions.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>0</p>
+<p>Set the y resolution to res. The program will exit after res scanlines have been
+processed, where a scanline is the number of rays given by the -x option, or 1 if
+-x is zero. A value of zero means the program will not halt until the end of file
+is reached.</p>
+<p>If both -x and -y options are given, a resolution string is printed at the
+beginning of the output. This is mostly useful for recovering image dimensions
+with pvalue, and for creating valid Radiance picture files using the color output
+format. (See the -f option, above.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Y resolution - default</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

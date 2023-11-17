@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.rmtxop &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_radiance_command.html">honeybee_radiance_command package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.dcglare.html">honeybee_radiance_command.dcglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.dctimestep.html">honeybee_radiance_command.dctimestep module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.evalglare.html">honeybee_radiance_command.evalglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.falsecolor.html">honeybee_radiance_command.falsecolor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.gendaylit.html">honeybee_radiance_command.gendaylit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.gendaymtx.html">honeybee_radiance_command.gendaymtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.gensky.html">honeybee_radiance_command.gensky module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.getinfo.html">honeybee_radiance_command.getinfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pcomb.html">honeybee_radiance_command.pcomb module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pcompos.html">honeybee_radiance_command.pcompos module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pcond.html">honeybee_radiance_command.pcond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pfilt.html">honeybee_radiance_command.pfilt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pflip.html">honeybee_radiance_command.pflip module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.pinterp.html">honeybee_radiance_command.pinterp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.psign.html">honeybee_radiance_command.psign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.ra_gif.html">honeybee_radiance_command.ra_gif module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.ra_xyze.html">honeybee_radiance_command.ra_xyze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rcollate.html">honeybee_radiance_command.rcollate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rfluxmtx.html">honeybee_radiance_command.rfluxmtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rmtxop.html">honeybee_radiance_command.rmtxop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rpict.html">honeybee_radiance_command.rpict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for honeybee_radiance_command.rmtxop</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;rmtxop command.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">.options.rmtxop</span> <span class="kn">import</span> <span class="n">RmtxopOptions</span>
+<span class="kn">from</span> <span class="nn">._command</span> <span class="kn">import</span> <span class="n">Command</span>
+<span class="kn">import</span> <span class="nn">honeybee_radiance_command._exception</span> <span class="k">as</span> <span class="nn">exceptions</span>
+<span class="kn">import</span> <span class="nn">honeybee_radiance_command._typing</span> <span class="k">as</span> <span class="nn">typing</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<div class="viewcode-block" id="Rmtxop"><a class="viewcode-back" href="../../honeybee_radiance_command.rmtxop.html#honeybee_radiance_command.rmtxop.Rmtxop">[docs]</a><span class="k">class</span> <span class="nc">Rmtxop</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Rmtxop command.</span>
+
+<span class="sd">    Concatenate, add, multiply, divide, transpose, scale, and convert matrices. The</span>
+<span class="sd">    implementation here allows for matrix operations on upto four matrices at the same</span>
+<span class="sd">    time. While the Radiance binary allows for even more, this restriction has been</span>
+<span class="sd">    imposed here to keep the code somewhat clean.</span>
+
+<span class="sd">    In standard Radiance syntax, the entire command is specified in a single line. In</span>
+<span class="sd">    the implementation here, the matrices and all the corresponding scaling factors,</span>
+<span class="sd">    transformations and operators are specified through individual list. So, care</span>
+<span class="sd">    must be taken to ensure that the order of transformations, scaling etc. is correctly</span>
+<span class="sd">    assigned to the sequence of the matrices.</span>
+
+<span class="sd">    An extensive number of input and parameter possibilities are evaluated in the test</span>
+<span class="sd">    module for this class. A review of that module is higly recommended to understand</span>
+<span class="sd">    how to specify inputs, scalars, transforms and transposition options for this class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">        options: Command options. It will be set to Radiance default values</span>
+<span class="sd">            if unspecified.</span>
+<span class="sd">        output: File path to the output file (Default: None).</span>
+<span class="sd">        matrices: A single file path or a list/tuple of multiple file paths of matrix</span>
+<span class="sd">            files.</span>
+<span class="sd">        transforms: A nested list of tuples/lists containing floating point numbers that</span>
+<span class="sd">            are meant to transform the matrix/matrices specified through the &#39;matrices&#39;</span>
+<span class="sd">            input. Defaults to None, implying no transformations. For a calculation</span>
+<span class="sd">            involving 3 matrices, if a specific transformation, say weighting by (1,2,3.4)</span>
+<span class="sd">            is to be done to the second matrix, then the input for this argument will be</span>
+<span class="sd">            (None, (1,2,3.4), None).</span>
+<span class="sd">        scalars: A nested list of tuples/lists containing floating point numbers that</span>
+<span class="sd">            are meant to scale the matrix/matrices specified through the &#39;matrices&#39;</span>
+<span class="sd">            input. Defaults to None, implying no scaling. For a calculation</span>
+<span class="sd">            involving 3 matrices, if  scaling by -1.5  is to be done to the second matrix,</span>
+<span class="sd">            then the input for this argument will be (None, -1.5, None).</span>
+<span class="sd">        transposes: A boolean value or a list of boolean values (in case of multiple</span>
+<span class="sd">            matrices) to specify transpose operation on the matrix/matrices. Defaults to</span>
+<span class="sd">            None, implying no transpositions. For a calculation involving 3 matrices, if</span>
+<span class="sd">            the first and third matrices are to be transposed, then the input for this</span>
+<span class="sd">            argument will be [True,None,True].</span>
+<span class="sd">        operators: A character string or list of character strings indicating the</span>
+<span class="sd">            operation between two or more matrices. The default value is None indicating</span>
+<span class="sd">            concatenation. If this input is specified then its length should be equal</span>
+<span class="sd">            to one less than the number of matrices. For calculation involving 3 matrices,</span>
+<span class="sd">            if the first and second matrices are to be added, and the result is to be</span>
+<span class="sd">            multiplied by the third matrix, then the input will be [&#39;+&#39;,&#39;*]</span>
+
+<span class="sd">        Properties:</span>
+<span class="sd">        * options</span>
+<span class="sd">        * output</span>
+<span class="sd">        * matrices</span>
+<span class="sd">        * transforms</span>
+<span class="sd">        * transposes</span>
+<span class="sd">        * scalars</span>
+<span class="sd">        * operators</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_matrices&#39;</span><span class="p">,</span> <span class="s1">&#39;_transforms&#39;</span><span class="p">,</span> <span class="s1">&#39;_scalars&#39;</span><span class="p">,</span> <span class="s1">&#39;_transposes&#39;</span><span class="p">,</span> <span class="s1">&#39;_operators&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">matrices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transforms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">transposes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">operators</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize Command.&quot;&quot;&quot;</span>
+        <span class="n">Command</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="n">options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">output</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">matrices</span> <span class="o">=</span> <span class="n">matrices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="n">transforms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transposes</span> <span class="o">=</span> <span class="n">transposes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scalars</span> <span class="o">=</span> <span class="n">scalars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operators</span> <span class="o">=</span> <span class="n">operators</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">options</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rmtxop options.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_options</span>
+
+    <span class="nd">@options</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">options</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">RmtxopOptions</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">RmtxopOptions</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expected RmtxopOptions not </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_options</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">matrices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;List of matrix files on which operations are to be performed.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_matrices</span>
+
+    <span class="nd">@matrices</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">matrices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+            <span class="c1"># check if values are Radiance commands</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Command</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_matrices</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmd</span><span class="o">.</span><span class="n">enclose_command</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">Command</span><span class="p">)</span> <span class="k">else</span> \
+                    <span class="n">typing</span><span class="o">.</span><span class="n">path_checker</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span> <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_matrices</span> <span class="o">=</span> <span class="n">typing</span><span class="o">.</span><span class="n">path_checker_multiple</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_matrices</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transformation coefficients that are specified as a single floating</span>
+<span class="sd">        point number or a tuple or list of floating point numbers. If specified as tuple</span>
+<span class="sd">        or list, then its length should be an even multiple of the original matrix</span>
+<span class="sd">        components.</span>
+<span class="sd">        If a single matrix is being considered for operation, then the input for this</span>
+<span class="sd">        can be single number or a single list.</span>
+<span class="sd">        If more than one matrix has been considered for operation then the input for this</span>
+<span class="sd">        should be a list/tuple containing numbers or nested tuple/lists whose length is</span>
+<span class="sd">        equal to the number of matrices.</span>
+<span class="sd">        For the same matrix both transforms and scalars cannot be specified at the same</span>
+<span class="sd">        time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transforms</span>
+
+    <span class="nd">@transforms</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transforms</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__scl_trnsfrm_setter</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span>
+                                    <span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transforms</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__scl_trnsfrm_setter</span><span class="p">(</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_transforms</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Scalar factor to scale the elements of the matrix that are specified as a</span>
+<span class="sd">        single floating point number or a tuple or list of floating point numbers. If</span>
+<span class="sd">        specified as a tuple or list, then its length should be equal to the original</span>
+<span class="sd">        matrix components.</span>
+<span class="sd">        If a single matrix is being considered for operation, then the input for this</span>
+<span class="sd">        can be single number or a single list.</span>
+<span class="sd">        If more than one matrix has been considered for operation then the input for this</span>
+<span class="sd">        should be a list/tuple containing numbers or nested tuple/lists whose length is</span>
+<span class="sd">        equal to the number of matrices.</span>
+<span class="sd">        For the same matrix both transforms and scalars cannot be specified at the same</span>
+<span class="sd">        time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scalars</span>
+
+    <span class="nd">@scalars</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_scalars</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__scl_trnsfrm_setter</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_scalars</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">__scl_trnsfrm_setter</span><span class="p">(</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_scalars</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">transposes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If a single matrix is being considered for operation, then the input for this</span>
+<span class="sd">        can be single a single boolean.</span>
+<span class="sd">        If more than one matrix has been considered for operation then the input for this</span>
+<span class="sd">        should be a list/tuple containing booleans. &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transposes</span>
+
+    <span class="nd">@transposes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">transposes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transposes</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transposes</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_transposes</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">operators</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The operator for specifying addition(&#39;+&#39;), subtraction(&#39;-&#39;),</span>
+<span class="sd">        multiplication(&#39;*&#39;), division(/) or concatenation(.) between two matrices.</span>
+<span class="sd">        The default operation is concatenation.</span>
+<span class="sd">        In the case of addition, the two matrices involved must have the same number of</span>
+<span class="sd">        components. If subtraction is desired, use addition (&#39;+&#39;) with a scaling</span>
+<span class="sd">        parameter of -1 for the second matrix (the -s option). For element-wise</span>
+<span class="sd">        multiplication and division, the second matrix is permitted to have a single</span>
+<span class="sd">        component per element, which will be applied equally to all components of the</span>
+<span class="sd">        first matrix. If element-wise division is specified, any zero elements in the</span>
+<span class="sd">        second matrix will result in a warning and the corresponding component(s) in the</span>
+<span class="sd">        first matrix will be set to zero.</span>
+<span class="sd">        In case of posix based systems the multiplication operator will be quoted &#39;*&#39;</span>
+<span class="sd">        automatically by the script.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operators</span>
+
+    <span class="nd">@operators</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">operators</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_operators</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_oprtr_setter</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_operators</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_oprtr_setter</span><span class="p">(</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_operators</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__scl_trnsfrm_setter</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the input provided for the scalar or transform and return a list</span>
+<span class="sd">        of floating point numbers&quot;&quot;&quot;</span>
+        <span class="c1"># If the input is a single number then convert into a single element list.</span>
+        <span class="c1"># Do a check for floating point number in both cases.</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_oprtr_setter</span><span class="p">(</span><span class="n">oprtr_value</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the input provided for the operator from the list of possible of</span>
+<span class="sd">        options&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">oprtr_value</span><span class="p">:</span>
+            <span class="n">valid_values</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">oprtr_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_values</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidValueError</span><span class="p">(</span><span class="s1">&#39;rmtxop&#39;</span><span class="p">,</span> <span class="n">oprtr_value</span><span class="p">,</span>
+                                                   <span class="n">valid_values</span><span class="o">=</span><span class="n">valid_values</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;posix&#39;</span> <span class="ow">and</span> <span class="n">oprtr_value</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span><span class="p">:</span>
+                <span class="n">oprtr_value</span> <span class="o">=</span> <span class="s2">&quot;&#39;*&#39;&quot;</span>
+
+            <span class="k">return</span> <span class="n">oprtr_value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="Rmtxop.to_radiance"><a class="viewcode-back" href="../../honeybee_radiance_command.rmtxop.html#honeybee_radiance_command.rmtxop.Rmtxop.to_radiance">[docs]</a>    <span class="k">def</span> <span class="nf">to_radiance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stdin_input</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Command in Radiance format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            stdin_input: A boolean that indicates if the input for this command</span>
+<span class="sd">                comes from stdin. This is for instance the case when you pipe the input</span>
+<span class="sd">                from another command (default: False).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">stdin_input</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">matrices</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">stdin_input</span><span class="p">)</span>
+
+        <span class="n">command_parts</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">to_radiance</span><span class="p">()]</span>
+
+        <span class="n">transposes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposes</span>
+        <span class="n">transforms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span>
+        <span class="n">scalars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalars</span>
+        <span class="n">operators</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">operators</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">matrix</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrices</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">transposes</span> <span class="ow">and</span> <span class="n">transposes</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+                <span class="n">command_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">transforms</span> <span class="ow">and</span> <span class="n">transforms</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+                <span class="n">command_parts</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;-c&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">transforms</span><span class="p">[</span><span class="n">idx</span><span class="p">]])</span>
+            <span class="k">if</span> <span class="n">scalars</span> <span class="ow">and</span> <span class="n">scalars</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+                <span class="n">command_parts</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;-s&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">scalars</span><span class="p">[</span><span class="n">idx</span><span class="p">]])</span>
+            <span class="n">command_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">operators</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">command_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">operators</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">command_parts</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipe_to</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pipe_to</span><span class="o">.</span><span class="n">to_radiance</span><span class="p">(</span><span class="n">stdin_input</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39; &gt; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">cmd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">split</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Rmtxop.validate"><a class="viewcode-back" href="../../honeybee_radiance_command.rmtxop.html#honeybee_radiance_command.rmtxop.Rmtxop.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stdin_input</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">Command</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stdin_input</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrices</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">MissingArgumentError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">command</span><span class="p">,</span> <span class="s1">&#39;matrices&#39;</span><span class="p">)</span>
+
+        <span class="n">len_matrices</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrices</span><span class="p">)</span>
+
+        <span class="c1"># Note: The checks below are only meant for commandline options and files. There</span>
+        <span class="c1"># are several checks that rmtxop does at runtime relating to matrix shapes</span>
+        <span class="c1"># and operator compatibility.</span>
+
+        <span class="c1"># Check 1: Number of matrices is less than 5 (for performance reasons).</span>
+        <span class="k">assert</span> <span class="n">len_matrices</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> \
+            <span class="s1">&#39;The number of matrices allowed for calculation has been set to four or &#39;</span> \
+            <span class="s1">&#39;lower. Currently, </span><span class="si">%s</span><span class="s1"> matrices have been specified.&#39;</span> <span class="o">%</span> <span class="n">len_matrices</span>
+
+        <span class="c1"># Check 2: If scalars, transforms and transposes are set, then they are declared for</span>
+        <span class="c1"># every matrix.</span>
+        <span class="n">len_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scalars&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scalars</span><span class="p">),</span> <span class="s1">&#39;transforms&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">),</span>
+                    <span class="s1">&#39;transposes&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">transposes</span><span class="p">)}</span>
+        <span class="k">for</span> <span class="n">matrix_param</span><span class="p">,</span> <span class="n">param_list_len</span> <span class="ow">in</span> <span class="n">len_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">param_list_len</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="n">param_list_len</span> <span class="o">==</span> <span class="n">len_matrices</span><span class="p">,</span> \
+                    <span class="s1">&#39;The number of </span><span class="si">%s</span><span class="s1"> specified should either be None or equal to the &#39;</span> \
+                    <span class="s1">&#39;number of matrices (</span><span class="si">%s</span><span class="s1">). Currently a list of </span><span class="si">%s</span><span class="s1"> has been specified.&#39;</span> \
+                    <span class="o">%</span> <span class="p">(</span><span class="n">matrix_param</span><span class="p">,</span> <span class="n">len_matrices</span><span class="p">,</span> <span class="n">param_list_len</span><span class="p">)</span>
+
+        <span class="c1"># Check 3: If operators are declared, then they are declared for every adjacent</span>
+        <span class="c1"># matrix operation (i.e. one less than total number of matrices).</span>
+        <span class="n">len_operators</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">operators</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">len_operators</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">len_operators</span> <span class="o">==</span> <span class="p">(</span><span class="n">len_matrices</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> \
+                <span class="s1">&#39;The number of specified operators (</span><span class="si">%s</span><span class="s1">) should either be None or &#39;</span> \
+                <span class="s1">&#39;one less than the number of matrices (</span><span class="si">%s</span><span class="s1">).&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">len_operators</span><span class="p">,</span> <span class="n">len_matrices</span><span class="p">)</span>
+
+        <span class="c1"># Check 4: For a given matrix, scalar and transform is not set simultaneously.</span>
+        <span class="k">if</span> <span class="n">len_dict</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">len_dict</span><span class="p">[</span><span class="s1">&#39;transforms&#39;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">scalar</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scalars</span><span class="p">):</span>
+                <span class="n">transform</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">scalar</span> <span class="ow">and</span> <span class="n">transform</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;For matrix </span><span class="si">%s</span><span class="s1"> both transform(</span><span class="si">%s</span><span class="s1">) and scalar(</span><span class="si">%s</span><span class="s1">) coefficients &#39;</span> \
+                          <span class="s1">&#39;have been provided. Transform and scalar coefficients cannot&#39;</span> \
+                          <span class="s1">&#39;be specified simultaneously for the same matrix.&#39;</span> <span class="o">%</span> \
+                          <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">transform</span><span class="p">,</span> <span class="n">scalar</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

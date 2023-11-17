@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>honeybee_radiance_command.options.pcond &#8212; honeybee-radiance-command  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          honeybee-radiance-command</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.options.html">honeybee_radiance_command.options package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.dcglare.html">honeybee_radiance_command.options.dcglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.dctimestep.html">honeybee_radiance_command.options.dctimestep module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.evalglare.html">honeybee_radiance_command.options.evalglare module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.falsecolor.html">honeybee_radiance_command.options.falsecolor module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gendaylit.html">honeybee_radiance_command.options.gendaylit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gendaymtx.html">honeybee_radiance_command.options.gendaymtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.gensky.html">honeybee_radiance_command.options.gensky module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.getinfo.html">honeybee_radiance_command.options.getinfo module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.oconv.html">honeybee_radiance_command.options.oconv module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.optionbase.html">honeybee_radiance_command.options.optionbase module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcomb.html">honeybee_radiance_command.options.pcomb module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcompos.html">honeybee_radiance_command.options.pcompos module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pcond.html">honeybee_radiance_command.options.pcond module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pfilt.html">honeybee_radiance_command.options.pfilt module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pflip.html">honeybee_radiance_command.options.pflip module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.pinterp.html">honeybee_radiance_command.options.pinterp module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.psign.html">honeybee_radiance_command.options.psign module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.ra_gif.html">honeybee_radiance_command.options.ra_gif module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.ra_xyze.html">honeybee_radiance_command.options.ra_xyze module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcalc.html">honeybee_radiance_command.options.rcalc module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcollate.html">honeybee_radiance_command.options.rcollate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rcontrib.html">honeybee_radiance_command.options.rcontrib module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rfluxmtx.html">honeybee_radiance_command.options.rfluxmtx module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rmtxop.html">honeybee_radiance_command.options.rmtxop module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rpict.html">honeybee_radiance_command.options.rpict module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../honeybee_radiance_command.options.rtrace.html">honeybee_radiance_command.options.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../honeybee_radiance_command.options.html#module-honeybee_radiance_command.options">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.cutil.html">honeybee_radiance_command.cutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.dcglare.html">honeybee_radiance_command.dcglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.dctimestep.html">honeybee_radiance_command.dctimestep module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.evalglare.html">honeybee_radiance_command.evalglare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.falsecolor.html">honeybee_radiance_command.falsecolor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gendaylit.html">honeybee_radiance_command.gendaylit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gendaymtx.html">honeybee_radiance_command.gendaymtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.gensky.html">honeybee_radiance_command.gensky module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.getinfo.html">honeybee_radiance_command.getinfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.oconv.html">honeybee_radiance_command.oconv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcomb.html">honeybee_radiance_command.pcomb module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcompos.html">honeybee_radiance_command.pcompos module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pcond.html">honeybee_radiance_command.pcond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pfilt.html">honeybee_radiance_command.pfilt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pflip.html">honeybee_radiance_command.pflip module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.pinterp.html">honeybee_radiance_command.pinterp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.psign.html">honeybee_radiance_command.psign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.ra_gif.html">honeybee_radiance_command.ra_gif module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.ra_xyze.html">honeybee_radiance_command.ra_xyze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcalc.html">honeybee_radiance_command.rcalc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcollate.html">honeybee_radiance_command.rcollate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rcontrib.html">honeybee_radiance_command.rcontrib module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rfluxmtx.html">honeybee_radiance_command.rfluxmtx module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rmtxop.html">honeybee_radiance_command.rmtxop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rpict.html">honeybee_radiance_command.rpict module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../honeybee_radiance_command.rtrace.html">honeybee_radiance_command.rtrace module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../honeybee_radiance_command.html#module-honeybee_radiance_command">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../honeybee_radiance_command.html">honeybee_radiance_command package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for honeybee_radiance_command.options.pcond</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">.optionbase</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">OptionCollection</span><span class="p">,</span>
+    <span class="n">BoolOption</span><span class="p">,</span>
+    <span class="n">NumericOption</span><span class="p">,</span>
+    <span class="n">StringOption</span><span class="p">,</span>
+    <span class="n">IntegerOption</span><span class="p">,</span>
+    <span class="n">TupleOption</span><span class="p">,</span>
+    <span class="n">FileOption</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="PcondOptions"><a class="viewcode-back" href="../../../honeybee_radiance_command.options.pcond.html#honeybee_radiance_command.options.pcond.PcondOptions">[docs]</a><span class="k">class</span> <span class="nc">PcondOptions</span><span class="p">(</span><span class="n">OptionCollection</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;pcond options.</span>
+
+<span class="sd">    Also see: https://floyd.lbl.gov/radiance/man_html/pcond.1.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;_h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_v&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_c&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_w&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_i&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_I&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_l&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_e&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_u&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_d&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_p&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_x&quot;</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;pcond command options.&quot;&quot;&quot;</span>
+
+        <span class="n">OptionCollection</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;Human visual response - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Human visual acuity loss - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;Veiling glare - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;Human contrast sensitivity - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;Color visibility loss - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;Weighted average exposure - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;Importance of fixation points -default: 0&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;Precomputed histogram - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span> <span class="o">=</span> <span class="n">BoolOption</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;Linear response function - default: False&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span> <span class="o">=</span> <span class="n">StringOption</span><span class="p">(</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;Exposure adjustment&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_u</span> <span class="o">=</span> <span class="n">IntegerOption</span><span class="p">(</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;Top of Luminance - default: 100&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_d</span> <span class="o">=</span> <span class="n">NumericOption</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;Dynamic range - default: 32&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_p</span> <span class="o">=</span> <span class="n">TupleOption</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;RGB primaries&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">numtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;output file from macbethcal&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">FileOption</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;Output display luminance to mapfile&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_on_setattr_check</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_on_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This method executes after setting each new attribute.</span>
+
+<span class="sd">        Use this method to add checks that are necessary for OptionCollection. For</span>
+<span class="sd">        instance in pcond option collection -f and -p don&#39;t go together very well.</span>
+<span class="sd">        You can include a check to ensure this is always correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">is_set</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_p</span><span class="o">.</span><span class="n">is_set</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Both -f and -p do not go well together.&#39;</span>
+                <span class="s1">&#39; This program can use either of the options but not both.&#39;</span>
+                    <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Human visual response - default: False</span>
+
+<span class="sd">        Mimic human visual response in the output. The goal of this process is to</span>
+<span class="sd">        produce output that correlates strongly with a person&#39;s subjective</span>
+<span class="sd">        impression of a scene. This switch is a bundle of the −a, −v, −s and −c options.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h</span>
+
+    <span class="nd">@h</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Human visual acuity loss - default: False</span>
+
+<span class="sd">        Defocus darker regions of the image to simulate human visual acuity loss.</span>
+<span class="sd">        This option will not affect well-lit scenes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span>
+
+    <span class="nd">@a</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">v</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Veiling glare - default: False</span>
+
+<span class="sd">        Add veiling glare due to very bright regions in the image. This simulates</span>
+<span class="sd">        internal scattering in the human eye, which results in a loss of visible</span>
+<span class="sd">        contrast near bright sources.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span>
+
+    <span class="nd">@v</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">v</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Human contrast sensitivity - default: False</span>
+
+<span class="sd">        Use the human contrast sensitivity function in determining the exposure for </span>
+<span class="sd">        the image. A darker scene will have relatively lower exposure with lower</span>
+<span class="sd">        contrast than a well-lit scene.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span>
+
+    <span class="nd">@s</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Color visibility loss - default: False</span>
+
+<span class="sd">        If parts of the image are in the mesopic or scotopic range where the cone</span>
+<span class="sd">        photoreceptors lose their efficiency, this switch will cause a corresponding</span>
+<span class="sd">        loss of color visibility in the output and a shift to a scotopic (blue-dominant)</span>
+<span class="sd">        response function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_c</span>
+
+    <span class="nd">@c</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_c</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Weighted average exposure - default: False</span>
+
+<span class="sd">        Use a center-weighted average for the exposure rather than the default uniform</span>
+<span class="sd">        average. This may improve the exposure for scenes with high or low peripheral</span>
+<span class="sd">        brightness.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span>
+
+    <span class="nd">@w</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Importance of fixation points -default: 0</span>
+
+<span class="sd">        Set the relative importance of fixation points to a value, which is a value</span>
+<span class="sd">        between 0 and 1. If fixfrac is zero (the default), then no fixation points</span>
+<span class="sd">        are used in determining the local or global adaptation. If the value is greater</span>
+<span class="sd">        than zero, then a list of fixation points is read from the standard input.</span>
+<span class="sd">        These points are given as tab-separated (x,y) picture coordinates, such as</span>
+<span class="sd">        those produced by the −op option of ximage(1). The foveal samples about these</span>
+<span class="sd">        fixation points will then be weighted together with the global averaging scheme</span>
+<span class="sd">        such that the fixations receive the value of the total weight. If the value is</span>
+<span class="sd">        one, then only the fixation points are considered for adaptation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_i</span>
+
+    <span class="nd">@i</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">i</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_i</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Precomputed histogram - default: False</span>
+
+<span class="sd">        Rather than computing a histogram of foveal samples from the source picture,</span>
+<span class="sd">        use the precomputed histogram provided on the standard input. This data should</span>
+<span class="sd">        be given in pairs of the base-10 logarithm of world luminance and a count for</span>
+<span class="sd">        each bin in ascending order, as computed by the phisto(1) script. This option</span>
+<span class="sd">        is useful for producing identical exposures of multiple pictures</span>
+<span class="sd">        (as in an animation), and provides greater control over the histogram</span>
+<span class="sd">        computation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_I</span>
+
+    <span class="nd">@I</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">I</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_I</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">l</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Linear response function - default: False</span>
+
+<span class="sd">        Use a linear response function rather than the standard dynamic range</span>
+<span class="sd">        compression algorithm. This will prevent the loss of usable physical</span>
+<span class="sd">        values in the output picture, although some parts of the resulting image may</span>
+<span class="sd">        be too dark or too bright to see.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_l</span>
+
+    <span class="nd">@l</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">l</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_l</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Exposure adjustment</span>
+
+<span class="sd">        Set the exposure adjustment for the picture to a value. This may either be a</span>
+<span class="sd">        real multiplier, or a (fractional) number of f-stops preceeded by</span>
+<span class="sd">        a + or -. This option implies a linear response (see the −l option above).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e</span>
+
+    <span class="nd">@e</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">u</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Top of Luminance - default: 100</span>
+
+<span class="sd">        Specifies the top of the luminance range for the target output device.</span>
+<span class="sd">        That is, the luminance (in candelas/m^2) for an output pixel value of</span>
+<span class="sd">        (R,G,B)=(1,1,1). The default value is 100 cd/m^2.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span>
+
+    <span class="nd">@u</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">u</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_u</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">d</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dynamic range - default: 32</span>
+
+<span class="sd">        Specifies the dynamic range for the target output device, which is the</span>
+<span class="sd">        ratio of the maximum and minimum usable display luminances. The default</span>
+<span class="sd">        value is 32.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_d</span>
+
+    <span class="nd">@d</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_d</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;RGB primaries</span>
+
+<span class="sd">        Specifies the RGB primaries for the target output device.</span>
+<span class="sd">        These are the 1931 CIE (x,y) chromaticity values for red, green, blue and</span>
+<span class="sd">        white, respectively in the format of (xr yr xg yg xb yb xw yw).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_p</span>
+
+    <span class="nd">@p</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_p</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;output file from macbethcal</span>
+
+<span class="sd">        Use the given output file from macbethcal(1) to precorrect the color and</span>
+<span class="sd">        contrast for the target output device. This does a more thorough job than</span>
+<span class="sd">        a simple primary correction using the −p option. Only one of −f or −p may</span>
+<span class="sd">        be given.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_f</span>
+
+    <span class="nd">@f</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_f</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Output display luminance to mapfile</span>
+
+<span class="sd">        Put out the final mapping from world luminance to display luminance to mapfile.</span>
+<span class="sd">        This file will contain values from the minimum usable world luminance to</span>
+<span class="sd">        the maximum (in candelas/m^2) in one column, and their corresponding display</span>
+<span class="sd">        luminance values (also in candelas/m^2) in the second column. This file may</span>
+<span class="sd">        be used for debugging purposes, or to plot the mapping function created by</span>
+<span class="sd">        pcond.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span></div>
+    
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2023, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
