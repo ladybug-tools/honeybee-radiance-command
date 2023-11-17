@@ -94,5 +94,3 @@ class Rcalc(Command):
 
     def validate(self):
         Command.validate(self)
-        if len(self.inputs) == 0:
-            warnings.warn('rcalc: no inputs.')

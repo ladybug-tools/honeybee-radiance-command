@@ -11,9 +11,6 @@ def test_defaults():
     with warnings.catch_warnings(record=True) as w:
         warnings.simplefilter('always')
         rcalc.to_radiance()
-        # verify a warning has been raised for empty scene.
-        assert len(w) == 1
-        assert 'no inputs.' in str(w[0].message)
 
 
 input_path = 'result/input.dat'
