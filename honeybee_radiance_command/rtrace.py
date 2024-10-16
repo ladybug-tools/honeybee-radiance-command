@@ -28,7 +28,6 @@ class Rtrace(Command):
     __slots__ = ('_octree', '_sensors')
 
     def __init__(self, options=None, output=None, octree=None, sensors=None):
- 
         Command.__init__(self, output=output)
         self.octree = octree
         self.options = options

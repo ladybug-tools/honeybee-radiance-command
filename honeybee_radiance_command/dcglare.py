@@ -77,36 +77,36 @@ class Dcglare(Command):
             raise ValueError('Expected Dcglare options not {}'.format(value))
 
         self._options = value
-    
+
     @property
     def dc_direct(self):
         """Direct contribution matrix."""
         return self._dc_direct
-    
+
     @dc_direct.setter
     def dc_direct(self, value):
         if value is None:
             self._dc_direct = None
         else:
             self._dc_direct = typing.normpath(value)
-    
+
     @property
     def dc_total(self):
         """Total (direct and diffuse) contribution matrix."""
         return self._dc_total
-    
+
     @dc_total.setter
     def dc_total(self, value):
         if value is None:
             self._dc_total = None
         else:
             self._dc_total = typing.normpath(value)
-    
+
     @property
     def sky_matrix(self):
         """Sky contribution matrix."""
         return self._sky_matrix
-    
+
     @sky_matrix.setter
     def sky_matrix(self, value):
         if value is None:
@@ -118,7 +118,7 @@ class Dcglare(Command):
     def vmtx(self):
         """View matrix."""
         return self._vmtx
-    
+
     @vmtx.setter
     def vmtx(self, value):
         if value is None:
@@ -130,7 +130,7 @@ class Dcglare(Command):
     def dmtx(self):
         """Daylight matrix."""
         return self._dmtx
-    
+
     @dmtx.setter
     def dmtx(self, value):
         if value is None:
@@ -142,7 +142,7 @@ class Dcglare(Command):
     def tmtx(self):
         """Transmission matrix (BSDF)."""
         return self._tmtx
-    
+
     @tmtx.setter
     def tmtx(self, value):
         if value is None:
@@ -162,8 +162,8 @@ class Dcglare(Command):
 
         command_parts = [self.command, self.options.to_radiance()]
         command_parts += [self.dc_direct]
-        command_parts += [self.dc_total] if not self.tmtx else [self.vmtx, self.tmtx,
-                          self.dmtx]
+        command_parts += [self.dc_total] if not self.tmtx else \
+            [self.vmtx, self.tmtx, self.dmtx]
         if not stdin_input:
             command_parts += [self.sky_matrix]
         cmd = ' '.join(command_parts)

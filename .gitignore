@@ -12,3 +12,7 @@ tox.ini
 /.vscode
 .eggs
 *.code-workspace
+*.code-workspace
+honeybee.log*
+tmp/
+build/
