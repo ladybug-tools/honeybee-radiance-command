@@ -1,0 +1,7 @@
+honeybee\_radiance\_command.options.gendaymtx module
+====================================================
+
+.. automodule:: honeybee_radiance_command.options.gendaymtx
+   :members:
+   :undoc-members:
+   :show-inheritance:
