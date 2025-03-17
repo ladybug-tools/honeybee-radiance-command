@@ -1,6 +1,5 @@
 # coding: utf-8
 from .optionbase import (
-    OptionCollection,
     BoolOption,
     NumericOption,
     StringOption,
@@ -9,10 +8,11 @@ from .optionbase import (
     TupleOption,
     FileOption
 )
+from .accelerad import AcceleradOptions
 import warnings
 
 
-class RpictOptions(OptionCollection):
+class RpictOptions(AcceleradOptions):
     """rpict command options.
 
     Also see: https://floyd.lbl.gov/radiance/man_html/rpict.1.html
@@ -74,8 +74,7 @@ class RpictOptions(OptionCollection):
 
     def __init__(self):
         """rpict command options."""
-
-        OptionCollection.__init__(self)
+        AcceleradOptions.__init__(self)
         self._vt = StringOptionJoined(
             "vt",
             "view type - default: vtv",
