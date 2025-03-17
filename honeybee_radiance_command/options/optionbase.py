@@ -430,7 +430,7 @@ class OptionCollection(object):
             options.append('-%s %s\t\t# additional option with no description' % (k, v))
         return '\n'.join(options)
 
-    def update_from_string(self, string):
+    def update_from_string(self, string, raise_error=False):
         """Update options from a standard radiance string.
 
         If the option is not currently part of the collection, it will be added to
@@ -444,10 +444,12 @@ class OptionCollection(object):
             else:
                 if len(p) > 1:
                     # joined string
-                    # catch special case -fio
+                    # catch special case -fio, -vt
                     try:
                         if p.startswith('f') and '_fio' in slots:
                             setattr(self, 'fio', p[1:])
+                        elif p.startswith('vt') and '_vt' in slots:
+                            setattr(self, 'vt', p[2])
                         else:
                             setattr(self, p[0], p[1:])
                     except AttributeError:
@@ -456,11 +458,18 @@ class OptionCollection(object):
                     else:
                         # it is assigned - go for the next one
                         continue
-                warnings.warn(
-                    '"%s" is a non-standard option for %s.' % (
-                        p, self.__class__.__name__
+                if raise_error:
+                    raise ValueError(
+                        '"%s" is a non-standard option for %s.' % (
+                            p, self.__class__.__name__
+                        )
                     )
-                )
+                else:
+                    warnings.warn(
+                        '"%s" is a non-standard option for %s.' % (
+                            p, self.__class__.__name__
+                        )
+                    )
                 # add to additional options
                 self.additional_options[p] = v
 
