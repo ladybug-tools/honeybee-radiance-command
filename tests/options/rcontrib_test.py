@@ -68,9 +68,9 @@ def test_exclusives_m():
 
 def test_from_string_non_standard():
     opt = RcontribOptions()
-    opt_str = '-g 200'
+    opt_str = '-j 200'
     opt.update_from_string(opt_str)
-    assert '-g 200' in opt.to_radiance()
+    assert '-j 200' in opt.to_radiance()
 
 
 def test_from_string():
