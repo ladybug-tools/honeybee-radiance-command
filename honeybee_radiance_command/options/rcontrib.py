@@ -18,8 +18,7 @@ class RcontribOptions(RtraceOptions):
 
     __slots__ = (
         '_c', '_V', '_fo', '_f', '_e', '_r', '_p', '_b', '_bn', '_m', '_M',
-        '_o', '_ap',
-        '_t'
+        '_o', '_ap', '_t'
     )
 
     def __init__(self):

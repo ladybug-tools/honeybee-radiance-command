@@ -57,7 +57,7 @@ class RpictOptions(AcceleradOptions):
         "_aa",
         "_ar",
         "_ad",
-        "_as_",
+        "_as",
         "_af",
         "_ae",
         "_ai",
@@ -128,7 +128,7 @@ class RpictOptions(AcceleradOptions):
         self._aa = NumericOption("aa", "ambient accuracy - default: 0.200000")
         self._ar = IntegerOption("ar", "ambient resolution - default: 64")
         self._ad = IntegerOption("ad", "ambient divisions - default: 512")
-        self._as_ = IntegerOption("as_", "ambient super-samples - default: 128")
+        self._as = IntegerOption("as_", "ambient super-samples - default: 128")
         self._af = FileOption('af', 'ambient cache file (.amb)')
         self._ae = StringOption('ae', 'ambient excluded modifier')
         self._ai = StringOption('ai', 'ambient included modifier')
@@ -810,11 +810,11 @@ class RpictOptions(AcceleradOptions):
         Set the number of ambient super-samples to N. Super-samples are applied
         only to the ambient divisions which show a significant change.
         """
-        return self._as_
+        return self._as
 
     @as_.setter
     def as_(self, value):
-        self._as_.value = value
+        self._as.value = value
 
     @property
     def af(self):

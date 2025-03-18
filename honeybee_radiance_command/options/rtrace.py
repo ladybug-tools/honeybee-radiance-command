@@ -1,8 +1,9 @@
-from .optionbase import OptionCollection, BoolOption, NumericOption, StringOption,\
+from .optionbase import BoolOption, NumericOption, StringOption,\
     StringOptionJoined, IntegerOption, TupleOption, FileOption
+from .accelerad import AcceleradOptions
 
 
-class RtraceOptions(OptionCollection):
+class RtraceOptions(AcceleradOptions):
     """rtrace command options.
 
     Also see: https://floyd.lbl.gov/radiance/man_html/rtrace.1.html
@@ -29,7 +30,7 @@ class RtraceOptions(OptionCollection):
             print(options.to_radiance())
             -ab 5 -u-
         """
-        OptionCollection.__init__(self)
+        AcceleradOptions.__init__(self)
         self._n = IntegerOption('n', 'number of rendering processes - default: 1')
         self._x = IntegerOption('x', 'flush interval - default: 0')
         self._y = IntegerOption('y', 'y resolution - default: 0')
