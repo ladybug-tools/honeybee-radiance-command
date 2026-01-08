@@ -185,9 +185,17 @@ class Command(object):
             - int: Command return code.
         """
         cmd = self.to_radiance().replace('\\', '/')
+        self.before_run()
         rc = run_command(cmd, env, cwd)
         self.after_run()
         return rc
+
+    def before_run(self):
+        """Before run script.
+
+        Overwrite this method to add extra tasks that runs right before run method.
+        """
+        pass
 
     def after_run(self):
         """After run script.
