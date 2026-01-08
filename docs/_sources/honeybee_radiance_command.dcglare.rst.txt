@@ -1,0 +1,7 @@
+honeybee\_radiance\_command.dcglare module
+==========================================
+
+.. automodule:: honeybee_radiance_command.dcglare
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+honeybee\_radiance\_command.evalglare module
+============================================
+
+.. automodule:: honeybee_radiance_command.evalglare
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+honeybee\_radiance\_command.ra\_gif module
+==========================================
+
+.. automodule:: honeybee_radiance_command.ra_gif
+   :members:
+   :undoc-members:
+   :show-inheritance:
